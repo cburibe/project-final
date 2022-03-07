@@ -1,0 +1,10 @@
+body{
+    background-color: royalblue;
+}
+.configIcon{
+    font-size: 2rem;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
