@@ -18,12 +18,12 @@ export const Config = () => {
                         </div>
                         <div>
                             <ul className="fs-4 py-3">
-                                <li><a href="#" className="py-6">Cambiar contraseña</a></li>
-                                <li><a href="#" className="py-6">Manejo de websites</a></li>
-                                <li><a href="#" className="py-6">Privacidad y seguridad</a></li>
-                                <li><a href="#" className="py-6">Terminos y condiciones</a></li>
-                                <li><a href="#" className="py-6">Eliminar cuenta</a></li>
-                                <li><a href="#" className="py-6">Ayuda</a></li>
+                                <li><a href="#">Cambiar contraseña</a></li>
+                                <li><a href="#">Manejo de websites</a></li>
+                                <li><a href="#">Privacidad y seguridad</a></li>
+                                <li><a href="#">Terminos y condiciones</a></li>
+                                <li><a href="#">Eliminar cuenta</a></li>
+                                <li><a href="#">Ayuda</a></li>
                             </ul>
                         </div>
                     </div>
