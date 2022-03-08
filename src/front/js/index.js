@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import ReactPlayer from "react-player";
 
 //include your index.scss file into the bundle
-import "../styles/index.css";
+
 import "../styles/mainpage.css";
 //import your own components
 import Layout from "./layout";

@@ -1,14 +1,17 @@
 import React from "react";
 import ReactPlayer from "react-player";
+import { FaHiking, FaSnowboarding, FaBiking, FaSwimmer } from "react-icons/fa";
+import { IconContext } from "react-icons";
+import { GiMountainClimbing } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 export const Mainpage = () => {
   return (
     <>
-      <div className="contenedor">
+      <div id="abc" className="contenedor mt-5 me-5 ms-5 row">
         <div
           id="carouselExampleDark"
-          className="carousel carousel-dark slide"
+          className="carousel carousel-dark slide col-lg-11"
           data-bs-ride="carousel"
         >
           <div className="carousel-indicators">
@@ -36,7 +39,9 @@ export const Mainpage = () => {
           <div className="carousel-inner">
             <div className="carousel-item active" data-bs-interval={10000}>
               <img
-                src="https://picsum.photos/id/666/1600/1000"
+                height={400}
+                width={600}
+                src="https://picsum.photos/id/666/1600/600"
                 className="d-block w-100"
                 alt="..."
               />
@@ -49,7 +54,9 @@ export const Mainpage = () => {
             </div>
             <div className="carousel-item" data-bs-interval={2000}>
               <img
-                src="https://picsum.photos/id/888/1600/1000"
+                height={400}
+                width={600}
+                src="https://picsum.photos/id/888/1600/600"
                 className="d-block w-100"
                 alt="..."
               />
@@ -62,7 +69,9 @@ export const Mainpage = () => {
             </div>
             <div className="carousel-item">
               <img
-                src="https://picsum.photos/id/999/1600/1000"
+                height={400}
+                width={600}
+                src="https://picsum.photos/id/999/1600/600"
                 className="d-block w-100"
                 alt="..."
               />
@@ -93,7 +102,21 @@ export const Mainpage = () => {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-        <div className="container fotos mt-3">
+        <div id="activi" className="actividad col-md-1">
+          <IconContext.Provider value={{ color: "black", size: 42 }}>
+            <FaHiking />
+            Treking
+            <FaBiking />
+            Ciclismo
+            <FaSnowboarding />
+            Snowbord
+            <FaSwimmer />
+            Nado
+            <GiMountainClimbing />
+            Montañismo
+          </IconContext.Provider>
+        </div>
+        <div className="container-fluid fotos mt-3">
           <div className="row">
             <div className="col-lg-4">
               <title>Placeholder</title>
@@ -141,7 +164,7 @@ export const Mainpage = () => {
               </p>
             </div>
 
-            <div className="col-lg-4">
+            <div className="col-lg-4" id="paladerecha">
               <img
                 width={140}
                 height={140}
