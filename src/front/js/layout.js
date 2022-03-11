@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { FormRegistro } from "./pages/registro";
+import FormRegistro from "./pages/formulario/registro";
 import { Mainpage } from "./pages/mainpage/mainpage";
-import { Single } from "./pages/single";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -28,9 +28,7 @@ const Layout = () => {
             <Route exact path="/registro">
               <FormRegistro />
             </Route>
-            <Route exact path="/single/:theid">
-              <Single />
-            </Route>
+            <Route></Route>
             <Route>
               <h1>Not found!</h1>
             </Route>
