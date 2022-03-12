@@ -6,10 +6,11 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Config } from "./pages/config"
+import { RecommendedHotels } from "./pages/recommendedHotels"
 import injectContext from "./store/appContext";
 
 
-import { Navbar } from "./component/navbar";
+import { Menu } from "./component/navbar";
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -19,10 +20,10 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<Menu />
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -33,6 +34,9 @@ const Layout = () => {
 						<Route exact path="/config">
 							<Config />
 						</Route>
+						<Route exact path="/recommendedhotels">
+							<RecommendedHotels />
+						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
@@ -40,10 +44,10 @@ const Layout = () => {
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
-					<Footer />
+					{/* 					<Footer /> */}
 				</ScrollToTop>
 			</BrowserRouter>
-		</div>
+		</>
 	);
 };
 
