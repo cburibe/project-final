@@ -1,22 +1,31 @@
-body{
-    background-color: #9db5b2;
+body {
+  background: #ada996;
+  background: -webkit-linear-gradient(
+    to right,
+    #eaeaea,
+    #dbdbdb,
+    #f2f2f2,
+    #ada996
+  );
+  background: linear-gradient(to right, #eaeaea, #dbdbdb, #f2f2f2, #ada996);
 }
-.configIcon{
-    font-size: 2rem;
+.configIcon {
+  font-size: 2rem;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
-.cursor{
-   cursor:pointer;
+.cursor {
+  cursor: pointer;
 }
-#navConfig::after{
-   color: red;
+#navConfig::after {
+  color: red;
 }
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
-    color: #3b413c;
-    background-color: #DAF0EE;
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #3b413c;
+  background-color: #f2f2f2;
 }
-.nav-link{
-    color:#3b413c; 
+.nav-link {
+  color: #3b413c;
 }
