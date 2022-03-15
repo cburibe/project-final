@@ -51,12 +51,12 @@ input {
   text-decoration-thickness: auto;
   width: 100%;
   max-width: 260px;
-  position: relative;
   cursor: pointer;
   transform: rotate(-2deg);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: auto;
 }
 
 .button-53:focus {

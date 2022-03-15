@@ -19,9 +19,14 @@ const ImageSlidere = ({ slides }) => {
 
   return (
     <>
-      <section className="slider">
+      <div
+        id="carousel-example-generic"
+        className="slider"
+        data-ride="carousel"
+        data-interval="3000"
+      >
         <button
-          className="carousel-control-prev "
+          className="carousel-control-prev"
           type="button"
           data-bs-target="#carouselExampleInterval"
           data-bs-slide="prev"
@@ -39,16 +44,10 @@ const ImageSlidere = ({ slides }) => {
               key={index}
               data-bs-ride="carousel"
             >
-              <div className="carousel-inner">
-                <div className="carousel-item active" data-bs-interval={5000}>
-                  {index === current && (
-                    <img
-                      className="image"
-                      src={slide.image}
-                      alt="travel image"
-                    />
-                  )}
-                </div>
+              <div className="carousel-item active">
+                {index === current && (
+                  <img className="image" src={slide.image} alt="travel image" />
+                )}
               </div>
             </div>
           );
@@ -64,7 +63,7 @@ const ImageSlidere = ({ slides }) => {
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="visually-hidden">Next</span>
         </button>
-      </section>
+      </div>
     </>
   );
 };

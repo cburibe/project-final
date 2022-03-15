@@ -21,14 +21,7 @@ h4 {
 }
 
 .masonry {
-  /* Masonry container */
-  -webkit-column-count: 4;
-  -moz-column-count: 4;
-  column-count: 4;
-  -webkit-column-gap: 1em;
-  -moz-column-gap: 1em;
   column-gap: 1em;
-  margin: 1.5em;
   padding: 0;
   -moz-column-gap: 1.5em;
   -webkit-column-gap: 1.5em;
@@ -38,7 +31,7 @@ h4 {
 .item {
   display: inline-block;
   margin: 0 0 1.5em;
-  width: 100%;
+  max-width: 100%;
   transform-style: preserve-3d;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
@@ -48,10 +41,8 @@ h4 {
   box-shadow: 2px 2px 4px 0 #ccc;
   background-color: floralwhite;
   box-sizing: border-box;
-  padding: 20px;
-  height: 100%;
-  width: 100%;
-  margin-left: 60px;
+  padding: 15px;
+  max-height: 100%;
 }
 .item img {
   max-width: 100%;

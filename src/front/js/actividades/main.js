@@ -3,22 +3,40 @@ import { FaHiking, FaSnowboarding, FaBiking, FaSwimmer } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { GiMountainClimbing } from "react-icons/gi";
 import "./main.css";
+import { Link } from "react-router-dom";
 
 const Actividades = () => {
   return (
-    <div id="activi" className="actividad col-md-1 ps-5">
-      <IconContext.Provider value={{ color: "black", size: 42 }}>
-        <FaHiking />
-        Treking
-        <FaBiking />
-        Ciclismo
-        <FaSnowboarding />
-        Snowbord
-        <FaSwimmer />
-        Nado
-        <GiMountainClimbing />
-        Montañismo
-      </IconContext.Provider>
+    <div className="container-fluid">
+      <div id="activi" className="btn-group-vertical">
+        <ul className="nav flex-column">
+          <li className="nav-item">
+            <Link className="nav-link active" to="/map">
+              <FaBiking className="icon" />
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link active" to="/map">
+              <FaSwimmer className="icon" />
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link active" to="/map">
+              <FaSnowboarding className="icon" />
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link active" to="/map">
+              <FaHiking className="icon" />
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link active" to="/map">
+              <GiMountainClimbing className="icon" />
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

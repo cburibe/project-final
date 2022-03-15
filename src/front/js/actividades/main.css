@@ -1,6 +1,9 @@
-.treking {
+.icon {
+  font-size: 50px;
+  float: right;
+  padding: 0px;
   justify-content: end;
 }
-.iconotreking {
-  float: left;
+.container-fluid {
+  padding: 0;
 }

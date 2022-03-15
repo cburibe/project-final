@@ -9,6 +9,8 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import MyMap from "./pages/Map/view.map";
+import ReactPlayer from "react-player";
 
 //create your first component
 const Layout = () => {
@@ -17,7 +19,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
 
   return (
-    <div>
+    <>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <Navbar />
@@ -28,7 +30,9 @@ const Layout = () => {
             <Route exact path="/registro">
               <FormRegistro />
             </Route>
-            <Route></Route>
+            <Route exact path="/map">
+              <MyMap />
+            </Route>
             <Route>
               <h1>Not found!</h1>
             </Route>
@@ -36,7 +40,7 @@ const Layout = () => {
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 
