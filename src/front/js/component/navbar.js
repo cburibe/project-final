@@ -7,7 +7,13 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 export const Menu = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <nav className="col-xs col-sm col-md-9 col-lg-12">
+      <Modalregistro />
+    </nav>
+  );
+};
+
+/*   <Navbar bg="light" expand="lg">
       <Container>
         <Modalregistro />
         <Navbar.Brand href="/">Turismo Social</Navbar.Brand>
@@ -26,9 +32,7 @@ export const Menu = () => {
           </Link>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
-  );
-};
+    </Navbar> */
 
 {
   /* <nav className="navbar">
