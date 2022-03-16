@@ -1,4 +1,6 @@
 import React from "react";
+import Modalregistro from "../pages/formulario/modalregistro";
+import "./navbar.css";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
 import { AiOutlineSetting } from "react-icons/ai";
@@ -7,6 +9,7 @@ export const Menu = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
+        <Modalregistro />
         <Navbar.Brand href="/">Turismo Social</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

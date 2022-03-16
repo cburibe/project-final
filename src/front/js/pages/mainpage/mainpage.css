@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Dongle:wght@300&family=Playfair+Display:wght@500&family=Roboto&family=The+Nautigal&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #ebc403; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #eaeaea,
+    #dbdbdb,
+    #22c1c3,
+    #ada996
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #fffcdc,
+    #c9d6ff,
+    #22c1c3,
+    #e2bf0e
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+main {
+  max-width: 700px;
+  width: 90%;
+  margin: auto;
+  padding: 40px;
+}
