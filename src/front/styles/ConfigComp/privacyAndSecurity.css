@@ -1,0 +1,18 @@
+button {
+  background-color: #ada996;
+  color: #daf0ee;
+}
+.accordion-body {
+  background: #ada996;
+}
+.accordion-item {
+  border: none;
+}
+.accordion-item .accordion-button {
+  background-color: #daf0ee;
+  color: #3b413c;
+}
+.btn {
+  background-color: #3b413c;
+  border: #3b413c;
+}

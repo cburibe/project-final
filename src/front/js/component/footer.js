@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
 export const Footer = () => (
-  <footer className="footer mt-auto py-3 text-center"></footer>
+  <footer className="footer mt-auto py-3 text-center">
+    <p>
+      Hecha con <i className="fa fa-heart text-danger" /> por Christian,
+      Robinson, Claudio.
+    </p>
+  </footer>
 );
