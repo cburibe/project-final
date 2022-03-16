@@ -7,6 +7,7 @@ import { Config } from "./pages/config";
 import { RecommendedHotels } from "./pages/recommendedHotels";
 import MyMap from "./pages/Map/view.map";
 import injectContext from "./store/appContext";
+import Menu from "./pages/formulario/modalregistro";
 import { Mainpage } from "./pages/mainpage/mainpage";
 
 const Layout = () => {
@@ -17,6 +18,7 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <Switch>
           <Route exact path="/">
+            <Menu />
             <Mainpage />
           </Route>
           <Route exact path="/config">
