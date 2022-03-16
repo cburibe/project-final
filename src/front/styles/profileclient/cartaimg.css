@@ -1,0 +1,56 @@
+.post {
+  border: 1px solid lightgray;
+}
+.post__avatar {
+  float: left;
+}
+.card-header {
+  background-color: rgba(255, 255, 255, 0.877);
+}
+.card-body {
+  background-color: rgba(255, 255, 255, 0.877);
+}
+
+.card {
+  margin-top: 45px;
+  width: 41rem;
+  border: 1px solid lightgray;
+}
+
+.heartcardicon,
+.comment2cardicon,
+.sendcardicon,
+.locationcardicon {
+  font-size: 25px;
+}
+
+.post__description {
+  font-weight: normal;
+}
+.post__header {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+.post__avatar {
+  margin-right: 10px;
+  font-size: 38px;
+}
+.img {
+  width: 100%;
+  height: 30rem;
+}
+.buttons-post {
+  margin-top: -10px;
+}
+.sizeinput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.button {
+  background-color: rgba(255, 255, 255, 0.877);
+  margin-top: -10px;
+  font-size: 15px;
+  border: 1px solid rgb(207, 207, 207);
+}
