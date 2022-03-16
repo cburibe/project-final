@@ -12,7 +12,7 @@ export const MyProfile = () => {
                 src="https://res.cloudinary.com/dlb0fs0l8/image/upload/v1647197781/samples/people/boy-snow-hoodie.jpg"
                 className="rounded-circle img-fluid"
                 alt="..."
-                style={{ width: "40%" }}
+                style={{ width: "50%" }}
               />
             </div>
           </div>
