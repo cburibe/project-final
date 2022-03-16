@@ -11,8 +11,6 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Config } from "./pages/config";
 import { RecommendedHotels } from "./pages/recommendedHotels";
-import injectContext from "./store/appContext";
-
 import { Menu } from "./component/navbar";
 import { Footer } from "./component/footer";
 
