@@ -6,15 +6,24 @@ export const RecommendedHotels = () => {
     <div>
       <h1 className="mx-4 my-3 text-center">Nuestra recomendación</h1>
       <div className="container-fluid">
-        <div className="row ">
-          <Hotels anfitrion="Casa bajo mena" />
-          <Hotels />
-          <Hotels />
-          <Hotels />
-          <Hotels />
-          <Hotels />
-          <Hotels />
-          <Hotels />
+        <div className="row">
+          <div className="col d-flex justify-content-around my-3">
+            <Hotels anfitrion="Casa bajo mena" />
+            <Hotels />
+            <Hotels />
+            <Hotels />
+          </div>
+        </div>
+      </div>
+
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col d-flex justify-content-around my-3">
+            <Hotels />
+            <Hotels />
+            <Hotels />
+            <Hotels />
+          </div>
         </div>
       </div>
     </div>
