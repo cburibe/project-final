@@ -3,7 +3,7 @@ import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 
 export const Hotels = (props) => {
   return (
-    <div className="col">
+    <div>
       <Card style={{ width: "17rem" }}>
         <Card.Img
           variant="top"
