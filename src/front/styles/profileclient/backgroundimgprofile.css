@@ -1,0 +1,22 @@
+.binicon,
+.addicon {
+  font-size: 48px;
+}
+
+.location2icon,
+.houseicon {
+  font-size: 55px;
+}
+
+.location2icon {
+  padding-left: 20px;
+}
+.settingsicon {
+  font-size: 55px;
+  margin-top: -9rem;
+  padding-right: 20px;
+}
+
+body {
+  background: linear-gradient(to right, #fffcdc, #c9d6ff, #22c1c3, #e2bf0e);
+}
