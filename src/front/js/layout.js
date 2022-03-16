@@ -9,7 +9,6 @@ import { Publication_uploader } from "./pages/create_publication/publication_upl
 
 import { Config } from "./pages/config";
 import { RecommendedHotels } from "./pages/recommendedHotels";
-
 import { Menu } from "./component/navbar";
 import { Footer } from "./component/footer";
 
