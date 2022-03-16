@@ -6,6 +6,15 @@ import injectContext from "./store/appContext";
 
 import { Feed } from "./pages/feedclient/feed.js";
 import { Publication_uploader } from "./pages/create_publication/publication_uploader.js";
+import { Home } from "./pages/home";
+import { Demo } from "./pages/demo";
+import { Single } from "./pages/single";
+import { Config } from "./pages/config";
+import { RecommendedHotels } from "./pages/recommendedHotels";
+import injectContext from "./store/appContext";
+
+import { Menu } from "./component/navbar";
+import { Footer } from "./component/footer";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -14,6 +23,21 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/demo">
+            <Demo />
+          </Route>
+          <Route exact path="/config">
+            <Config />
+          </Route>
+          <Route exact path="/recommendedhotels">
+            <RecommendedHotels />
+          </Route>
+          <Route exact path="/single/:theid">
+            <Single />
+          </Route>
           <Route exact path="/profile">
             <Profile />
           </Route>
