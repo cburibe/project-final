@@ -14,7 +14,7 @@ class People(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(120), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False )
-    passsword = db.Column(db.String(120), nullable=False)
+    password = db.Column(db.String(120), nullable=False)
     number_phone = db.Column(db.String(120))
 
     """ is_active = db.Column(db.Boolean(), unique=False, nullable=False) """
@@ -28,7 +28,6 @@ class People(db.Model):
             "username": self.username,
             "email": self.email,
             "password": self.password,
-            "username": self.username,
             "number_phone": self.number_phone
         }
     def save(self):
@@ -50,7 +49,7 @@ class Role_people(db.Model):
         return {
             "id": self.id,
             "people_id": self.people_id,
-           "role_id": self.roles_id
+           "roles_id": self.roles_id
           
         }
     def save(self):
