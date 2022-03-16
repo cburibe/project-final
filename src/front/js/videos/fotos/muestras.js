@@ -1,22 +1,19 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import "./fotos/muestras.css";
+import "../fotos/muestras.css";
 
-const Muestras = () => {
+const Muestras = ({ imgs }) => {
   return (
-    <div className="fotos mt-3">
+    <div className="fotos">
       <div className="masonry">
         <div className="item">
-          1
-          <img src="https://picsum.photos/id/1039/800/500" />
+          <img src={imgs.urlImagen1} />
         </div>
         <div className="item">
-          3
-          <img src="https://picsum.photos/id/1044/800/500" />
+          <img src={imgs.urlImagen2} />
         </div>
 
         <div className="item">
-          2
           <ReactPlayer
             className="react-player"
             playing
@@ -27,18 +24,15 @@ const Muestras = () => {
           />
         </div>
         <div className="item">
-          4
-          <img src="https://picsum.photos/id/1050/800/500" />
+          <img src={imgs.urlImagen3} />
         </div>
 
         <div className="item">
-          5
-          <img src="https://picsum.photos/id/1057/800/500" />
+          <img src={imgs.urlImagen4} />
         </div>
 
         <div className="item">
-          6
-          <img src="https://picsum.photos/id/15/800/500" />
+          <img src={imgs.urlImagen5} />
         </div>
       </div>
     </div>

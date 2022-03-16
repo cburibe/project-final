@@ -10,7 +10,7 @@ const MyMap = ({ lat = -33.4513, long = -70.6653 }) => {
 
   function loadMap() {
     const map = L.map("map").setView([lat, long], 13);
-    const marker = L.marker([-0, -0]).addTo(map);
+    const marker = L.marker([-33.4561691, -70.580058]).addTo(map);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
@@ -18,11 +18,6 @@ const MyMap = ({ lat = -33.4513, long = -70.6653 }) => {
       mapZoom: 13,
       center: true,
     }).addTo(map);
-
-    marker
-      .setLatLng([-33.4561691, -70.580058])
-      .addTo(map)
-      .bindPopup("Centro nacional de entrenamiento olimpico");
 
     let marker1 = L.marker([-33.4561691, -70.580058])
       .addTo(map)
@@ -33,7 +28,29 @@ const MyMap = ({ lat = -33.4513, long = -70.6653 }) => {
       .bindPopup("Centro Deportivo Providencia")
       .openPopup();
 
-    centerLeafletMapOnMarker(map, marker, marker1, marker2);
+    let marker3 = L.marker([-33.459556, -70.662783])
+      .addTo(map)
+      .bindPopup("Fantasilandia")
+      .openPopup();
+    let marker5 = L.marker([-33.443018, -70.65387])
+      .addTo(map)
+      .bindPopup("Palacio de La Moneda")
+      .openPopup();
+
+    let marker4 = L.marker([-33.4358, -70.6411])
+      .addTo(map)
+      .bindPopup("Parque forestal")
+      .openPopup();
+
+    centerLeafletMapOnMarker(
+      map,
+      marker,
+      marker1,
+      marker2,
+      marker3,
+      marker4,
+      marker5
+    );
   }
 
   function centerLeafletMapOnMarker(map, marker) {

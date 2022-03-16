@@ -1,6 +1,5 @@
 import React from "react";
 import { FaHiking, FaSnowboarding, FaBiking, FaSwimmer } from "react-icons/fa";
-import { IconContext } from "react-icons";
 import { GiMountainClimbing } from "react-icons/gi";
 import "./main.css";
 import { Link } from "react-router-dom";

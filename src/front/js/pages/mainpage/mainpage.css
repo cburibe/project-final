@@ -6,20 +6,20 @@
 body {
   margin: 0;
   padding: 0;
-  background: #ada996; /* fallback for old browsers */
+  background: #ebc403; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
     #eaeaea,
     #dbdbdb,
-    #f2f2f2,
+    #22c1c3,
     #ada996
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #eaeaea,
-    #dbdbdb,
-    #f2f2f2,
-    #ada996
+    #fffcdc,
+    #c9d6ff,
+    #22c1c3,
+    #e2bf0e
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -28,11 +28,4 @@ main {
   width: 90%;
   margin: auto;
   padding: 40px;
-}
-#abc {
-  padding-left: 150px;
-  padding-right: 150px;
-}
-#paladerecha {
-  padding-left: 70px;
 }
