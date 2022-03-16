@@ -26,7 +26,6 @@ def get_people(id):
     peoples = People.query.get(id)
     return jsonify(peoples.serialize()), 200    
 
-    return jsonify(response_body), 200
 
 @api.route('/peoples', methods=['POST']) 
 def create_people():
@@ -87,7 +86,6 @@ def get_place(id):
     places = Place.query.get(id)
     return jsonify(places.serialize()), 200    
 
-    return jsonify(response_body), 200
 
 @api.route('/places', methods=['POST']) 
 def create_place():
@@ -148,7 +146,7 @@ def get_post(id):
     posts = Post.query.get(id)
     return jsonify(posts.serialize()), 200    
 
-    return jsonify(response_body), 200
+   
 
 @api.route('/posts', methods=['POST']) 
 def create_post():
@@ -265,7 +263,7 @@ def get_scores(id):
     scores = Score.query.get(id)
     return jsonify(scores.serialize()), 200    
 
-    return jsonify(response_body), 200
+   
 
 @api.route('/scores', methods=['POST']) 
 def create_score():
@@ -444,28 +442,81 @@ def create_role_people():
     
     return jsonify(role_people.serialize()), 201
 
-@api.route('/likes/<int:id>', methods=['PUT']) 
-def modificar_like(id):
-    likes = request.json.get('likes')
+@api.route('/role_peoples/<int:id>', methods=['PUT']) 
+def modificar_role_people(id):
     people_id = request.json.get('people_id')
     post_id = request.json.get('post_id')
 
 
-    like = Like.query.get(id)
-    like.likes = likes
-    like.people_id = people_id
-    like.post_id = post_id
+    role_people = Role_people.query.get(id)
+    role_people.people_id = people_id
+    role_people.roles_id = roles_id
     
     db.session.commit()
     
-    return jsonify(like.serialize()), 201
+    return jsonify(role_people.serialize()), 201
 
-@api.route('/likes/<int:id>', methods=['DELETE'])
-def delete_like(id):
-    likes = Like.query.get(id)
-    db.session.delete(likes)
+@api.route('/role_peoples/<int:id>', methods=['DELETE'])
+def delete_role_people(id):
+    role_peoples = Role_people.query.get(id)
+    db.session.delete(role_peoples)
     db.session.commit()
 
     return jsonify({}), 200  
 
 """ Aqui va el  Comment """
+@api.route('/comments', methods=['GET'])
+def all_comment():
+    comments = Comment.query.all()
+    comments = list(map(lambda comment: comment.serialize(), comments))
+    return jsonify(comments), 200
+    
+
+@api.route('/comments/<int:id>', methods=['GET'])
+def get_comment(id):
+    comments = Comment.query.get(id)
+    return jsonify(comments.serialize()), 200    
+
+    
+
+@api.route('/comments', methods=['POST']) 
+def create_comment():
+    data_comment = request.json.get('data_comment')
+    people_id = request.json.get('people_id')
+    post_id = request.json.get('post_id')
+    
+    print(username, email, password, number_phone)
+
+    comment = Comment()
+    comment.people_id = people_id
+    comment.post_id = post_id
+   
+
+    db.session.add(comment)
+    db.session.commit()
+    
+    return jsonify(comment.serialize()), 201
+
+@api.route('/comments/<int:id>', methods=['PUT']) 
+def modificar_comment(id):
+    data_comment = request.json.get('data_comment')
+    people_id = request.json.get('people_id')
+    post_id = request.json.get('post_id')
+
+
+    comment = Comment.query.get(id)
+    comment.data_comment = data_comment
+    comment.people_id = people_id
+    comment.post_id = post_id
+    
+    db.session.commit()
+    
+    return jsonify(comment.serialize()), 201
+
+@api.route('/comments/<int:id>', methods=['DELETE'])
+def delete_comments(id):
+    comments = Comment.query.get(id)
+    db.session.delete(comments)
+    db.session.commit()
+
+    return jsonify({}), 200 
