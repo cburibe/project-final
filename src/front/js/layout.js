@@ -10,7 +10,6 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import MyMap from "./pages/Map/view.map";
-import ReactPlayer from "react-player";
 
 //create your first component
 const Layout = () => {
