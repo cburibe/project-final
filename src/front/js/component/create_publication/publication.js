@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import "../../../styles/create_publication/publication.css";
 import axios from "axios";
 
-export const NewPublication = (props) => {
+export class NewPublication extends React.Component {
   state = {
     selectedFile: null,
   };
@@ -29,18 +29,19 @@ export const NewPublication = (props) => {
         console.log(res);
       });
   };
-  render();
-  return (
-    <div className=" NewPublication">
-      <input
-        style={{ display: "none" }}
-        type="file"
-        onChange={this.fileChangedHandler}
-        ref={(fileInput) => (this.fileInput = fileInput)}
-      />
-      <button onClick={() => this.fileInput.click()}>Pick File</button>
-      <button onClick={this.uploadHandler}>Upload!</button>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className=" NewPublication">
+        <input
+          style={{ display: "none" }}
+          type="file"
+          onChange={this.fileChangedHandler}
+          ref={(fileInput) => (this.fileInput = fileInput)}
+        />
+        <button onClick={() => this.fileInput.click()}>Pick File</button>
+        <button onClick={this.uploadHandler}>Upload!</button>
+      </div>
+    );
+  }
+}
 export default NewPublication;
