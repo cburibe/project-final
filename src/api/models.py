@@ -95,11 +95,10 @@ class Place(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "username": self.username,
-            "email": self.email,
-            "password": self.password,
-            "username": self.username,
-            "number_phone": self.number_phone,
+            "lat": self.lat,
+            "long": self.long,
+            "street": self.street,
+            "commune": self.commune,
             "people_id": self.people_id
         }
 
