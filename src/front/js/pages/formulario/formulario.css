@@ -14,7 +14,7 @@
   font-family: "Roboto", sans-serif;
   background-color: floralwhite;
 }
-input {
+.inp {
   cursor: default;
   font-family: "Roboto", sans-serif;
   outline: 0;

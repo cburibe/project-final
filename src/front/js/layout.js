@@ -7,7 +7,6 @@ import { Config } from "./pages/config";
 import { RecommendedHotels } from "./pages/recommendedHotels";
 import MyMap from "./pages/Map/view.map";
 import injectContext from "./store/appContext";
-import Menu from "./pages/formulario/modalregistro";
 import { Mainpage } from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
 

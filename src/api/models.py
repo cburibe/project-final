@@ -16,6 +16,7 @@ class People(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False )
     password = db.Column(db.String(120), nullable=False)
     number_phone = db.Column(db.String(120))
+    places = db.relationship('Place', backref="people", lazy=True)
 
     """ is_active = db.Column(db.Boolean(), unique=False, nullable=False) """
 

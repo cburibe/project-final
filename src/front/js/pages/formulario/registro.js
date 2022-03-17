@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import "./formulario.css";
 
@@ -13,6 +13,7 @@ const FormRegistro = () => {
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <input
+        className="inp"
         type="text"
         placeholder="Firstname"
         {...register("firstName", { required: true })}
@@ -23,12 +24,14 @@ const FormRegistro = () => {
       </p>
 
       <input
+        className="inp"
         type="text"
         placeholder="Lastname"
         {...register("lastName", { required: true })}
       />
       <p className="error">{errors.lastName && "Last name is required"}</p>
       <input
+        className="inp"
         placeholder="Email"
         type="email"
         {...register("email", {
@@ -42,6 +45,7 @@ const FormRegistro = () => {
       <p className="error"> {errors.email && errors.email.message}</p>
 
       <input
+        className="inp"
         onFocus="true"
         placeholder="Username"
         {...register("username", {
@@ -52,6 +56,7 @@ const FormRegistro = () => {
       <p className="error"> {errors.username && errors.username.message}</p>
 
       <input
+        className="inp"
         placeholder="Password"
         type="password"
         {...register("password", {
