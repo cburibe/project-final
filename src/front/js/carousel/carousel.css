@@ -20,6 +20,7 @@
   box-shadow: 2px 2px 4px 0 #ccc;
   background-color: floralwhite;
   box-sizing: border-box;
+  padding: 10px;
 }
 
 .slide {

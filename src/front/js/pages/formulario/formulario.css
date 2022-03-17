@@ -1,8 +1,11 @@
 .form {
   width: 80%;
   margin: auto;
-  background: #fff;
+  background: floralwhite;
   align-items: center;
+}
+.modal-content {
+  background-color: floralwhite;
 }
 .error {
   color: rgb(63, 61, 61);
@@ -29,6 +32,7 @@ input {
 }
 .modal-body {
   padding: 0;
+  background-color: floralwhite;
 }
 
 .button-53 {

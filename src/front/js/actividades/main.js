@@ -6,36 +6,34 @@ import { Link } from "react-router-dom";
 
 const Actividades = () => {
   return (
-    <div className="container-fluid">
-      <div id="activi" className="btn-group-vertical">
-        <ul className="nav flex-column">
-          <li className="nav-item">
-            <Link className="nav-link active" to="/map">
-              <FaBiking className="icon" />
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link active" to="/map">
-              <FaSwimmer className="icon" />
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link active" to="/map">
-              <FaSnowboarding className="icon" />
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link active" to="/map">
-              <FaHiking className="icon" />
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link active" to="/map">
-              <GiMountainClimbing className="icon" />
-            </Link>
-          </li>
-        </ul>
-      </div>
+    <div id="activi" className="btn-group-vertical">
+      <ul className="nav flex-column">
+        <li className="nav-item">
+          <Link className="nav-link active" to="/map">
+            <FaBiking className="icon" />
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link active" to="/map">
+            <FaSwimmer className="icon" />
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link active" to="/map">
+            <FaSnowboarding className="icon" />
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link active" to="/map">
+            <FaHiking className="icon" />
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link active" to="/map">
+            <GiMountainClimbing className="icon" />
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 };

@@ -9,6 +9,7 @@ import MyMap from "./pages/Map/view.map";
 import injectContext from "./store/appContext";
 import Menu from "./pages/formulario/modalregistro";
 import { Mainpage } from "./pages/mainpage/mainpage";
+import Goback from "./pages/Map/goback";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -18,13 +19,13 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <Switch>
           <Route exact path="/">
-            <Menu />
             <Mainpage />
           </Route>
           <Route exact path="/config">
             <Config />
           </Route>
           <Route exact path="/map">
+            <Goback />
             <MyMap />
           </Route>
           <Route exact path="/recommendedhotels">

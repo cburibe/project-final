@@ -4,6 +4,7 @@ import { Sliderimg } from "../../carousel/storeimg";
 import Actividades from "../../actividades/main";
 import Muestras from "../../videos/fotos/muestras";
 import "../mainpage/mainpage.css";
+import Modaluser from "../formulario/modalregistro";
 
 export const Mainpage = () => {
   const imgs = {
@@ -16,21 +17,23 @@ export const Mainpage = () => {
   return (
     <>
       <div className="header">
+        <Modaluser />
         <h1 className="titulo">TurismoSocial</h1>
       </div>
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
-          <div className="col-xs col-sm col-md-6 col-lg-10">
+          <div className="col-md-10">
             <ImageSlidere slides={Sliderimg} />
           </div>
-          <div className="col-md-1 mt-5  pt-4">
+          <div className="col-md-1 mt-5 ms-5">
             <Actividades />
           </div>
         </div>
-      </div>
-      <div className="muestras row ms-5">
-        <div className="col-md-12 col-lg-12 ms-5"></div>
-        <Muestras imgs={imgs} />
+        <div className="row">
+          <div className="col-md-12">
+            <Muestras imgs={imgs} />
+          </div>
+        </div>
       </div>
     </>
   );
