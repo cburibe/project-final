@@ -4,36 +4,24 @@ import { Imgbackground } from "../../component/profileclient/backgroundimgprofil
 import { Cardimg } from "../../component/profileclient/cartaimg.js";
 
 export const Profile = (props) => {
+  const Propscardimg = {
+    linkImageFrony: "https://picsum.photos/200/300?grayscale",
+    imagepost: "https://picsum.photos/200/300",
+    user1: "carlos",
+    caption: "Mi primera foto",
+  };
   return (
     <div className="container-fluid ">
       <div className="row ">
         <div className="col-md-12 imgbackground px-0">
-          <Imgbackground
-            linkImageFrony={"https://picsum.photos/200/300?grayscale"}
-          />
+          <Imgbackground />
         </div>
       </div>
       <div className="row ">
-        <Cardimg
-          imagepost={"https://picsum.photos/200/300"}
-          user1={"carlos"}
-          caption={"Mi primera foto"}
-        />
-        <Cardimg
-          imagepost={"https://picsum.photos/200/300"}
-          user1={"carlos"}
-          caption={"Mi primera foto"}
-        />
-        <Cardimg
-          imagepost={"https://picsum.photos/200/300"}
-          user1={"carlos"}
-          caption={"Mi primera foto"}
-        />
-        <Cardimg
-          imagepost={"https://picsum.photos/200/300"}
-          user1={"carlos"}
-          caption={"Mi primera foto"}
-        />
+        <Cardimg />
+        <Cardimg />
+        <Cardimg />
+        <Cardimg />
       </div>
     </div>
   );

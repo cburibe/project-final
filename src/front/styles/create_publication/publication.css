@@ -7,13 +7,11 @@
 .uploader_data {
   padding: 30px;
 }
-
 /* diseno para mi boton
   margin-right: 20px !important;
   padding-left: 15px !important;
-  padding-right: 15px !important;
-  
-  */
+  padding-right: 15px !important; */
+
 .uploader_img-uploader {
   display: flex;
   padding-bottom: 30px;
