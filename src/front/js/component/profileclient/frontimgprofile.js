@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "../../../styles/profileclient/frontimgprofile.css";
 export const Imgprofile = (props) => {
   return (

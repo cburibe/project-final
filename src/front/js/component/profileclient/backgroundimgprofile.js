@@ -9,7 +9,14 @@ import { MdOutlineAddCircle } from "react-icons/md";
 import "../../../styles/profileclient/backgroundimgprofile.css";
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
+
 export const Imgbackground = (props) => {
+  // const Propsimgbackground = {
+  //   linkImageback: "https://picsum.photos/200/300?grayscale",
+  //   imagepost: "https://picsum.photos/200/300",
+  //   user1: "carlos",
+  //   caption: "Mi primera foto",
+  // };
   return (
     <>
       <IconContext.Provider value={{ color: "black", size: 50 }}>
@@ -21,29 +28,24 @@ export const Imgbackground = (props) => {
           }}
         >
           <Link className="nav-link active " to="/feed">
-            <span type="button" className="houseicon ms-0 ">
-              <GiHouse />
-            </span>
+            <GiHouse className="houseicon_Imgbackground ms-0" />
+          </Link>
+          <Link className="nav-link active " to="/map">
+            <FaSearchLocation className=" location2icon_Imgbackground " />
           </Link>
 
-          <span type="button" className=" location2icon ">
-            <FaSearchLocation />
-          </span>
-          <span
-            type="button"
-            className=" settingsicon d-flex justify-content-end  "
-          >
-            <FiSettings />
-          </span>
+          <Link to="/config">
+            <FiSettings className=" settingsicon_Imgbackground d-flex justify-content-end  " />
+          </Link>
           <Imgprofile linkImageFrony="https://picsum.photos/200" />
-        </div>
 
-        <span type="button" className=" binicon ms-4 ">
-          <ImBin />
-        </span>
-        <span type="button" className=" addicon  ms-4">
-          <MdOutlineAddCircle />
-        </span>
+          <span type="button" className=" Imgbackground_binicon ms-4 ">
+            <ImBin />
+          </span>
+          <Link to="/publication-uploader">
+            <MdOutlineAddCircle className="Imgbackground_addicon  ms-4" />
+          </Link>
+        </div>
       </IconContext.Provider>
     </>
   );
