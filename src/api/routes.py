@@ -93,6 +93,7 @@ def create_place():
     long = request.json.get('long')
     street = request.json.get('street')
     commune= request.json.get('commune')
+    people_id= request.json.get('people_id')
 
 
     place = Place()
@@ -100,6 +101,7 @@ def create_place():
     place.long = long
     place.street = street
     place.commune = commune
+    place.people_id = people_id
 
     db.session.add(place)
     db.session.commit()
@@ -112,6 +114,7 @@ def modificar_place(id):
     long = request.json.get('long')
     street = request.json.get('street')
     commune = request.json.get('commune')
+    people_id= request.json.get('people_id')
 
 
     place = Place.query.get(id)
@@ -119,6 +122,7 @@ def modificar_place(id):
     place.long = long
     place.street = street
     place.commune = commune
+    place.people_id = people_id
     
     db.session.commit()
     

@@ -90,6 +90,7 @@ class Place(db.Model):
     long = db.Column(db.String(120), nullable=False)
     street = db.Column(db.String(120), nullable=False)
     commune = db.Column(db.String(120), nullable=False)
+    people_id = db.Column(db.Integer, db.ForeignKey('people.id'), nullable=False)
    
     def serialize(self):
         return {
@@ -98,7 +99,8 @@ class Place(db.Model):
             "email": self.email,
             "password": self.password,
             "username": self.username,
-            "number_phone": self.number_phone
+            "number_phone": self.number_phone,
+            "people_id": self.people_id
         }
 
     def save(self):
