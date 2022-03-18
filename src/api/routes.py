@@ -1,29 +1,27 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, Place, Like, Resource, Post, Comment, Score, People, Role_people, Role
 from api.utils import generate_sitemap, APIException
-from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity, create_access_token 
+from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token 
+from werkzeug.security import generate_password_hash, check_password_hash
 
 api = Blueprint('api', __name__)
-api.config['DEBUG'] = True
-api.config['ENV'] = 'development'
-api.config['JWT_SECRET_KEY'] = '33b9b3de94a42d19f47df7021954eaa8'
-
-jwt = JWTManager(api)
 
 
 
-@api.route('/login', methods=['POST'])
-def login():
+
+@api.route('/token', methods=['POST'])
+def create_token():
     email = request.json.get('email')
     password = request.json.get('password')
 
     if not email: return jsonify({ "msg": "Email is required!"}), 400
     if not password: return jsonify({ "msg": "Password is required!"}), 400
 
-    user = User.query.filter_by(email=email).first()
+    user = People.query.filter_by(email=email).first()
 
     if not user: return jsonify({ "msg": "email/password are incorrects!"}), 401
     if not check_password_hash(user.password, password): return jsonify({ "msg": "email/password are incorrects!"}), 401
@@ -37,6 +35,25 @@ def login():
     }
 
     return jsonify(data), 200
+
+@api.route('/register', methods=['POST']) 
+def create_register():
+    username = request.json.get('username')
+    email = request.json.get('email')
+    password = request.json.get('password')
+    number_phone= request.json.get('number_phone')
+    print(username, email, password, number_phone)
+
+    people = People()
+    people.username = username
+    people.email = email
+    people.password = generate_password_hash(password)
+    people.number_phone = number_phone
+
+    db.session.add(people)
+    db.session.commit()
+    
+    return jsonify(people.serialize()), 201    
 
 @api.route('/peoples', methods=['GET'])
 def all_people():
@@ -62,7 +79,7 @@ def create_people():
     people = People()
     people.username = username
     people.email = email
-    people.password = password
+    people.password = generate_password_hash(password)
     people.number_phone = number_phone
 
     db.session.add(people)
