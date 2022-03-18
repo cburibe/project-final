@@ -7,6 +7,7 @@ from api.models import db, Place, Like, Resource, Post, Comment, Score, People, 
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token 
 from werkzeug.security import generate_password_hash, check_password_hash
+import datetime
 
 api = Blueprint('api', __name__)
 
