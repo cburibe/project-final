@@ -7,14 +7,37 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity, create_access_token 
 
 api = Blueprint('api', __name__)
+api.config['DEBUG'] = True
+api.config['ENV'] = 'development'
+api.config['JWT_SECRET_KEY'] = '33b9b3de94a42d19f47df7021954eaa8'
+
+jwt = JWTManager(api)
 
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
 
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
+@api.route('/login', methods=['POST'])
+def login():
+    email = request.json.get('email')
+    password = request.json.get('password')
+
+    if not email: return jsonify({ "msg": "Email is required!"}), 400
+    if not password: return jsonify({ "msg": "Password is required!"}), 400
+
+    user = User.query.filter_by(email=email).first()
+
+    if not user: return jsonify({ "msg": "email/password are incorrects!"}), 401
+    if not check_password_hash(user.password, password): return jsonify({ "msg": "email/password are incorrects!"}), 401
+
+    expires = datetime.timedelta(minutes=1) # creamos la fecha o tiempo de duracion del token
+    access_token = create_access_token(identity=user.id, expires_delta=expires) # creamos el token con el tiempo de duracion estipulado
+
+    data = { # variable que contiene toda la informacion que se desea enviar mas el token de acceso
+        "access_token": access_token,
+        "user": user.serialize()
     }
+
+    return jsonify(data), 200
+
 @api.route('/peoples', methods=['GET'])
 def all_people():
     peoples = People.query.all()
