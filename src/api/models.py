@@ -113,15 +113,15 @@ class Place(db.Model):
 class Post(db.Model):
     __tablename__="post"
     id = db.Column(db.Integer , primary_key=True)
-    likes = db.Column(db.String(120))
     text = db.Column(db.String(120))
+    likes_id = db.Column(db.Integer,db.ForeignKey('like.id'), nullable=False)
     people_id = db.Column(db.Integer, db.ForeignKey('people.id'), nullable=False)
     place_id = db.Column(db.Integer, db.ForeignKey('place.id'), nullable=False)
      
     def serialize(self):
         return {
             "id": self.id,
-            "likes": self.likes,
+            "likes_id": self.likes_id,
             "text": self.text,
            "people_id": self.people_id,
            "place_id": self.place_id  

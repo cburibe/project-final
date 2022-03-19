@@ -29,58 +29,50 @@ const Login = () => {
   };
   return (
     <>
-      {success ? (
-        <section className="form">
-          <h1>You are logged in!</h1>
-          <br />
-          <p>
+      <section className="form">
+        <p
+          ref={errRef}
+          className={errMsg ? "errmsg" : "offscreen"}
+          aria-live="assertive"
+        >
+          {errMsg}
+        </p>
+        <h1>Log in</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
+          <input
+            className="inp"
+            type="text"
+            id="username"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setUser(e.target.value)}
+            value={user}
+            required
+          />
+          <label htmlFor="password">Password:</label>
+          <input
+            className="inp"
+            type="password"
+            id="password"
+            onChange={(e) => setPwd(e.target.value)}
+            value={pwd}
+            required
+          />
+
+          <button>
             <Link to="/profile">Log in</Link>
-          </p>
-        </section>
-      ) : (
-        <section className="form">
-          <p
-            ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
-          <h1>Log in</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              className="inp"
-              type="text"
-              id="username"
-              ref={userRef}
-              autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
-              required
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              className="inp"
-              type="password"
-              id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
-              required
-            />
-            <button>
-              <Link to="/profile">Log in</Link>
-            </button>
-          </form>
-          <p>
-            Need an Account?
-            <br />
-            <span className="line">
-              <a href="#">Sign up</a>
-            </span>
-          </p>
-        </section>
-      )}
+          </button>
+        </form>
+        <p>
+          Need an Account?
+          <br />
+          <span className="line">
+            <a href="#">Sign up</a>
+          </span>
+        </p>
+      </section>
+      )
     </>
   );
 };

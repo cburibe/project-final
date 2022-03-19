@@ -9,6 +9,7 @@ import MyMap from "./pages/Map/view.map";
 import injectContext from "./store/appContext";
 import { Mainpage } from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
+import { Prueba } from "./pages/prueba";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -39,6 +40,9 @@ const Layout = () => {
           </Route>
           <Route exact path="/publication_uploader">
             <Publication_uploader />
+          </Route>
+          <Route>
+            <Prueba />
           </Route>
           <Route>
             <h1>Not found!</h1>
