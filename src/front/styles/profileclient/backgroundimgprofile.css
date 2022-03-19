@@ -1,22 +1,22 @@
-.Imgbackground_binicon,
-.Imgbackground_addicon {
-  font-size: 48px;
-}
-
-.Imgbackground_binicon {
-  padding-top: -20rem;
-}
-
-.houseicon_Imgbackground {
-  font-size: 55px;
-  display: flex;
-}
-
 .settingsicon_Imgbackground {
-  float: right;
-  margin-top: -123px;
+  font-size: 40px;
+}
+/* .Imgbackground_buttons_info {
+
+  border: none;
+} */
+.settingsicon_Imgbackground {
+  color: black;
+}
+.houseicon_Imgbackground {
+  font-size: 40px;
+  color: rgb(0, 0, 0);
 }
 
 body {
   background: linear-gradient(to right, #fffcdc, #c9d6ff, #22c1c3, #e2bf0e);
+}
+.fondo {
+  width: 100%;
+  height: 400px;
 }
