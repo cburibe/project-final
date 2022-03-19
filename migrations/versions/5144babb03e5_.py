@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 330b6005aa3c
+Revision ID: 5144babb03e5
 Revises: 
-Create Date: 2022-03-15 15:33:21.821786
+Create Date: 2022-03-19 16:08:55.639304
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '330b6005aa3c'
+revision = '5144babb03e5'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,11 +22,16 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=120), nullable=False),
     sa.Column('email', sa.String(length=120), nullable=False),
-    sa.Column('passsword', sa.String(length=120), nullable=False),
+    sa.Column('password', sa.String(length=120), nullable=False),
     sa.Column('number_phone', sa.String(length=120), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
+    )
+    op.create_table('role',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('rol_names', sa.String(length=120), nullable=True),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('place',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -34,11 +39,16 @@ def upgrade():
     sa.Column('long', sa.String(length=120), nullable=False),
     sa.Column('street', sa.String(length=120), nullable=False),
     sa.Column('commune', sa.String(length=120), nullable=False),
+    sa.Column('people_id', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['people_id'], ['people.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('role',
+    op.create_table('role_people',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('rol_names', sa.String(length=120), nullable=True),
+    sa.Column('people_id', sa.Integer(), nullable=False),
+    sa.Column('roles_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['people_id'], ['people.id'], ),
+    sa.ForeignKeyConstraint(['roles_id'], ['role.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('post',
@@ -49,14 +59,6 @@ def upgrade():
     sa.Column('place_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['people_id'], ['people.id'], ),
     sa.ForeignKeyConstraint(['place_id'], ['place.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_table('role_people',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('people_id', sa.Integer(), nullable=False),
-    sa.Column('roles_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['people_id'], ['people.id'], ),
-    sa.ForeignKeyConstraint(['roles_id'], ['role.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('score',
@@ -102,9 +104,9 @@ def downgrade():
     op.drop_table('like')
     op.drop_table('comment')
     op.drop_table('score')
-    op.drop_table('role_people')
     op.drop_table('post')
-    op.drop_table('role')
+    op.drop_table('role_people')
     op.drop_table('place')
+    op.drop_table('role')
     op.drop_table('people')
     # ### end Alembic commands ###

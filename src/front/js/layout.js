@@ -9,6 +9,8 @@ import MyMap from "./pages/Map/view.map";
 import injectContext from "./store/appContext";
 import { Mainpage } from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
+import { Login } from "./pages/login";
+import { Demo } from "./pages/profileclient/demo";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -19,6 +21,12 @@ const Layout = () => {
         <Switch>
           <Route exact path="/">
             <Mainpage />
+          </Route>
+          <Route exact path="/demo">
+            <Demo />
+          </Route>
+          <Route exact path="/login">
+            <Login />
           </Route>
           <Route exact path="/config">
             <Config />

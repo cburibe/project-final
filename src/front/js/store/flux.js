@@ -20,14 +20,71 @@ const getState = ({ getStore, getActions, setStore }) => {
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
+      enviarDatos: (e, mail, pass) => {
+        e.preventDefault();
+        console.log("mail", mail);
+        console.log("pass", pass);
 
-      // getMessage: () => {
-      // 	// fetching data from the backend
-      // 	fetch(process.env.BACKEND_URL + "/api/hello")
-      // 		.then(resp => resp.json())
-      // 		.then(data => setStore({ message: data.message }))
-      // 		.catch(error => console.log("Error loading message from backend", error));
-      // },
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+          email: mail,
+          password: pass,
+        });
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        fetch(
+          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/register",
+          requestOptions
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            sessionStorage.setItem("token", result.token);
+            setStore({ logged: true });
+          })
+          .c0atch((error) => console.log("error", error));
+      },
+      check: () => {
+        let token = sessionStorage.getItem("token");
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${token}`);
+
+        var requestOptions = {
+          method: "GET",
+          headers: myHeaders,
+          redirect: "follow",
+        };
+
+        fetch(
+          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/privado",
+          requestOptions
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            if (result.usuario != undefined) {
+              setStore({ logged: true });
+              console.log(getStore());
+            }
+          })
+          .catch((error) => console.log("error!!!!", error));
+      },
+      // Use getActions to call a function within a fuction
+      exampleFunction: () => {
+        getActions().changeColor(0, "green");
+      },
+      loadSomeData: () => {
+        /**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+				*/
+      },
       changeColor: (index, color) => {
         //get the store
         const store = getStore();

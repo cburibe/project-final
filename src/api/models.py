@@ -90,7 +90,7 @@ class Place(db.Model):
     long = db.Column(db.String(120), nullable=False)
     street = db.Column(db.String(120), nullable=False)
     commune = db.Column(db.String(120), nullable=False)
-    people_id = db.Column(db.Integer, db.ForeignKey('people.id'), nullable=False)
+    people_id = db.Column(db.Integer, db.ForeignKey('people.id'))
    
     def serialize(self):
         return {

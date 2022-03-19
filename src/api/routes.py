@@ -7,6 +7,7 @@ from api.models import db, Place, Like, Resource, Post, Comment, Score, People, 
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token 
 from werkzeug.security import generate_password_hash, check_password_hash
+import datetime 
 
 api = Blueprint('api', __name__)
 
@@ -35,6 +36,13 @@ def create_token():
     }
 
     return jsonify(data), 200
+
+@api.route("/privado", methods=['GET'])
+@jwt_required()
+def profile():
+    if request.method == 'GET':
+        token = get_jwt_identity()
+        return jsonify({"success": "Acceso a espacio privado", "usuario": token}), 200
 
 @api.route('/register', methods=['POST']) 
 def create_register():
