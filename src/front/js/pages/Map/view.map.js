@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import L from "leaflet";
 import "./leaflet.css";
@@ -8,58 +7,91 @@ const MyMap = ({ lat = -33.4513, long = -70.6653 }) => {
     loadMap();
   }, []);
 
-  function loadMap() {
-    const map = L.map("map").setView([lat, long], 13);
-    const marker = L.marker([-33.4561691, -70.580058]).addTo(map);
+  let map = L.map("map", {
+    layers: MQ.mapLayer(),
+    center: [35.791188, -78.636755],
+    zoom: 12,
+  });
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      mapZoom: 13,
-      center: true,
-    }).addTo(map);
+  function runDirection(start, end) {
+    // recreating new map layer after removal
+    map = L.map("map", {
+      layers: MQ.mapLayer(),
+      center: [35.791188, -78.636755],
+      zoom: 12,
+    });
 
-    let marker1 = L.marker([-33.4561691, -70.580058])
-      .addTo(map)
-      .bindPopup("Centro nacional de entrenamiento olimpico")
-      .openPopup();
-    let marker2 = L.marker([-33.4470886395349, -70.6291601860465])
-      .addTo(map)
-      .bindPopup("Centro Deportivo Providencia")
-      .openPopup();
+    var dir = MQ.routing.directions();
 
-    let marker3 = L.marker([-33.459556, -70.662783])
-      .addTo(map)
-      .bindPopup("Fantasilandia")
-      .openPopup();
-    let marker5 = L.marker([-33.443018, -70.65387])
-      .addTo(map)
-      .bindPopup("Palacio de La Moneda")
-      .openPopup();
+    dir.route({
+      locations: [start, end],
+    });
 
-    let marker4 = L.marker([-33.4358, -70.6411])
-      .addTo(map)
-      .bindPopup("Parque forestal")
-      .openPopup();
+    CustomRouteLayer = MQ.Routing.RouteLayer.extend({
+      createStartMarker: (location) => {
+        var custom_icon;
+        var marker;
 
-    centerLeafletMapOnMarker(
-      map,
-      marker,
-      marker1,
-      marker2,
-      marker3,
-      marker4,
-      marker5
+        custom_icon = L.icon({
+          iconUrl: "img/red.png",
+          iconSize: [20, 29],
+          iconAnchor: [10, 29],
+          popupAnchor: [0, -29],
+        });
+
+        marker = L.marker(location.latLng, { icon: custom_icon }).addTo(map);
+
+        return marker;
+      },
+
+      createEndMarker: (location) => {
+        var custom_icon;
+        var marker;
+
+        custom_icon = L.icon({
+          iconUrl: "img/blue.png",
+          iconSize: [20, 29],
+          iconAnchor: [10, 29],
+          popupAnchor: [0, -29],
+        });
+
+        marker = L.marker(location.latLng, { icon: custom_icon }).addTo(map);
+
+        return marker;
+      },
+    });
+
+    map.addLayer(
+      new CustomRouteLayer({
+        directions: dir,
+        fitBounds: true,
+      })
     );
   }
 
-  function centerLeafletMapOnMarker(map, marker) {
-    var latLngs = [marker.getLatLng()];
-    var markerBounds = L.latLngBounds(latLngs);
-    map.fitBounds(markerBounds);
+  // function that runs when form submitted
+  function submitForm(event) {
+    event.preventDefault();
+
+    // delete current map layer
+    map.remove();
+
+    // getting form data
+    start = document.getElementById("start").value;
+    end = document.getElementById("destination").value;
+
+    // run directions function
+    runDirection(start, end);
+
+    // reset form
+    document.getElementById("form").reset();
   }
 
-  return <div id="map"></div>;
+  // asign the form to form variable
+  const form = document.getElementById("form");
+
+  // call the submitForm() function when submitting the form
+  form.addEventListener("submit", submitForm);
 };
 
 export default MyMap;
