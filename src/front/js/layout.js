@@ -10,6 +10,7 @@ import injectContext from "./store/appContext";
 import { Mainpage } from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
 import { Prueba } from "./pages/prueba";
+import { Menu } from "./component/navbar";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -17,6 +18,7 @@ const Layout = () => {
   return (
     <div>
       <BrowserRouter basename={basename}>
+        <Menu />
         <Switch>
           <Route exact path="/">
             <Mainpage />

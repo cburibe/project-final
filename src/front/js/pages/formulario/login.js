@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import AuthContext from "./autenticacion";
 import { Link } from "react-router-dom";
 import "../../../styles/login.css";
+import Modaluser from "./modalregistro";
 const Login = () => {
   const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
@@ -68,7 +69,9 @@ const Login = () => {
           Need an Account?
           <br />
           <span className="line">
-            <a href="#">Sign up</a>
+            <a href="#">
+              <Modaluser />
+            </a>
           </span>
         </p>
       </section>
