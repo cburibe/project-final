@@ -6,53 +6,26 @@ const ModalLogin = () => {
   return (
     <>
       <>
+        {/* Button trigger modal */}
+        <button
+          type="button"
+          className="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Login
+        </button>
+
         <div
           className="modal fade"
-          id="exampleModalToggle"
-          aria-hidden="true"
-          aria-labelledby="exampleModalToggleLabel"
+          id="exampleModal"
           tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
         >
-          <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalToggleLabel">
-                  <Login />
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                />
-              </div>
-              <div className="modal-body">Click below!</div>
-              <div className="modal-footer">
-                <button
-                  className="btn btn-primary"
-                  data-bs-target="#exampleModalToggle2"
-                  data-bs-toggle="modal"
-                  data-bs-dismiss="modal"
-                >
-                  Register
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="modal fade"
-          id="exampleModalToggle2"
-          aria-hidden="true"
-          aria-labelledby="exampleModalToggleLabel2"
-          tabIndex={-1}
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalToggleLabel2">
-                  <Modaluser />
-                </h5>
                 <button
                   type="button"
                   className="btn-close"
@@ -61,29 +34,11 @@ const ModalLogin = () => {
                 />
               </div>
               <div className="modal-body">
-                Hide this modal and show the first with the button below.
-              </div>
-              <div className="modal-footer">
-                <button
-                  className="btn btn-primary"
-                  data-bs-target="#exampleModalToggle"
-                  data-bs-toggle="modal"
-                  data-bs-dismiss="modal"
-                >
-                  Back to first
-                </button>
+                <Login />
               </div>
             </div>
           </div>
         </div>
-        <a
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          href="#exampleModalToggle"
-          role="button"
-        >
-          Open first modal
-        </a>
       </>
     </>
   );

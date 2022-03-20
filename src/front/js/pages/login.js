@@ -5,14 +5,27 @@ import { Link } from "react-router-dom";
 export const Login = () => {
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
-  const { store, actions } = useContext(Context);
+  const { actions } = useContext(Context);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (mail === "") {
+      console.error("el email esta vacio");
+    }
+    try {
+      actions.login(mail, pass);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="text-center mt-5">
       <h1>Iniciar Sesion :D !</h1>
       <form
         onSubmit={(e) => {
-          e.preventDefault();
-          actions.enviarDatos(e, mail, pass);
+          handleLogin(e)
+          //actions.enviarDatos(e, mail, pass);
         }}
       >
         s

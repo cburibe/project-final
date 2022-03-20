@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Context } from "../store/appContext";
 
 export const Hotels = (props) => {
+  const { actions } = useContext(Context);
   return (
     <div className="col">
       <Card style={{ width: "17rem" }}>

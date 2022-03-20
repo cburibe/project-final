@@ -11,6 +11,8 @@ import { Mainpage } from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
 import { Login } from "./pages/login";
 import { Demo } from "./pages/profileclient/demo";
+import { Prueba } from "./pages/prueba";
+import { Menu } from "./component/navbar";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -18,6 +20,7 @@ const Layout = () => {
   return (
     <div>
       <BrowserRouter basename={basename}>
+        <Menu />
         <Switch>
           <Route exact path="/">
             <Mainpage />
@@ -47,6 +50,9 @@ const Layout = () => {
           </Route>
           <Route exact path="/publication_uploader">
             <Publication_uploader />
+          </Route>
+          <Route>
+            <Prueba />
           </Route>
           <Route>
             <h1>Not found!</h1>

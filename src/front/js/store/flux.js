@@ -1,24 +1,66 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      message: null,
-      demo: [
-        {
-          title: "FIRST",
-          background: "white",
-          initial: "white",
-        },
-        {
-          title: "SECOND",
-          background: "white",
-          initial: "white",
-        },
-      ],
+      people: null,
+      background: "white",
+      initial: "white",
     },
     actions: {
-      // Use getActions to call a function within a fuction
-      exampleFunction: () => {
-        getActions().changeColor(0, "green");
+      login: (username, password) => {
+        let opt = {
+          method: "POST",
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
+        };
+        fetch(
+          "https://3001-cburibe-projectfinal-msxs2qh35ru.ws-us38.gitpod.io/api/login",
+          opt
+        )
+          .then((response) => {return response.json()})
+          .catch((error)=>console.error(error))
+      },
+      register: async (username, password) => {
+        let opt = {
+          method: "POST",
+          headers:{
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
+        };
+        fetch(
+          "https://3001-cburibe-projectfinal-msxs2qh35ru.ws-us38.gitpod.io/api/register",
+          opt
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .catch((error) => console.error(error));
+      },
+      test: () => {
+        fetch(
+          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/test"
+        )
+          .then((response) => response.text())
+          .then((result) => console.log(result))
+          .catch((error) => console.log("error", error));
+      },
+      getPeople: () => {
+        fetch(
+          "https://3001-cburibe-projectfinal-msxs2qh35ru.ws-us38.gitpod.io/api/peoples"
+        )
+          .then((response) => response.json()) // entonces la respuesta de la api pasa a formato json
+          .then((objeto) => {
+            console.log(objeto);
+            setStore({
+              people: objeto.results,
+            });
+          })
+          .catch((error) => console.log("error", error));
       },
       enviarDatos: (e, mail, pass) => {
         e.preventDefault();
