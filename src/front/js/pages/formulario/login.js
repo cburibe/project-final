@@ -2,8 +2,9 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { Context } from "../../store/appContext";
 import "../../../styles/login.css";
 import Modaluser from "./modalregistro";
-
+import { useHistory } from "react-router-dom";
 const Login = () => {
+  const history = useHistory();
   const { actions } = useContext(Context);
   const userRef = useRef();
   const errRef = useRef();
@@ -28,6 +29,7 @@ const Login = () => {
     setUser("");
     setPwd("");
     setSuccess(true);
+    history.push("/profile");
   };
   return (
     <>
@@ -61,7 +63,6 @@ const Login = () => {
             value={pwd}
             required
           />
-
           <button type="submit">Log in</button>
         </form>
         <p>

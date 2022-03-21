@@ -24,6 +24,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((response) => {
             return response.json();
           })
+          .then((data) => {
+            console.log(data);
+            //aca te da la respuesta del fetch
+            history.push("/profile");
+          })
           .catch((error) => console.error(error));
       },
       register: async (email, username, password, number_phone) => {
