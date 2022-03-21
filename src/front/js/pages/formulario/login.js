@@ -75,7 +75,6 @@ const Login = () => {
           </span>
         </p>
       </section>
-      )
     </>
   );
 };

@@ -20,9 +20,9 @@ const Layout = () => {
   return (
     <div>
       <BrowserRouter basename={basename}>
-        <Menu />
         <Switch>
           <Route exact path="/">
+            <Menu />
             <Mainpage />
           </Route>
           <Route exact path="/demo">
