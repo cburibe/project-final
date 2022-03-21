@@ -11,7 +11,7 @@ const Modaluser = () => {
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
-          User
+          Register!
         </button>
 
         <div

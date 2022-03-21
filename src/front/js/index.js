@@ -1,7 +1,6 @@
 //import react into the bundle
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactPlayer from "react-player";
 
 //include your index.scss file into the bundle
 

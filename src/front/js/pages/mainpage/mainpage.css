@@ -15,8 +15,7 @@ body {
     #ada996
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to right,
-    #fffcdc,
+    to left #fffcdc,
     #c9d6ff,
     #22c1c3,
     #bbd2c5

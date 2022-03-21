@@ -1,73 +1,155 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, Place, Like, Resource, Post, Comment, Score, People, Role_people, Role
+from api.models import db, Place, Like, Resource, Post, Comment, Score, User, Role_user, Role
 from api.utils import generate_sitemap, APIException
+from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token 
+from werkzeug.security import generate_password_hash, check_password_hash
+import datetime
 
 api = Blueprint('api', __name__)
 
+""" @api.route('/register', methods=['GET'])
+def all_user_register():
+    users = User.query.all()
+    users = list(map(lambda user: user.serialize(), users))
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
+    return jsonify(users), 200
+     """
 
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
-    }
-@api.route('/peoples', methods=['GET'])
-def all_people():
-    peoples = People.query.all()
-    peoples = list(map(lambda people: people.serialize(), peoples))
-    return jsonify(peoples), 200
+@api.route('/test')
+def test():
+    return jsonify(test='test'),200
+@api.route('/register', methods=['POST']) 
+def create_register():
+    # obteniendo los datos del body
+    username = request.json.get('username')
+    email = request.json.get('email')
+    password = request.json.get('password')
+    is_active = request.json.get('is_active')
+
+
+    # validaciones
+    # si el email ya se encuentra registrado
+    user = User.query.filter_by(email=email).first()
+    if user is not None:
+        return jsonify(message=f'El usuario {email} ya existe'), 409 
+
+    # creo el objeto User
+    user = User()
+    user.username = username
+    user.email = email
+    user.password = generate_password_hash(password)
+    user.is_active = is_active
+
+    
+    # validamos el parametro opcional
+    if request.json.get("number_phone") is not None:
+        number_phone= request.json.get('number_phone')
+        user.number_phone = number_phone
+
+    #agregar el usuario a db y guardos los cambios
+    db.session.add(user)
+    db.session.commit()
+    
+    # retornar los datos del usuario registrado
+    return jsonify(user.serialize()), 201    
+
+@api.route('/login', methods=['POST'])
+def login_user():
+    #validations
+    if request.json.get('username') is None or request.json.get('username') == '':
+        return jsonify(message='debes enviar un username'), 400
+    if request.json.get('password') is None or request.json.get('password') == '':
+        return jsonify(message='debes enviar un password'), 400
+    # asignations
+    username = request.json.get('username')
+    password = request.json.get('password')
+
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        return jsonify(message=f'el usuario {username} no existe'), 404
+    
+    if check_password_hash(user.password, password):
+        sessiontime = datetime.timedelta(hours=2)
+        access_token = create_access_token(identity=username, expires_delta=sessiontime)
+        return jsonify(access_token=access_token), 200
+    else:
+        return jsonify(message='la contraseña o el usuario es incorrecto'),401
+        
+
+@api.route('/users', methods=['GET'])
+def all_user():
+    users = User.query.all()
+    users = list(map(lambda user: user.serialize(), users))
+
+    return jsonify(users), 200
     
 
-@api.route('/peoples/<int:id>', methods=['GET'])
-def get_people(id):
-    peoples = People.query.get(id)
-    return jsonify(peoples.serialize()), 200    
+@api.route('/users/<int:id>', methods=['GET'])
+def get_user(id):
+    users = User.query.get(id)
+    return jsonify(users.serialize()), 200    
 
 
-@api.route('/peoples', methods=['POST']) 
-def create_people():
+@api.route('/users', methods=['POST']) 
+def create_user():
     username = request.json.get('username')
     email = request.json.get('email')
     password = request.json.get('password')
     number_phone= request.json.get('number_phone')
-    print(username, email, password, number_phone)
+    is_active = request.json.get('is_active')
 
-    people = People()
-    people.username = username
-    people.email = email
-    people.password = password
-    people.number_phone = number_phone
+    # print(username, email, password, number_phone)
+    user = User.query.filter_by(email=email).first()
+    if user is not None:
+        return jsonify(message=f'El usuario {email} ya existe'), 409 
+    user = User.query.filter_by(username=username).first()
+    if user is not None:
+        return jsonify(message=f'El username {username} ya existe'), 409 
 
-    db.session.add(people)
+
+    user = User()
+    user.username = username
+    user.email = email
+    user.password = generate_password_hash(password)
+    if request.json.get("number_phone") is not None:
+        number_phone= request.json.get('number_phone')
+        user.number_phone = number_phone
+
+    user.is_active = is_active
+
+    db.session.add(user)
     db.session.commit()
     
-    return jsonify(people.serialize()), 201
+    return jsonify(user.serialize()), 201
 
-@api.route('/peoples/<int:id>', methods=['PUT']) 
-def modificar_people(id):
+@api.route('/users/<int:id>', methods=['PUT']) 
+def modificar_user(id):
     username = request.json.get('username')
     email = request.json.get('email')
     password = request.json.get('password')
     number_phone = request.json.get('number_phone')
+    is_active = request.json.get('is_active')
 
 
-    people = People.query.get(id)
-    people.username = username
-    people.email = email
-    people.password = password
-    people.number_phone = number_phone
+    user = User.query.get(id)
+    user.username = username
+    user.email = email
+    user.password = password
+    user.number_phone = number_phone
+    user.is_active = is_active
     
     db.session.commit()
     
-    return jsonify(people.serialize()), 201
+    return jsonify(user.serialize()), 201
 
-@api.route('/peoples/<int:id>', methods=['DELETE'])
-def delete_peoples(id):
-    peoples = People.query.get(id)
-    db.session.delete(peoples)
+@api.route('/users/<int:id>', methods=['DELETE'])
+def delete_users(id):
+    users = user.query.get(id)
+    db.session.delete(users)
     db.session.commit()
 
     return jsonify({}), 200 
@@ -92,16 +174,17 @@ def create_place():
     lat = request.json.get('lat')
     long = request.json.get('long')
     street = request.json.get('street')
-    commune= request.json.get('commune')
-    people_id= request.json.get('people_id')
+    state= request.json.get('state')
+    user_id= request.json.get('user_id')
 
 
     place = Place()
     place.lat = lat
     place.long = long
     place.street = street
-    place.commune = commune
-    place.people_id = people_id
+    place.state = state
+    place.user_id = user_id
+
 
     db.session.add(place)
     db.session.commit()
@@ -113,16 +196,17 @@ def modificar_place(id):
     lat = request.json.get('lat')
     long = request.json.get('long')
     street = request.json.get('street')
-    commune = request.json.get('commune')
-    people_id= request.json.get('people_id')
+    state = request.json.get('state')
+    user_id= request.json.get('user_id')
 
 
     place = Place.query.get(id)
     place.lat = lat
     place.long = long
     place.street = street
-    place.commune = commune
-    place.people_id = people_id
+    place.state = state
+    place.user_id = user_id
+    
     
     db.session.commit()
     
@@ -156,15 +240,17 @@ def get_post(id):
 def create_post():
     like = request.json.get('like')
     text = request.json.get('text')
-    people_id = request.json.get('people_id')
+    user_id = request.json.get('user_id')
     place_id = request.json.get('place_id')
+  
 
 
     post = Post()
     post.like = like
     post.text = text
-    post.people_id = people_id
+    post.user_id = user_id
     post.place_id = place_id
+    
 
     db.session.add(post)
     db.session.commit()
@@ -175,15 +261,17 @@ def create_post():
 def modificar_post(id):
     like = request.json.get('like')
     text = request.json.get('text')
-    people_id = request.json.get('people_id')
+    user_id = request.json.get('user_id')
     place_id = request.json.get('place_id')
+    
 
 
     post = Place.query.get(id)
     post.like = like
     post.text = text
-    post.people_id = people_id
+    post.user_id = user_id
     post.place_id = place_id
+   
     
     db.session.commit()
     
@@ -215,13 +303,13 @@ def get_like(id):
 @api.route('/likes', methods=['POST']) 
 def create_like():
     likes = request.json.get('likes')
-    people_id = request.json.get('people_id')
+    user_id = request.json.get('user_id')
     post_id = request.json.get('post_id')
 
 
     like = Like()
     like.likes = likes
-    like.people_id = people_id
+    like.user_id = user_id
     like.post_id = post_id
 
     db.session.add(like)
@@ -232,13 +320,13 @@ def create_like():
 @api.route('/likes/<int:id>', methods=['PUT']) 
 def modificar_like(id):
     likes = request.json.get('likes')
-    people_id = request.json.get('people_id')
+    user_id = request.json.get('user_id')
     post_id = request.json.get('post_id')
 
 
     like = Like.query.get(id)
     like.likes = likes
-    like.people_id = people_id
+    like.user_id = user_id
     like.post_id = post_id
     
     db.session.commit()
@@ -268,15 +356,14 @@ def get_scores(id):
     return jsonify(scores.serialize()), 200    
 
    
-
 @api.route('/scores', methods=['POST']) 
 def create_score():
-    people_id = request.json.get('score_id')
+    user_id = request.json.get('score_id')
     place_id = request.json.get('score_id')
 
 
     score = Score()
-    score.people_id = people_id
+    score.user_id = user_id
     score.place_id = place_id
 
     db.session.add(score)
@@ -286,13 +373,13 @@ def create_score():
 
 @api.route('/scores/<int:id>', methods=['PUT']) 
 def modificar_score(id):
-    people_id = request.json.get('score_id')
+    user_id = request.json.get('score_id')
     place_id = request.json.get('score_id')
 
 
 
     score = Score.query.get(id)
-    score.people_id = people_id
+    score.user_id = user_id
     score.place_id = place_id
 
     
@@ -312,7 +399,7 @@ def delete_score(id):
 @api.route('/resource', methods=['GET'])
 def all_resource():
     resources = Resource.query.all()
-    resource = list(map(lambda resource: resource.serialize(), resources))
+    resources = list(map(lambda resource: resource.serialize(), resources))
     return jsonify(resources), 200
     
 
@@ -381,13 +468,10 @@ def get_role(id):
 
 @api.route('/roles', methods=['POST']) 
 def create_role():
-    people_id = request.json.get('people_id')
-    roles_id = request.json.get('roles_id')
-
+    rol_names = request.json.get('rol_names')
 
     role = Role()
-    role.people_id = people_id
-    roles.roles_id = roles_id
+    role.rol_names = rol_names
 
     db.session.add(role)
     db.session.commit()
@@ -396,13 +480,10 @@ def create_role():
 
 @api.route('/roles/<int:id>', methods=['PUT']) 
 def modificar_role(id):
-    people_id = request.json.get('people_id')
-    role_id = request.json.get('role_id')
+    rol_names = request.json.get('rol_names')
 
-
-    role = Role.query.get(id)
-    role.people_id = people_id
-    roles.roles_id = roles_id
+    role = Role()
+    role.rol_names = rol_names
 
     db.session.commit()
     
@@ -416,54 +497,54 @@ def delete_role(id):
 
     return jsonify({}), 200  
 
-""" Aqui va el  Role_people """
+""" Aqui va el  Rple_users """
 
-@api.route('/role_peoples', methods=['GET'])
-def all_role_peoples():
-    role_peoples = Role_people.query.all()
-    role_peoples = list(map(lambda role_people: role_people.serialize(), role_peoples))
-    return jsonify(role_peoples), 200
+@api.route('/role_users', methods=['GET'])
+def all_role_users():
+    role_users = Role_user.query.all()
+    role_users = list(map(lambda role_user: role_user.serialize(), role_users))
+    return jsonify(role_users), 200
     
 
-@api.route('/role_peoples/<int:id>', methods=['GET'])
-def get_role_people(id):
-    role_peoples = Role_people.query.get(id)
-    return jsonify(role_peoples.serialize()), 200    
+@api.route('/role_users/<int:id>', methods=['GET'])
+def get_role_user(id):
+    role_users = Role_user.query.get(id)
+    return jsonify(role_users.serialize()), 200    
 
 
-@api.route('/role_peoples', methods=['POST']) 
-def create_role_people():
-    people_id = request.json.get('people_id')
+@api.route('/role_users', methods=['POST']) 
+def create_role_user():
+    user_id = request.json.get('user_id')
     roles_id = request.json.get('roles_id')
 
 
-    role_people = Role_people()
-    role_people.people_id = people_id
-    role_people.roles_id = roles_id
+    role_user = Role_user()
+    role_user.user_id = user_id
+    role_user.roles_id = roles_id
 
-    db.session.add(role_people)
+    db.session.add(role_user)
     db.session.commit()
     
-    return jsonify(role_people.serialize()), 201
+    return jsonify(role_user.serialize()), 201
 
-@api.route('/role_peoples/<int:id>', methods=['PUT']) 
-def modificar_role_people(id):
-    people_id = request.json.get('people_id')
+@api.route('/role_users/<int:id>', methods=['PUT']) 
+def modificar_role_user(id):
+    user_id = request.json.get('user_id')
     post_id = request.json.get('post_id')
 
 
-    role_people = Role_people.query.get(id)
-    role_people.people_id = people_id
-    role_people.roles_id = roles_id
+    role_user = Role_user.query.get(id)
+    role_user.user_id = user_id
+    role_user.roles_id = roles_id
     
     db.session.commit()
     
-    return jsonify(role_people.serialize()), 201
+    return jsonify(role_user.serialize()), 201
 
-@api.route('/role_peoples/<int:id>', methods=['DELETE'])
-def delete_role_people(id):
-    role_peoples = Role_people.query.get(id)
-    db.session.delete(role_peoples)
+@api.route('/role_users/<int:id>', methods=['DELETE'])
+def delete_role_user(id):
+    role_users = Role_user.query.get(id)
+    db.session.delete(role_users)
     db.session.commit()
 
     return jsonify({}), 200  
@@ -486,13 +567,13 @@ def get_comment(id):
 @api.route('/comments', methods=['POST']) 
 def create_comment():
     data_comment = request.json.get('data_comment')
-    people_id = request.json.get('people_id')
+    user_id = request.json.get('user_id')
     post_id = request.json.get('post_id')
     
     print(username, email, password, number_phone)
 
     comment = Comment()
-    comment.people_id = people_id
+    comment.user_id = user_id
     comment.post_id = post_id
    
 
@@ -504,13 +585,13 @@ def create_comment():
 @api.route('/comments/<int:id>', methods=['PUT']) 
 def modificar_comment(id):
     data_comment = request.json.get('data_comment')
-    people_id = request.json.get('people_id')
+    user_id = request.json.get('user_id')
     post_id = request.json.get('post_id')
 
 
     comment = Comment.query.get(id)
     comment.data_comment = data_comment
-    comment.people_id = people_id
+    comment.user_id = user_id
     comment.post_id = post_id
     
     db.session.commit()
