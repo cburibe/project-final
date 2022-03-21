@@ -9,6 +9,7 @@ import MyMap from "./pages/Map/view.map";
 import injectContext from "./store/appContext";
 import { Mainpage } from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
+import ScrollToTop from "./component/scrollToTop";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -16,34 +17,36 @@ const Layout = () => {
   return (
     <div>
       <BrowserRouter basename={basename}>
-        <Switch>
-          <Route exact path="/">
-            <Mainpage />
-          </Route>
-          <Route exact path="/config">
-            <Config />
-          </Route>
-          <Route exact path="/map">
-            <Goback />
-            <MyMap />
-          </Route>
-          <Route exact path="/recommendedhotels">
-            <RecommendedHotels />
-          </Route>
-          <Route exact path="/profile">
-            <Profile />
-          </Route>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/">
+              <Mainpage />
+            </Route>
+            <Route exact path="/config">
+              <Config />
+            </Route>
+            <Route exact path="/map">
+              <Goback />
+              <MyMap />
+            </Route>
+            <Route exact path="/recommendedhotels">
+              <RecommendedHotels />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
+            </Route>
 
-          <Route exact path="/feed">
-            <Feed />
-          </Route>
-          <Route exact path="/publication_uploader">
-            <Publication_uploader />
-          </Route>
-          <Route>
-            <h1>Not found!</h1>
-          </Route>
-        </Switch>
+            <Route exact path="/feed">
+              <Feed />
+            </Route>
+            <Route exact path="/publication_uploader">
+              <Publication_uploader />
+            </Route>
+            <Route>
+              <h1>Not found!</h1>
+            </Route>
+          </Switch>
+        </ScrollToTop>
       </BrowserRouter>
     </div>
   );
