@@ -1,31 +1,43 @@
 import React from "react";
-import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import { IoStarSharp } from "react-icons/io5";
 
-export const Hotels = (props) => {
+export const Hotels = () => {
   return (
-    <div className="col">
-      <Card style={{ width: "17rem" }}>
-        <Card.Img
-          variant="top"
-          src="https://cdn.pixabay.com/photo/2017/11/09/22/21/road-2934838_1280.jpg"
-        />
-        <Card.Body>
-          <Card.Title>{props.anfitrion}</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroupItem>Cras justo odio</ListGroupItem>
-          <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-          <ListGroupItem>Vestibulum at eros</ListGroupItem>
-        </ListGroup>
-        <Card.Body>
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
-        </Card.Body>
-      </Card>
+    <div className="card mb-3">
+      <div className="row g-0">
+        <div className="stars">
+          <IoStarSharp />
+          <IoStarSharp />
+          <IoStarSharp />
+          <IoStarSharp />
+          <IoStarSharp />
+        </div>
+        <div className="col-md-4">
+          <img
+            src="https://picsum.photos/id/1029/200/200"
+            className="img-fluid rounded-start"
+            alt="..."
+          />
+        </div>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-title">Hotel de ejemplo</h5>
+            <p className="card-text">Descripcion del hotel</p>
+            <p className="card-text">
+              <small className="text-muted">Last updated 3 mins ago</small>
+            </p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-2 mt-3">
+            <p>
+              ajskljakljasklajklskasklasjaklkas
+              <br />
+              cakejrkoakljapkodrkltjjekldjsklj
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

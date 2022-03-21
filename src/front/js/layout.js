@@ -10,6 +10,10 @@ import injectContext from "./store/appContext";
 import { Mainpage } from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
 import ScrollToTop from "./component/scrollToTop";
+import Login from "./pages/formulario/login";
+import { Demo } from "./pages/profileclient/demo";
+import { Prueba } from "./pages/prueba";
+import { Menu } from "./component/navbar";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -47,6 +51,44 @@ const Layout = () => {
             </Route>
           </Switch>
         </ScrollToTop>
+        <Switch>
+          <Route exact path="/">
+            <Menu />
+            <Mainpage />
+          </Route>
+          <Route exact path="/demo">
+            <Demo />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/config">
+            <Config />
+          </Route>
+          <Route exact path="/map">
+            <Goback />
+            <MyMap />
+          </Route>
+          <Route exact path="/recommendedhotels">
+            <RecommendedHotels />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+
+          <Route exact path="/feed">
+            <Feed />
+          </Route>
+          <Route exact path="/publication_uploader">
+            <Publication_uploader />
+          </Route>
+          <Route>
+            <Prueba />
+          </Route>
+          <Route>
+            <h1>Not found!</h1>
+          </Route>
+        </Switch>
       </BrowserRouter>
     </div>
   );

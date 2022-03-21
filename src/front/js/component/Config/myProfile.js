@@ -1,5 +1,6 @@
 import React from "react";
 import avatar from "../../avatar1.png";
+import "../../../styles/ConfigComp/myprofile.css";
 
 export const MyProfile = () => {
   return (
@@ -10,7 +11,7 @@ export const MyProfile = () => {
             <div className="col text-center">
               <img
                 src="https://res.cloudinary.com/dlb0fs0l8/image/upload/v1647197781/samples/people/boy-snow-hoodie.jpg"
-                className="rounded-circle img-fluid"
+                className="img-fluid img-profile"
                 alt="..."
                 style={{ width: "50%" }}
               />
