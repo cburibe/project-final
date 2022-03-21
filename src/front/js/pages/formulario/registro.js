@@ -16,7 +16,7 @@ const FormRegistro = () => {
       values.email,
       values.username,
       values.password,
-      values.phone
+      values.phone_number
     );
   };
 
@@ -68,7 +68,7 @@ const FormRegistro = () => {
         type="tel"
         placeholder="phone number"
         {...register("phone_number", {
-          required: true,
+          required: "Required",
           minLength: 6,
           maxLength: 12,
         })}

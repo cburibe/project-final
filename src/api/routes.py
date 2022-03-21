@@ -28,6 +28,8 @@ def create_register():
     username = request.json.get('username')
     email = request.json.get('email')
     password = request.json.get('password')
+    is_active = request.json.get('is_active')
+
 
     # validaciones
     # si el email ya se encuentra registrado
@@ -40,6 +42,7 @@ def create_register():
     user.username = username
     user.email = email
     user.password = generate_password_hash(password)
+    user.is_active = is_active
 
     
     # validamos el parametro opcional
@@ -70,7 +73,7 @@ def login_user():
         return jsonify(message=f'el usuario {username} no existe'), 404
     
     if check_password_hash(user.password, password):
-        sessiontime = timedelta(hours=2)
+        sessiontime = datetime.timedelta(hours=2)
         access_token = create_access_token(identity=username, expires_delta=sessiontime)
         return jsonify(access_token=access_token), 200
     else:
