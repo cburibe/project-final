@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-import AuthContext from "./autenticacion";
-import { Link } from "react-router-dom";
+import { Context } from "../../store/appContext";
 import "../../../styles/login.css";
 import Modaluser from "./modalregistro";
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  const { actions } = useContext(Context);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -24,6 +23,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user, pwd);
+    actions.login(user, pwd);
     setUser("");
     setPwd("");
     setSuccess(true);
@@ -61,9 +61,7 @@ const Login = () => {
             required
           />
 
-          <button>
-            <Link to="/profile">Log in</Link>
-          </button>
+          <button type="submit">Log in</button>
         </form>
         <p>
           Need an Account?

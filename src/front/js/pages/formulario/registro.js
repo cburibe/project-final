@@ -1,35 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { Context } from "../../store/appContext";
 import "./formulario.css";
 
 const FormRegistro = () => {
+  const { actions } = useContext(Context);
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
-  const onSubmit = (values) => console.log(values);
+  const onSubmit = (values) => {
+    console.log(values);
+    actions.register(
+      values.email,
+      values.username,
+      values.password,
+      values.phone
+    );
+  };
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      <input
-        className="inp"
-        type="text"
-        placeholder="Firstname"
-        {...register("firstName", { required: true })}
-      />
-      <p className="error">
-        {" "}
-        {errors.firstName?.type === "required" && "First name is required"}
-      </p>
-
-      <input
-        className="inp"
-        type="text"
-        placeholder="Lastname"
-        {...register("lastName", { required: true })}
-      />
-      <p className="error">{errors.lastName && "Last name is required"}</p>
       <input
         className="inp"
         placeholder="Email"
@@ -46,7 +38,7 @@ const FormRegistro = () => {
 
       <input
         className="inp"
-        onFocus="true"
+        onFocus={true}
         placeholder="Username"
         {...register("username", {
           required: "Required",
@@ -71,10 +63,16 @@ const FormRegistro = () => {
         })}
       />
       <p className="error"> {errors.password && errors.password.message}</p>
-      <select className="gender" {...register}>
-        <option value="Mujer">Mujer</option>
-        <option value="Hombre">Hombre</option>
-      </select>
+      <input
+        className="inp"
+        type="tel"
+        placeholder="phone number"
+        {...register("phone_number", {
+          required: true,
+          minLength: 6,
+          maxLength: 12,
+        })}
+      />
 
       <button
         className="button-47"

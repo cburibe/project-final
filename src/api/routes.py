@@ -11,24 +11,36 @@ import datetime
 
 api = Blueprint('api', __name__)
 
+""" @api.route('/register', methods=['GET'])
+def all_user_register():
+    users = User.query.all()
+    users = list(map(lambda user: user.serialize(), users))
 
+    return jsonify(users), 200
+     """
+
+@api.route('/test')
+def test():
+    return jsonify(test='test'),200
 @api.route('/register', methods=['POST']) 
 def create_register():
     # obteniendo los datos del body
     username = request.json.get('username')
     email = request.json.get('email')
     password = request.json.get('password')
+
     # validaciones
     # si el email ya se encuentra registrado
     user = User.query.filter_by(email=email).first()
     if user is not None:
         return jsonify(message=f'El usuario {email} ya existe'), 409 
 
-    # crean el objeto User
+    # creo el objeto User
     user = User()
     user.username = username
     user.email = email
     user.password = generate_password_hash(password)
+
     
     # validamos el parametro opcional
     if request.json.get("number_phone") is not None:
@@ -87,13 +99,23 @@ def create_user():
     number_phone= request.json.get('number_phone')
     is_active = request.json.get('is_active')
 
-    print(username, email, password, number_phone)
+    # print(username, email, password, number_phone)
+    user = User.query.filter_by(email=email).first()
+    if user is not None:
+        return jsonify(message=f'El usuario {email} ya existe'), 409 
+    user = User.query.filter_by(username=username).first()
+    if user is not None:
+        return jsonify(message=f'El username {username} ya existe'), 409 
+
 
     user = User()
     user.username = username
     user.email = email
     user.password = generate_password_hash(password)
-    user.number_phone = number_phone
+    if request.json.get("number_phone") is not None:
+        number_phone= request.json.get('number_phone')
+        user.number_phone = number_phone
+
     user.is_active = is_active
 
     db.session.add(user)

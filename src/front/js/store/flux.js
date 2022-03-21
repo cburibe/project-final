@@ -9,23 +9,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       login: (username, password) => {
         let opt = {
           method: "POST",
-          body: JSON.stringify({
-            username: username,
-            password: password,
-          }),
-        };
-        fetch(
-          "https://3001-cburibe-projectfinal-msxs2qh35ru.ws-us38.gitpod.io/api/login",
-          opt
-        )
-          .then((response) => {return response.json()})
-          .catch((error)=>console.error(error))
-      },
-      register: async (username, password) => {
-        let opt = {
-          method: "POST",
-          headers:{
-            'Content-Type': 'application/json'
+          headers: {
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             username: username,
@@ -33,11 +18,37 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         };
         fetch(
-          "https://3001-cburibe-projectfinal-msxs2qh35ru.ws-us38.gitpod.io/api/register",
+          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/login",
           opt
         )
           .then((response) => {
-            return response.json();
+            const data = response.json();
+            return data;
+          })
+          .catch((error) => console.error(error));
+      },
+      register: async (email, username, password, phone) => {
+        let opt = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            username: username,
+            password: password,
+            number_phone: phone,
+            is_active: true,
+          }),
+        };
+        fetch(
+          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/register",
+          opt
+        )
+          .then((response) => {
+            const data = response.json();
+            console.log(data);
+            return data;
           })
           .catch((error) => console.error(error));
       },
@@ -49,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((result) => console.log(result))
           .catch((error) => console.log("error", error));
       },
-      getPeople: () => {
+      /* getPeople: () => {
         fetch(
           "https://3001-cburibe-projectfinal-msxs2qh35ru.ws-us38.gitpod.io/api/peoples"
         )
@@ -61,8 +72,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             });
           })
           .catch((error) => console.log("error", error));
-      },
-      enviarDatos: (e, mail, pass) => {
+      }, */
+      /* enviarDatos: (e, mail, pass) => {
         e.preventDefault();
         console.log("mail", mail);
         console.log("pass", pass);
@@ -117,7 +128,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           })
           .catch((error) => console.log("error!!!!", error));
-      },
+      }, */
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
         getActions().changeColor(0, "green");

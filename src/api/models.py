@@ -22,7 +22,7 @@ class User(db.Model):
     score_rel = db.relationship('Score', backref="user", lazy=True)
     role_user_rel = db.relationship('Role_user', backref="user", lazy=True)
     comment_rel = db.relationship('Comment', backref="user", lazy=True)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    is_active = db.Column(db.Boolean(), unique=False)
 
     def __repr__(self):
         return '<User %r>' % self.username
