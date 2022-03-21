@@ -49,7 +49,7 @@ class User(db.Model):
         db.session.commit()
     def delete(self):
         db.session.delete(self)
-        db.session.commit()    
+        db.session.commit()
 
 class Role_user(db.Model):
     __tablename__="role_user"
@@ -62,7 +62,6 @@ class Role_user(db.Model):
             "id": self.id,
             "user_id": self.user_id,
            "roles_id": self.roles_id
-          
         }
     def save(self):
         db.session.add(self)
@@ -71,7 +70,7 @@ class Role_user(db.Model):
         db.session.commit()
     def delete(self):
         db.session.delete(self)
-        db.session.commit()    
+        db.session.commit()
 
 
 class Role(db.Model):
@@ -84,7 +83,6 @@ class Role(db.Model):
         return {
             "id": self.id,
             "rol_names":self.rol_names
-            
         }
     def save(self):
         db.session.add(self)
@@ -93,7 +91,7 @@ class Role(db.Model):
         db.session.commit()
     def delete(self):
         db.session.delete(self)
-        db.session.commit()    
+        db.session.commit()
 
 class Place(db.Model):
     __tablename__="place"
@@ -126,7 +124,7 @@ class Place(db.Model):
         db.session.commit()
     def delete(self):
         db.session.delete(self)
-        db.session.commit()    
+        db.session.commit()
 
 class Post(db.Model):
     __tablename__="post"
@@ -143,9 +141,8 @@ class Post(db.Model):
         return {
             "id": self.id,
             "text": self.text,
-           "user_id": self.user_id,
-           "place_id": self.place_id,
-          
+           "people_id": self.people_id,
+           "place_id": self.place_id
         }
     def save(self):
         db.session.add(self)
@@ -154,7 +151,7 @@ class Post(db.Model):
         db.session.commit()
     def delete(self):
         db.session.delete(self)
-        db.session.commit()    
+        db.session.commit() 
 
 
 class Comment(db.Model):

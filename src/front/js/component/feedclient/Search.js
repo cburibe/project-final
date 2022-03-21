@@ -26,7 +26,7 @@ export const Searching = () => {
       />
       <div className="container mt-4">
         <div className="d-flex justify-content-center ">
-          <Link className="nav-link active " to="/">
+          <Link className="nav-link active " to="publication_uploader">
             <button type="button" className=" add rounded-circle btn btn-dark">
               <BiImageAdd className="button_add" />
             </button>

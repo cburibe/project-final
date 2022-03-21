@@ -1,42 +1,28 @@
-.post___avatar {
-  margin-left: 6px;
-  font-size: 38px;
-  float: left;
+.post_card {
+  max-width: 40rem;
+  max-height: 50rem;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-.card__header {
-  background-color: rgba(255, 255, 255, 0.877);
+.post_icons {
+  margin-top: -18px;
 }
-.card__body {
-  background-color: rgba(255, 255, 255, 0.877);
-}
-
-.post__feed {
-  margin-top: 6rem;
-  width: 41rem;
-  border: 1px solid lightgray;
-  padding: 0;
+.post_h5,
+.post_ImBin {
+  display: inline-block;
 }
 
-.heartcard_icon,
-.comment2card_icon,
-.sendcard_icon,
-.locationcard_icon {
+.post_BiComment,
+.post_FaHeart,
+.post_GrMapLocation {
   font-size: 25px;
 }
-
-.post___description {
-  font-weight: normal;
-  padding-top: 6px;
+.post_FaHeart,
+.post__description_h5 {
+  margin-left: -18px;
 }
-.card__header {
-  display: flex;
-  align-items: center;
-  padding: 7px;
-}
-.post___img {
-  width: 100%;
-  height: 30rem;
-}
-.post_f {
-  margin-top: 0rem;
+.post_GrMapLocation {
+  margin-right: -18px;
+  margin-top: 3px;
 }

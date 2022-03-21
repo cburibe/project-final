@@ -1,47 +1,29 @@
-.cartaimg_avatar {
-  float: left;
+.Cardimg_card {
+  max-height: 30rem;
+  max-width: 34rem;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-.cartaimg_div_header {
-  background-color: rgba(255, 255, 255, 0.877);
+.Cardimg_h5,
+.Cardimg_ImBin {
+  display: inline-block;
+  font-size: 18px;
 }
-.cartaimg_body {
-  background-color: rgba(255, 255, 255, 0.877);
-}
-
-.cartaimg_post {
-  width: 34rem;
-  border: 1px solid lightgray;
-  border: 1px solid lightgray;
-  margin: 0;
-  margin-top: 70px;
+.Cardimg_icons {
+  margin-top: -18px;
 }
 
-.cartaimg_heartcardicon,
-.cartaimg_comment2cardicon,
-.cartaimg_locationcardicon {
-  font-size: 25px;
+.Cardimg_FaHeart,
+.Cardimg_GrMapLocation,
+.Cardimg_BiComment {
+  font-size: 20px;
 }
-
+.Cardimg_FaHeart,
 .cartaimg_post__description {
-  font-weight: normal;
+  margin-left: -10px;
 }
-.cartaimg_div_header {
-  display: flex;
-  align-items: center;
+.Cardimg_GrMapLocation {
+  margin-top: 4px;
+  margin-right: -10px;
 }
-.cartaimg_avatar {
-  margin-right: 10px;
-  font-size: 38px;
-}
-.cartaimg_img {
-  width: 100%;
-  height: 28rem;
-}
-.cartaimg_buttons_post {
-  margin-top: -10px;
-}
-/* .cartaimg_input {
-  outline: none;
-  background-color: transparent;
-  max-width: fit-content;
-} */
