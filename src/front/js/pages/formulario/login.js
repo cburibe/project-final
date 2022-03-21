@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { Context } from "../../store/appContext";
 import "../../../styles/login.css";
 import Modaluser from "./modalregistro";
+
 const Login = () => {
   const { actions } = useContext(Context);
   const userRef = useRef();
