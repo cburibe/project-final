@@ -1,11 +1,13 @@
 .icon {
-  font-size: 50px;
+  font-size: 30px;
   float: right;
   padding: 0px;
   justify-content: end;
   color: black;
-  margin-top: 20px;
-  margin-left: 20px;
+}
+.texto {
+  float: right;
+  padding: auto;
 }
 .container-fluid {
   padding: 0;

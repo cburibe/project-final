@@ -65,15 +65,6 @@ const Login = () => {
           />
           <button type="submit">Log in</button>
         </form>
-        <p>
-          Need an Account?
-          <br />
-          <span className="line">
-            <a href="#">
-              <Modaluser />
-            </a>
-          </span>
-        </p>
       </section>
     </>
   );
