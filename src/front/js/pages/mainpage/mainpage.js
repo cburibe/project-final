@@ -1,38 +1,95 @@
 import React from "react";
-import ImageSlidere from "../../carousel/carouselV";
-import { Sliderimg } from "../../carousel/storeimg";
-import Actividades from "../../actividades/main";
-import Muestras from "../../videos/fotos/muestras";
-import "../mainpage/mainpage.css";
+import { NavMain } from "../../component/navbar";
+import MyMap from "../Map/view.map";
+import { FaHiking, FaSnowboarding, FaBiking, FaSwimmer } from "react-icons/fa";
+import { GiMountainClimbing } from "react-icons/gi";
+import "/workspace/project-final/src/front/styles/Main.css";
 
-export const Mainpage = () => {
-  const imgs = {
-    urlImagen1: "https://picsum.photos/id/1039/800/500",
-    urlImagen2: "https://picsum.photos/id/1044/800/500",
-    urlImagen3: "https://picsum.photos/id/1050/800/500",
-    urlImagen4: "https://picsum.photos/id/1057/800/500",
-    urlImagen5: "https://picsum.photos/id/15/800/500",
-  };
+const Mainpage = () => {
   return (
-    <>
-      <div className="header">
-        <h1 className="titulo">TurismoSocial</h1>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-10">
-            <ImageSlidere slides={Sliderimg} />
-          </div>
-          <div className="col-md-1 mt-5 ms-5">
-            <Actividades />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <Muestras imgs={imgs} />
-          </div>
+    <div id="contenedor" className="container-fluid">
+      <h1 className="titulo pt-5 ps-5">TurismoSocial</h1>
+      <span className="logs">Registro</span>
+      <br />
+      <span className="logs">Ingresar</span>
+      <div className="row row-cols-12 row-cols-lg-12 align-items-stretch g-4 py-5">
+        <div className="col-md-12 mb-5">
+          <NavMain />
         </div>
       </div>
-    </>
+      <div className="row row-cols-12 row-cols-lg-12 align-items-stretch g-4 py-5">
+        <nav
+          id="actividades"
+          className="d-flex justify-content-center bg-success"
+        >
+          <div className="nav nav-tabs" id="nav-tab" role="tablist">
+            <button
+              className="nav-link active"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+            >
+              <FaBiking />
+            </button>
+            <button
+              className="nav-link"
+              id="nav-profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-profile"
+              type="button"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+            >
+              <FaHiking />
+            </button>
+            <button
+              className="nav-link"
+              id="nav-contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+            >
+              <FaSwimmer />
+            </button>
+          </div>
+        </nav>
+        <div className="tab-content" id="nav-tabContent">
+          <div
+            className="tab-pane fade show active"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            <MyMap className="" />
+          </div>
+          <div
+            className="tab-pane fade"
+            id="nav-profile"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            ...
+          </div>
+          <div
+            className="tab-pane fade"
+            id="nav-contact"
+            role="tabpanel"
+            aria-labelledby="nav-contact-tab"
+          >
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
+
+export default Mainpage;

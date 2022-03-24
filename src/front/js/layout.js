@@ -7,12 +7,11 @@ import { Config } from "./pages/config";
 import { RecommendedHotels } from "./pages/recommendedHotels";
 import MyMap from "./pages/Map/view.map";
 import injectContext from "./store/appContext";
-import { Mainpage } from "./pages/mainpage/mainpage";
+import Mainpage from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
 import Login from "./pages/formulario/login";
 import { Demo } from "./pages/profileclient/demo";
 import { Prueba } from "./pages/prueba";
-import { Menu } from "./component/navbar";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -22,7 +21,6 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <Switch>
           <Route exact path="/">
-            <Menu />
             <Mainpage />
           </Route>
           <Route exact path="/demo">
