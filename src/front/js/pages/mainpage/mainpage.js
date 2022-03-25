@@ -4,6 +4,8 @@ import MyMap from "../Map/view.map";
 import { FaHiking, FaSnowboarding, FaBiking, FaSwimmer } from "react-icons/fa";
 import { GiMountainClimbing } from "react-icons/gi";
 import "/workspace/project-final/src/front/styles/Main.css";
+import MyMapsnow from "../Map/snowboard";
+import MyMapSwim from "../Map/swim";
 
 const Mainpage = () => {
   return (
@@ -33,7 +35,7 @@ const Mainpage = () => {
               aria-controls="nav-home"
               aria-selected="true"
             >
-              <FaBiking />
+              <FaBiking className="icon" />
             </button>
             <button
               className="nav-link"
@@ -45,7 +47,7 @@ const Mainpage = () => {
               aria-controls="nav-profile"
               aria-selected="false"
             >
-              <FaHiking />
+              <FaSnowboarding className="icon" />
             </button>
             <button
               className="nav-link"
@@ -57,7 +59,7 @@ const Mainpage = () => {
               aria-controls="nav-contact"
               aria-selected="false"
             >
-              <FaSwimmer />
+              <FaSwimmer className="icon" />
             </button>
           </div>
         </nav>
@@ -76,7 +78,7 @@ const Mainpage = () => {
             role="tabpanel"
             aria-labelledby="nav-profile-tab"
           >
-            ...
+            <MyMapsnow />
           </div>
           <div
             className="tab-pane fade"
@@ -84,7 +86,7 @@ const Mainpage = () => {
             role="tabpanel"
             aria-labelledby="nav-contact-tab"
           >
-            ...
+            <MyMapSwim />
           </div>
         </div>
       </div>
