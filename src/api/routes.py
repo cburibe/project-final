@@ -8,6 +8,7 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token 
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
+import sys
 
 api = Blueprint('api', __name__)
 
@@ -72,7 +73,7 @@ def login_user():
     if user is None:
         return jsonify(message=f'el usuario {username} no existe'), 404
     
-    if check_password_hash(user.password, password):
+    if check_password_hash(user.password, password) is True:
         sessiontime = datetime.timedelta(hours=2)
         access_token = create_access_token(identity=username, expires_delta=sessiontime)
         return jsonify(access_token=access_token), 200
@@ -93,6 +94,16 @@ def get_user(id):
     users = User.query.get(id)
     return jsonify(users.serialize()), 200    
 
+@api.route('/users/info', methods=['GET'])
+@jwt_required()
+def get_user_info():
+    current_user = get_jwt_identity()
+    if current_user is None:
+        return jsonify(message='no token provided'),400
+    user = User.query.filter_by(username=current_user).first()
+    if user is None:
+        return jsonify(message='user not found'),404
+    return jsonify(user.serialize()), 200
 
 @api.route('/users', methods=['POST']) 
 def create_user():
@@ -228,6 +239,41 @@ def all_posts():
     posts = list(map(lambda post: post.serialize(), posts))
     return jsonify(posts), 200
     
+@api.route('/users/<string:username>/posts', methods=['GET'])
+@jwt_required()
+def get_user_posts(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        return jsonify(message=f'usuario {username} no existe'), 404
+    posts = Post.query.filter_by(user_id=user.id).all()
+    print(posts, file=sys.stderr)
+    return jsonify([post.serialize() for post in posts]), 200
+
+
+@api.route('/users/<string:username>/posts', methods=['POST'])
+@jwt_required()
+def create_user_post(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        return jsonify(message=f'username {username} not found'), 404
+    data = request.json
+    # create new object
+    new_post = Post()
+    #datos obligatorios
+    new_post.user_id = user.id
+    #datos opcionales
+    if data.get('place_id') is not None or data.get('place_id')!='':
+        new_post.place_id = int(data.get('place_id'))
+    if data.get('text') is not None or data.get('text')!='':
+        new_post.text = data.get('text')
+    
+    #add to db
+    db.session.add(new_post)
+    db.session.commit()
+
+    return jsonify(new_post.serialize()), 201 
+
+
 
 @api.route('/posts/<int:id>', methods=['GET'])
 def get_post(id):

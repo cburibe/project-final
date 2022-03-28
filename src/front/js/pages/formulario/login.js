@@ -24,12 +24,20 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user, pwd);
-    actions.login(user, pwd);
-    setUser("");
-    setPwd("");
-    setSuccess(true);
-    history.push("/profile");
+    try {
+      console.log(user, pwd);
+      let response = await actions.login2(user, pwd);
+      console.log(response);
+      setUser("");
+      setPwd("");
+      setSuccess(true);
+      history.push(`/profile/${user}`);
+    } catch (e) {
+      if (e.message === "401") {
+        alert("usuario y o contraseña no coinciden");
+      }
+      console.error(e);
+    }
   };
   return (
     <>

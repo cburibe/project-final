@@ -1,11 +1,106 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      base_url:
+        "https://3001-cburibe-projectfinal-mpwtb6wqvam.ws-us38.gitpod.io",
       people: null,
       background: "white",
       initial: "white",
+      user: {
+        email: "",
+        username: "",
+        number_phone: "",
+      },
+      user_posts: [],
     },
     actions: {
+      login2: async (username, password) => {
+        let store = getStore();
+        let opt = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
+        };
+        let response = await fetch(`${store.base_url}/api/login`, opt);
+        if (response.status !== 200) throw new Error(response.message);
+        let data = await response.json();
+        localStorage.setItem("access_token", data.access_token);
+        return data;
+      },
+      userInfo: async () => {
+        let store = getStore();
+        let access_token = localStorage.getItem("access_token");
+        let opt = {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        };
+        try {
+          const response = await fetch(`${store.base_url}/api/users/info`, opt);
+          if (response.status !== 200)
+            throw new Error(response.status, "error");
+          const data = await response.json();
+          setStore({
+            user: { ...data },
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      },
+      getUserPosts: async (username) => {
+        const store = getStore();
+        let access_token = localStorage.getItem("access_token");
+
+        let opt = {
+          method: "GET",
+          headers: { Authorization: `Bearer ${access_token}` },
+        };
+        try {
+          const response = await fetch(
+            `${store.base_url}/api/users/${username}/posts`,
+            opt
+          );
+          if (response.status !== 200) throw new Error(response.status);
+          const data = await response.json();
+          setStore({
+            ...store,
+            user_posts: [...data],
+          });
+          return data;
+        } catch (error) {
+          console.error(error);
+        }
+      },
+      createPost: async (text, place, username) => {
+        const store = getStore();
+        let access_token = localStorage.getItem("access_token");
+        let opt = {
+          method: "POST",
+          headers: { Authorization: `Bearer ${access_token}` },
+          body: JSON.stringify({
+            text: text,
+            place_id: place,
+          }),
+        };
+        try {
+          const response = await fetch(
+            `${store.base_url}/api/users/${username}/posts`, opt
+          );
+          if(response.status !==201) throw Error(response.status)
+          const data = await response.json()
+          const actions =  getActions();
+          await actions.getUserPosts(username)
+          return data
+        } catch (error) {
+          console.error(error);
+        }
+      },
       login: (username, password) => {
         let opt = {
           method: "POST",
@@ -18,7 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         };
         fetch(
-          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/login",
+          "https://3001-cburibe-projectfinal-mpwtb6wqvam.ws-us38.gitpod.io/api/login",
           opt
         )
           .then((response) => {
@@ -26,10 +121,26 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .then((data) => {
             console.log(data);
-            //aca te da la respuesta del fetch
-            history.push("/profile");
+            let store = getStore();
+            setStore({ ...store, user: { ...data } });
+            return data;
           })
           .catch((error) => console.error(error));
+      },
+      logout: () => {
+        setStore({
+          base_url:
+            "https://3001-cburibe-projectfinal-mpwtb6wqvam.ws-us38.gitpod.io",
+          people: null,
+          background: "white",
+          initial: "white",
+          user: {
+            email: "",
+            username: "",
+            number_phone: "",
+          },
+        });
+        localStorage.removeItem("access_token");
       },
       register: async (email, username, password, number_phone) => {
         let opt = {
@@ -46,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         };
         fetch(
-          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/register",
+          "https://3001-cburibe-projectfinal-mpwtb6wqvam.ws-us38.gitpod.io/api/register",
           opt
         )
           .then((response) => {
