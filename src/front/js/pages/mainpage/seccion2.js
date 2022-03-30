@@ -23,7 +23,7 @@ const Seccion2 = () => {
       </div>
       <div className="col-sm-12 col-md-6 col-lg-4 ">
         <img
-          className="img1 d-flex pt-2 img-fluid mx-auto"
+          className="img1 pt-2 img-fluid"
           src="https://nonvillage.jp/wp-content/uploads/2020/10/pexels-photo-4555613-e1604067660553.jpeg"
         />
       </div>

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { Context } from "../../store/appContext";
 import "../../../styles/login.css";
 import { useHistory } from "react-router-dom";
-const Login = () => {
+const NewLogin = () => {
   const history = useHistory();
   const { actions } = useContext(Context);
   const userRef = useRef();
@@ -32,7 +32,7 @@ const Login = () => {
   };
   return (
     <>
-      <section className="form">
+      <section className="form1 mt-5">
         <p
           ref={errRef}
           className={errMsg ? "errmsg" : "offscreen"}
@@ -69,4 +69,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default NewLogin;

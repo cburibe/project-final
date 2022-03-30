@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Footer } from "../../component/footer";
 import { NavMain } from "../../component/navbar";
 import Seccion1 from "./seccion1";
 import Seccion2 from "./seccion2";
@@ -16,10 +18,16 @@ const Mainpage = () => {
         TurismoSocial
       </h1>
       <div className="R order-2">
-        <span className="logs ps-5 mb-5">Registro</span>
+        <Link className="link" to="/login">
+          <span className="logs ps-5 mb-5">Ingresar</span>
+        </Link>
       </div>
       <div className="L order-1">
-        <span className="logs mb-5">Ingresar</span>
+        <span className="logs mb-5">
+          <a className="regis" href="#ancla-1">
+            Registro
+          </a>
+        </span>
       </div>
       <div className="row row-cols-12 row-cols-lg-12 align-items-stretch mt-5  py-5">
         <div className="col-md-12 mb-5">
@@ -27,7 +35,7 @@ const Mainpage = () => {
         </div>
       </div>
 
-      <div className="row row-cols-12 row-cols-lg-12 bg-light">
+      <div className="row row-cols-12 row-cols-lg-12 bg-light mt-5">
         <Seccion1 />
 
         <div id="Somos" className="row row-cols-1 row-cols-lg-3 ">
@@ -50,6 +58,7 @@ const Mainpage = () => {
         <Seccion5 />
         <Seccion6 />
         <Seccion7 />
+        <Footer />
       </div>
     </div>
   );

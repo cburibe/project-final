@@ -9,6 +9,9 @@ h1 {
   border: 3px;
   border-color: chartreuse;
 }
+.regis {
+  color: black;
+}
 .logs {
   float: right;
   font-weight: bold;

@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "./login";
+import NewLogin from "../mainpage/newlogin";
 
 const ModalLogin = () => {
   return (
@@ -23,7 +23,7 @@ const ModalLogin = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
-              <Login />
+              <NewLogin />
             </div>
           </div>
         </div>

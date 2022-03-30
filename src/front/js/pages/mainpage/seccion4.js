@@ -20,7 +20,7 @@ const Seccion4 = () => {
           <BsFillHouseFill className="houseicon mt-4" />
         </div>
       </div>
-      <div className="row row-cols-12 row-cols-lg-12 ">
+      <div className="row row-cols-12 row-cols-lg-12 row-cols-sm-12 ">
         <div
           className="card mx-auto mb-3"
           style={{ maxWidth: 440, maxHeight: 500 }}

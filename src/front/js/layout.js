@@ -9,9 +9,9 @@ import MyMap from "./pages/Map/view.map";
 import injectContext from "./store/appContext";
 import Mainpage from "./pages/mainpage/mainpage";
 import Goback from "./pages/Map/goback";
-import Login from "./pages/formulario/login";
 import { Demo } from "./pages/profileclient/demo";
 import { Prueba } from "./pages/prueba";
+import NewLogin from "./pages/mainpage/newlogin";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -27,7 +27,7 @@ const Layout = () => {
             <Demo />
           </Route>
           <Route exact path="/login">
-            <Login />
+            <NewLogin />
           </Route>
           <Route exact path="/config">
             <Config />

@@ -22,16 +22,19 @@ const Seccion6 = () => {
 
   return (
     <form
+      name="registro"
       className="form col-md-12 col-sm-6 mt-5 d-flex flex-column"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h4 className="reg6">Registro</h4>
+      <h4 className="reg6">
+        <a name="ancla-1">Registro</a>
+      </h4>
       <input
         className="inp"
         placeholder="Email"
         type="email"
         {...register("email", {
-          required: "Required",
+          required: "invalid email address",
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
             message: "invalid email address",
