@@ -3,7 +3,7 @@ import "../../styles/navbar.css";
 
 export const NavMain = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-none pb-5">
+    <nav className="navbar navbar-expand-lg navbar-light bg-none pb-5  mx-auto">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
