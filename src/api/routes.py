@@ -263,7 +263,7 @@ def create_user_post(username):
     new_post.user_id = user.id
     #datos opcionales
     if data.get('place_id') is not None or data.get('place_id')!='':
-        new_post.place_id = int(data.get('place_id'))
+        new_post.place_id = data.get('place_id')
     if data.get('text') is not None or data.get('text')!='':
         new_post.text = data.get('text')
     

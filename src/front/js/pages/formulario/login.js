@@ -26,7 +26,7 @@ const Login = () => {
     e.preventDefault();
     try {
       console.log(user, pwd);
-      let response = await actions.login2(user, pwd);
+      let response = await actions.login(user, pwd);
       console.log(response);
       setUser("");
       setPwd("");

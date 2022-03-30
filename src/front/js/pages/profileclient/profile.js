@@ -12,6 +12,8 @@ export const Profile = (props) => {
   const input_place = useRef(null);
   const input_photo = useRef(null);
   const [show, setShow] = useState(false);
+  const [imageSrc, setImageSrc] = React.useState(null);
+
   useEffect(() => {
     async function getInfo() {
       await actions.userInfo();
@@ -27,12 +29,29 @@ export const Profile = (props) => {
   const handleCreatePost = async (e) => {
     e.preventDefault();
     let text = input_text.current.value;
-    let place = input_place.current.value;
-    let photo = input_photo.current.value;
     try {
-      await actions.createPost(text, place, params.username);
+      await actions.createPost(text, params.username);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleUpload = async (image) => {
+    const data = await fetch()
+  };
+  const readFile = (file)=>{
+    return new Promise((resolve)=>{
+      const reader = new FileReader()
+      reader.addEventListener('load',()=>resolve(reader.result),false)
+      reader.readAsDataURL(file)
+    })
+  }
+  const onFileChange = async (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      let imageDataUrl = await readFile(file);
+      setImageSrc(imageDataUrl);
+      console.log(imageSrc);
     }
   };
   return (
@@ -48,42 +67,43 @@ export const Profile = (props) => {
           setShow(!show);
         }}
       >
-        este es un boton
+        Añadir publicación
       </div>
       {show && (
         <>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Texto
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               ref={input_text}
               id="exampleFormControlInput1"
               placeholder="comentario"
             />
           </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">
+          {/*<div className="mb-3">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Lugar
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleFormControlInput1"
               placeholder="lugar"
             />
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">
-              foto
+          </div>*/}
+          <div className="mb-3">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
+              foto de perfil
             </label>
             <input
-              type="text"
-              class="form-control"
+              type="file"
+              className="form-control"
               id="exampleFormControlInput1"
-              placeholder="foto"
+              name="file"
+              onChange={onFileChange}
             />
           </div>
           <div className="btn btn-primary" onClick={(e) => handleCreatePost(e)}>

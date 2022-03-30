@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       base_url:
-        "https://3001-cburibe-projectfinal-mpwtb6wqvam.ws-us38.gitpod.io",
+        "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io",
       people: null,
       background: "white",
       initial: "white",
@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       user_posts: [],
     },
     actions: {
-      login2: async (username, password) => {
+      login: async (username, password) => {
         let store = getStore();
         let opt = {
           method: "POST",
@@ -77,55 +77,32 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error(error);
         }
       },
-      createPost: async (text, place, username) => {
+      createPost: async (text, username) => {
         const store = getStore();
         let access_token = localStorage.getItem("access_token");
         let opt = {
           method: "POST",
-          headers: { Authorization: `Bearer ${access_token}` },
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             text: text,
-            place_id: place,
           }),
         };
         try {
           const response = await fetch(
-            `${store.base_url}/api/users/${username}/posts`, opt
+            `${store.base_url}/api/users/${username}/posts`,
+            opt
           );
-          if(response.status !==201) throw Error(response.status)
-          const data = await response.json()
-          const actions =  getActions();
-          await actions.getUserPosts(username)
-          return data
+          if (response.status !== 201) throw Error(response.status);
+          const data = await response.json();
+          const actions = getActions();
+          await actions.getUserPosts(username);
+          return data;
         } catch (error) {
           console.error(error);
         }
-      },
-      login: (username, password) => {
-        let opt = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: username,
-            password: password,
-          }),
-        };
-        fetch(
-          "https://3001-cburibe-projectfinal-mpwtb6wqvam.ws-us38.gitpod.io/api/login",
-          opt
-        )
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data);
-            let store = getStore();
-            setStore({ ...store, user: { ...data } });
-            return data;
-          })
-          .catch((error) => console.error(error));
       },
       logout: () => {
         setStore({
@@ -143,6 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem("access_token");
       },
       register: async (email, username, password, number_phone) => {
+        const store = getStore();
         let opt = {
           method: "POST",
           headers: {
@@ -156,114 +134,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             is_active: true,
           }),
         };
-        fetch(
-          "https://3001-cburibe-projectfinal-mpwtb6wqvam.ws-us38.gitpod.io/api/register",
-          opt
-        )
+        fetch(`${store.base_url}/api/register`, opt)
           .then((response) => {
             return response.json();
           })
           .catch((error) => console.error(error));
-      },
-      /* test: () => {
-        fetch(
-          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/test"
-        )
-          .then((response) => response.text())
-          .then((result) => console.log(result))
-          .catch((error) => console.log("error", error));
-      },
-      getPeople: () => {
-        fetch(
-          "https://3001-cburibe-projectfinal-msxs2qh35ru.ws-us38.gitpod.io/api/peoples"
-        )
-          .then((response) => response.json()) // entonces la respuesta de la api pasa a formato json
-          .then((objeto) => {
-            console.log(objeto);
-            setStore({
-              people: objeto.results,
-            });
-          })
-          .catch((error) => console.log("error", error));
-      },
-      enviarDatos: (e, mail, pass) => {
-        e.preventDefault();
-        console.log("mail", mail);
-        console.log("pass", pass);
-
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({
-          email: mail,
-          password: pass,
-        });
-
-        var requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: raw,
-          redirect: "follow",
-        };
-
-        fetch(
-          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/register",
-          requestOptions
-        )
-          .then((response) => response.json())
-          .then((result) => {
-            console.log(result);
-            sessionStorage.setItem("token", result.token);
-            setStore({ logged: true });
-          })
-          .c0atch((error) => console.log("error", error));
-      },
-      check: () => {
-        let token = sessionStorage.getItem("token");
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", `Bearer ${token}`);
-
-        var requestOptions = {
-          method: "GET",
-          headers: myHeaders,
-          redirect: "follow",
-        };
-
-        fetch(
-          "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io/api/privado",
-          requestOptions
-        )
-          .then((response) => response.json())
-          .then((result) => {
-            if (result.usuario != undefined) {
-              setStore({ logged: true });
-              console.log(getStore());
-            }
-          })
-          .catch((error) => console.log("error!!!!", error));
-      },
- */ // Use getActions to call a function within a fuction
-      exampleFunction: () => {
-        getActions().changeColor(0, "green");
-      },
-      loadSomeData: () => {
-        /**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-      },
-      changeColor: (index, color) => {
-        //get the store
-        const store = getStore();
-
-        //we have to loop the entire demo array to look for the respective index
-        //and change its color
-        const demo = store.demo.map((elm, i) => {
-          if (i === index) elm.background = color;
-          return elm;
-        });
-
-        //reset the global store
-        setStore({ demo: demo });
       },
     },
   };
