@@ -1,0 +1,19 @@
+.regis4 {
+  background-color: white;
+  border-color: #47af20;
+  color: #47af20;
+  font-size: 20px;
+}
+.card-title {
+  color: #47af20;
+}
+.card-text {
+  text-decoration: solid;
+}
+.hotel {
+  height: 300px;
+}
+.imagen {
+  min-height: 300px;
+  object-fit: cover;
+}

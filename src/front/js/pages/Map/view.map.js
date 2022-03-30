@@ -9,13 +9,13 @@ const MyMap = ({ lat = -33.4513, long = -70.6653 }) => {
   }, []);
 
   function loadMap() {
-    const map = L.map("map").setView([lat, long], 12);
+    const map = L.map("map").setView([lat, long], 13);
     const marker = L.marker([-33.42527778, -70.63333333]).addTo(map);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      mapZoom: 12,
+      mapZoom: 7,
       center: true,
     }).addTo(map);
 
