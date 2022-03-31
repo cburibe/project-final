@@ -12,6 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         number_phone: "",
       },
       user_posts: [],
+      aux_photo: null,
     },
     actions: {
       login: async (username, password) => {
@@ -77,6 +78,16 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error(error);
         }
       },
+      convertBase64: (file) => {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          setStore({
+            aux_photo: reader.result,
+          });
+          console.log(reader.result);
+        };
+      },
       createPost: async (text, username) => {
         const store = getStore();
         let access_token = localStorage.getItem("access_token");
@@ -102,6 +113,27 @@ const getState = ({ getStore, getActions, setStore }) => {
           return data;
         } catch (error) {
           console.error(error);
+        }
+      },
+      createResource: async (base64, type, post_id) => {
+        const store = getStore();
+        let access_token = localStorage.getItem("access_token");
+        let opt = {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            base64resource: base64,
+            resource_type: type,
+            post_id: post_id,
+          })
+        };
+        try {
+          const response = await fetch(`${store.base_url}/`)
+        } catch (error) {
+          console.error("error in create resource", error);
         }
       },
       logout: () => {

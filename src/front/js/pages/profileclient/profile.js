@@ -46,13 +46,10 @@ export const Profile = (props) => {
       reader.readAsDataURL(file)
     })
   }
-  const onFileChange = async (e) => {
-    if (e.target.files && e.target.files.length > 0) {
+  const onFileChange = (e) => {
       const file = e.target.files[0];
-      let imageDataUrl = await readFile(file);
-      setImageSrc(imageDataUrl);
-      console.log(imageSrc);
-    }
+      actions.convertBase64(file)
+    
   };
   return (
     <div className="container-fluid">
@@ -103,7 +100,8 @@ export const Profile = (props) => {
               className="form-control"
               id="exampleFormControlInput1"
               name="file"
-              onChange={onFileChange}
+              accept="image/png, .jpg, .jpeg"
+              onChange={e=>onFileChange(e)}
             />
           </div>
           <div className="btn btn-primary" onClick={(e) => handleCreatePost(e)}>

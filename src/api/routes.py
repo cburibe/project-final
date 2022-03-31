@@ -273,7 +273,13 @@ def create_user_post(username):
 
     return jsonify(new_post.serialize()), 201 
 
-
+@api.route('/users/<string:username>/resource', methods=['POST'])
+@jwt_required()
+def create_post_resource(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        return jsonify('el usuario no existe'),404
+    
 
 @api.route('/posts/<int:id>', methods=['GET'])
 def get_post(id):
