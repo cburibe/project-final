@@ -45,7 +45,6 @@ const Seccion6 = () => {
 
       <input
         className="inp"
-        onFocus={true}
         placeholder="Username"
         {...register("username", {
           required: "Required",
