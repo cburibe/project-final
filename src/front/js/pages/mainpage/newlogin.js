@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { Context } from "../../store/appContext";
-import "../../../styles/login.css";
 import { useHistory } from "react-router-dom";
+import "../../../styles/login.css";
 const NewLogin = () => {
   const history = useHistory();
   const { actions } = useContext(Context);
