@@ -13,7 +13,9 @@ const Perfil = () => {
     <>
       <div className="row">
         <div className="col-md-12 mx-auto">
-          <MdHome className="iconhouse justify-content-between" />
+          <Link className="link" to="/feed">
+            <MdHome className="iconhouse justify-content-between" />
+          </Link>
           <Link className="link" to="/">
             <MdOutlineRunCircle className="iconout ms-3" />
           </Link>
