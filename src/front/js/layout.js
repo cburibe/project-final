@@ -5,6 +5,7 @@ import injectContext from "./store/appContext";
 import Mainpage from "./pages/mainpage/mainpage";
 import NewLogin from "./pages/mainpage/newlogin";
 import Perfil from "./pages/perfil/perfiluser";
+import Feed from "./pages/mainpage/newfeed/newfeed";
 
 const Layout = () => {
   const basename = process.env.BASENAME || "";
@@ -24,6 +25,9 @@ const Layout = () => {
           </Route>
           <Route exact path="/perfil">
             <Perfil />
+          </Route>
+          <Route exact path="/feed">
+            <Feed />
           </Route>
           <Route>
             <h1>Not found!</h1>

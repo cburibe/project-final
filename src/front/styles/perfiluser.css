@@ -28,6 +28,13 @@ body {
   font-size: 30px;
   float: right;
 }
+.iconout {
+  font-size: 30px;
+  float: right;
+}
 .boton {
   background-color: #c5ff8d;
+}
+.link {
+  color: black;
 }

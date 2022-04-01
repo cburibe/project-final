@@ -1,6 +1,11 @@
 import React from "react";
 import { FiMapPin, FiUser, FiImage } from "react-icons/fi";
-import { MdHome, MdOutlineSettingsApplications } from "react-icons/md";
+import {
+  MdHome,
+  MdOutlineSettingsApplications,
+  MdOutlineRunCircle,
+} from "react-icons/md";
+import { Link } from "react-router-dom";
 import "/workspace/project-final/src/front/styles/perfiluser.css";
 
 const Perfil = () => {
@@ -9,16 +14,20 @@ const Perfil = () => {
       <div className="row">
         <div className="col-md-12 mx-auto">
           <MdHome className="iconhouse justify-content-between" />
-          <MdOutlineSettingsApplications className="iconconfig " />
+          <Link className="link" to="/">
+            <MdOutlineRunCircle className="iconout ms-3" />
+          </Link>
+          <Link className="link" to="/config">
+            <MdOutlineSettingsApplications className="iconconfig " />
+          </Link>
           <div className="todo shadow rounded overflow-hidden">
             <div className="px-4 pt-0 pb-5 cover">
-              <div className="media align-items-end profile-head">
-                <div className="profile mr-3">
+              <div className="align-items-end profile-head">
+                <div className="profi">
                   <img
-                    src="https://www.entornoturistico.com/wp-content/uploads/2016/11/trazar-ruta.jpg"
-                    alt="..."
-                    width={290}
-                    className="profi mb-2 img-thumbnail"
+                    src="https://images.pexels.com/photos/1547094/pexels-photo-1547094.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    className="img-thumbnail"
+                    width={170}
                   />
                 </div>
                 <div className="media-body mb-5 text-white">
@@ -37,10 +46,10 @@ const Perfil = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-light p-4 d-flex justify-content-end text-center">
+            <div className="bg-light p-2 d-flex justify-content-end text-center">
               <ul className="list-inline mb-0">
                 <li className="list-inline-item">
-                  <h5 className="font-weight-bold mb-0 d-block">215</h5>
+                  <h5 className="font-weight-bold mb-0 d-block">6</h5>
                   <small className="text-muted">
                     {" "}
                     <FiImage />
