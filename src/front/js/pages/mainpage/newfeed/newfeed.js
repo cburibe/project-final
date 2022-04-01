@@ -9,9 +9,9 @@ const Feed = () => {
       <div className="col-md-12 mx-auto">
         <Searching />
       </div>
-      <Post />
-      <Post />
-      <Post />
+      <Post imgURL="https://images.pexels.com/photos/2819587/pexels-photo-2819587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+      <Post imgURL="https://images.pexels.com/photos/592077/pexels-photo-592077.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" />
+      <Post imgURL="https://images.pexels.com/photos/2082949/pexels-photo-2082949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
     </div>
   );
 };

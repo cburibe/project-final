@@ -1,14 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MdFavorite } from "react-icons/md";
 import "/workspace/project-final/src/front/styles/newfeed.css";
 
-const Post = () => {
+const Post = (props) => {
   return (
     <div className="post mb-3 mx-auto" style={{ maxWidth: 940 }}>
       <div className="row g-0 ">
         <div className="col-md-8">
           <img
-            src="https://images.pexels.com/photos/2819587/pexels-photo-2819587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            src={props.imgURL}
             className="img-fluid rounded-start"
             alt="..."
           />
@@ -56,4 +57,9 @@ const Post = () => {
     </div>
   );
 };
+
+Post.propTypes = {
+  imgURL: PropTypes.string,
+};
+
 export default Post;
