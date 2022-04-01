@@ -10,22 +10,18 @@ const MyMap = ({ lat = -33.4513, long = -70.6653 }) => {
 
   function loadMap() {
     const map = L.map("map").setView([lat, long], 13);
-    const marker = L.marker([-33.4561691, -70.580058]).addTo(map);
+    const marker = L.marker([-33.42527778, -70.63333333]).addTo(map);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      mapZoom: 13,
+      mapZoom: 7,
       center: true,
     }).addTo(map);
 
-    let marker1 = L.marker([-33.4561691, -70.580058])
+    let marker1 = L.marker([-33.42527778, -70.63333333])
       .addTo(map)
-      .bindPopup("Centro nacional de entrenamiento olimpico")
-      .openPopup();
-    let marker2 = L.marker([-33.4470886395349, -70.6291601860465])
-      .addTo(map)
-      .bindPopup("Centro Deportivo Providencia")
+      .bindPopup("Cerro San Cristobal")
       .openPopup();
 
     let marker3 = L.marker([-33.459556, -70.662783])
@@ -46,7 +42,7 @@ const MyMap = ({ lat = -33.4513, long = -70.6653 }) => {
       map,
       marker,
       marker1,
-      marker2,
+
       marker3,
       marker4,
       marker5

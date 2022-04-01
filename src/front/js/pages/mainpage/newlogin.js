@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { Context } from "../../store/appContext";
-import "../../../styles/login.css";
 import { useHistory } from "react-router-dom";
-const Login = () => {
+import "../../../styles/login.css";
+const NewLogin = () => {
   const history = useHistory();
   const { actions } = useContext(Context);
   const userRef = useRef();
@@ -23,24 +23,16 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      console.log(user, pwd);
-      let response = await actions.login(user, pwd);
-      console.log(response);
-      setUser("");
-      setPwd("");
-      setSuccess(true);
-      history.push(`/profile/${user}`);
-    } catch (e) {
-      if (e.message === "401") {
-        alert("usuario y o contraseña no coinciden");
-      }
-      console.error(e);
-    }
+    console.log(user, pwd);
+    actions.login(user, pwd);
+    setUser("");
+    setPwd("");
+    setSuccess(true);
+    history.push("/profile");
   };
   return (
     <>
-      <section className="form">
+      <section className="form1 mt-5">
         <p
           ref={errRef}
           className={errMsg ? "errmsg" : "offscreen"}
@@ -77,4 +69,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default NewLogin;

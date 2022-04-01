@@ -44,7 +44,7 @@ export const Searching = () => {
               <i className="fas fa-search" />
             </a>
           </div>
-          <Link className="nav-link active " to="/profile">
+          <Link className="nav-link active " to="/perfil">
             <button
               type="button"
               Link

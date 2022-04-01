@@ -1,0 +1,11 @@
+.seccion7 {
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 55%;
+  background-size: cover;
+  min-height: 700px;
+  background-image: url("src/front/img/A.png");
+}
