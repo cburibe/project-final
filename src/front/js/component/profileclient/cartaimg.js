@@ -10,8 +10,8 @@ export const Cardimg = (props) => {
   const Propscardimg = {
     linkImageFrony: "https://picsum.photos/1600/1000?grayscale",
     imagepost: "https://picsum.photos/1600/1000",
-    user1: "carlos",
-    caption: "Mi primera foto",
+    user1: props.user1,
+    caption: props.caption,
   };
   return (
     <div className="card Cardimg_card">

@@ -88,7 +88,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log(reader.result);
         };
       },
-      createPost: async (text, username) => {
+      createPost: async (text, place, username) => {
         const store = getStore();
         let access_token = localStorage.getItem("access_token");
         let opt = {
@@ -99,6 +99,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
           body: JSON.stringify({
             text: text,
+            place_id: place,
           }),
         };
         try {
@@ -128,10 +129,10 @@ const getState = ({ getStore, getActions, setStore }) => {
             base64resource: base64,
             resource_type: type,
             post_id: post_id,
-          })
+          }),
         };
         try {
-          const response = await fetch(`${store.base_url}/`)
+          const response = await fetch(`${store.base_url}/`);
         } catch (error) {
           console.error("error in create resource", error);
         }
@@ -171,6 +172,24 @@ const getState = ({ getStore, getActions, setStore }) => {
             return response.json();
           })
           .catch((error) => console.error(error));
+      },
+      getPlaces: async () => {
+        let store = getStore();
+        let opt = {
+          method: "GET",
+        };
+        try {
+          const response = await fetch(`${store.base_url}/api/places`);
+          if (response.status !== 200) throw Error(response.status);
+          const data = await response.json();
+          setStore({
+            ...store,
+            places: data,
+          });
+          return data;
+        } catch (error) {
+          console.error(error);
+        }
       },
     },
   };

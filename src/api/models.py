@@ -95,6 +95,7 @@ class Role(db.Model):
 class Place(db.Model):
     __tablename__="place"
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120))
     lat = db.Column(db.String(120), nullable=False)
     long = db.Column(db.String(120), nullable=False)
     street = db.Column(db.String(120), nullable=False)
@@ -107,6 +108,7 @@ class Place(db.Model):
     def serialize(self):
         return {
         "id": self.id,
+        "name": self.name,
         "lat": self.lat,
         "long": self.long,
         "street": self.street,

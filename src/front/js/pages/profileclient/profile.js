@@ -7,7 +7,7 @@ import { Context } from "../../store/appContext";
 
 export const Profile = (props) => {
   const params = useParams();
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const input_text = useRef(null);
   const input_place = useRef(null);
   const input_photo = useRef(null);
@@ -21,35 +21,39 @@ export const Profile = (props) => {
     async function getPosts(username) {
       await actions.getUserPosts(username);
     }
+    async function getAllPlaces() {
+      await actions.getPlaces();
+    }
     console.log(params.username);
     getInfo();
     getPosts(params.username);
+    getAllPlaces();
   }, []);
 
   const handleCreatePost = async (e) => {
     e.preventDefault();
     let text = input_text.current.value;
+    let place = input_place.current.value;
     try {
-      await actions.createPost(text, params.username);
+      await actions.createPost(text, place, params.username);
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleUpload = async (image) => {
-    const data = await fetch()
+    const data = await fetch();
   };
-  const readFile = (file)=>{
-    return new Promise((resolve)=>{
-      const reader = new FileReader()
-      reader.addEventListener('load',()=>resolve(reader.result),false)
-      reader.readAsDataURL(file)
-    })
-  }
+  const readFile = (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.addEventListener("load", () => resolve(reader.result), false);
+      reader.readAsDataURL(file);
+    });
+  };
   const onFileChange = (e) => {
-      const file = e.target.files[0];
-      actions.convertBase64(file)
-    
+    const file = e.target.files[0];
+    actions.convertBase64(file);
   };
   return (
     <div className="container-fluid">
@@ -80,20 +84,23 @@ export const Profile = (props) => {
               placeholder="comentario"
             />
           </div>
-          {/*<div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">
-              Lugar
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleFormControlInput1"
-              placeholder="lugar"
-            />
-          </div>*/}
+          <select
+            className="form-select form-select-sm"
+            aria-label=".form-select-sm example"
+            ref={input_place}
+          >
+            <option selected>seleccione lugar</option>
+            {store.places.map((place, index) => {
+              return (
+                <option key={index} value={place.id}>
+                  {place.name}
+                </option>
+              );
+            })}
+          </select>
           <div className="mb-3">
             <label htmlFor="exampleFormControlInput1" className="form-label">
-              foto de perfil
+              Foto de perfil
             </label>
             <input
               type="file"
@@ -101,27 +108,22 @@ export const Profile = (props) => {
               id="exampleFormControlInput1"
               name="file"
               accept="image/png, .jpg, .jpeg"
-              onChange={e=>onFileChange(e)}
+              onChange={(e) => onFileChange(e)}
             />
           </div>
           <div className="btn btn-primary" onClick={(e) => handleCreatePost(e)}>
-            crear post
+            Crear post
           </div>
         </>
       )}
       <div className="row   mx-0">
-        <div className="col-md-4">
-          <Cardimg />
-        </div>
-        <div className="col-md-4">
-          <Cardimg />
-        </div>
-        <div className="col-md-4">
-          <Cardimg />
-        </div>
-        <div className="col-md-4">
-          <Cardimg />
-        </div>
+        {store.user_posts.map((post, index) => {
+          return (
+            <div className="col-md-4" key={index}>
+              <Cardimg caption={post.text} user1={store.user.username} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
