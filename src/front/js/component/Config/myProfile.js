@@ -1,5 +1,4 @@
 import React from "react";
-import avatar from "../../avatar1.png";
 import "../../../styles/ConfigComp/myprofile.css";
 
 export const MyProfile = () => {
