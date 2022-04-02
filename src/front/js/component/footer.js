@@ -5,6 +5,7 @@ export const Footer = () => (
   <footer className="site-footer">
     <div className="container">
       <div className="row">
+        <a name="ancla-4"></a>
         <div className="col-sm-12 col-md-6">
           <h6>Contacto</h6>
           <ul>

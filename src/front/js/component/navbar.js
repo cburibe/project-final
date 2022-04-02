@@ -16,23 +16,18 @@ export const NavMain = () => {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div
+          className="collapse navbar-collapse mx-auto"
+          id="navbarNavAltMarkup"
+        >
           <div className="navbar-nav">
-            <a
-              id="navs"
-              className="nav-link active"
-              aria-current="page"
-              href="#"
-            >
-              Mapa turismo
-            </a>
-            <a id="navs" className="nav-link" href="#">
+            <a id="navs" className="nav-link" href="#ancla-2">
               Recomendado visitar
             </a>
-            <a id="navs" className="nav-link" href="#">
+            <a id="navs" className="nav-link" href="#ancla-3">
               Hoteles recomendados
             </a>
-            <a id="navs" className="nav-link" href="#">
+            <a id="navs" className="nav-link" href="#ancla-4">
               Contactanos
             </a>
           </div>

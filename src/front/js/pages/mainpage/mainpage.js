@@ -8,7 +8,7 @@ import Seccion3 from "./seccion3";
 import Seccion4 from "./seccion4";
 import Seccion5 from "./seccion5";
 import Seccion6 from "./seccion6";
-import Seccion7 from "./seccion7";
+
 import "animate.css";
 import "/workspace/project-final/src/front/styles/Main.css";
 
@@ -31,7 +31,7 @@ const Mainpage = () => {
         </span>
       </div>
       <div className="row row-cols-12 row-cols-lg-12 align-items-stretch mt-5  py-5">
-        <div className="col-md-12 mb-5">
+        <div className="col-md-12 mb-5 mx-auto d-flex justify-content-center">
           <NavMain />
         </div>
       </div>
@@ -60,7 +60,7 @@ const Mainpage = () => {
         <Seccion4 />
         <Seccion5 />
         <Seccion6 />
-        <Seccion7 />
+
         <Footer />
       </div>
     </div>

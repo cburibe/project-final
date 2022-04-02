@@ -25,6 +25,7 @@ const Seccion3 = () => {
       </div>
       <div className="col-sm-12 col-md-6 col-lg-4 text-center">
         <div className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
+          <a name="ancla-2"></a>
           <img
             className="img-fluid"
             src="https://assets.eldesconcierto.cl/2019/03/rapa-nui.jpg"

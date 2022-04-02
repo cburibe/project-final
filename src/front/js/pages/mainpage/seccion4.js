@@ -9,6 +9,7 @@ const Seccion4 = () => {
         id="seccion4"
         className="row row-cols-12 row-cols-lg-12 align-items-stretch ps-5 mt-5 py-5"
       >
+        <a name="ancla-3"></a>
         <div className="col-sm-12 col-md-6 mx-auto">
           <h3 className="fs-1 mx-auto">Hospedaje Recomendado</h3>
         </div>
