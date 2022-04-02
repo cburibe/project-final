@@ -1,6 +1,5 @@
 import React from "react";
-import Login from "./login";
-import Modaluser from "./modalregistro";
+import NewLogin from "../mainpage/newlogin";
 
 const ModalLogin = () => {
   return (
@@ -23,16 +22,8 @@ const ModalLogin = () => {
       >
         <div className="modal-dialog">
           <div className="modal-content">
-            <div className="modal-header">
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              />
-            </div>
             <div className="modal-body">
-              <Login />
+              <NewLogin />
             </div>
           </div>
         </div>

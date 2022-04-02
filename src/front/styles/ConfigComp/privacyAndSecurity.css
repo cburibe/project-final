@@ -3,16 +3,19 @@ button {
   color: #daf0ee;
 }
 .accordion-body {
-  background: #ada996;
+  background: white;
 }
 .accordion-item {
   border: none;
 }
 .accordion-item .accordion-button {
-  background-color: #daf0ee;
+  background-color: white;
   color: #3b413c;
 }
 .btn {
-  background-color: #3b413c;
-  border: #3b413c;
+  background-color: yellow;
+  border: yellow;
+}
+.btn:active .btn:hover {
+  background-color: orange;
 }

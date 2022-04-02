@@ -1,37 +1,29 @@
 import React from "react";
 import FormRegistro from "../formulario/registro.js";
 
-const Modaluser = () => {
+const Modalregistro = () => {
   return (
     <>
-      <div className="cont-reg">
-        <button
-          type="button"
-          className="button-53"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          Register!
-        </button>
+      <button
+        type="button"
+        className="btn btn-primary 2"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal 2"
+      >
+        Registro
+      </button>
 
-        <div
-          className="modal fade"
-          id="exampleModal"
-          tabIndex={-1}
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              />
-              <div className="modal-body">
-                <FormRegistro />
-              </div>
+      <div
+        className="modal fade 2"
+        id="exampleModal1"
+        tabIndex={-1}
+        aria-labelledby="exampleModalLabel 2"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog 1">
+          <div className="modal-content reg">
+            <div className="modal-body reg">
+              <FormRegistro />
             </div>
           </div>
         </div>
@@ -40,4 +32,4 @@ const Modaluser = () => {
   );
 };
 
-export default Modaluser;
+export default Modalregistro;
