@@ -7,17 +7,16 @@ const Seccion4 = () => {
     <>
       <div
         id="seccion4"
-        className="row row-cols-12 row-cols-lg-12 align-items-stretch mt-5 py-5"
+        className="row row-cols-12 row-cols-lg-12 align-items-stretch ps-5 mt-5 py-5"
       >
-        <div className="col-sm-12 col-md-6 ">
-          <h3 className="fs-1">Hospedaje Recomendado</h3>
+        <div className="col-sm-12 col-md-6 mx-auto">
+          <h3 className="fs-1 mx-auto">Hospedaje Recomendado</h3>
         </div>
-        <div className="underline col-sm-12 col-md-6">
+        <div className=" under col-sm-12 col-md-6 pb-5 mx-auto">
           <img
-            className="mb-5 img-fluid"
+            className="mb-5 img-fluid pb-3 ps-5"
             src="https://lh3.googleusercontent.com/9t--_gSvGZKm7ZCjpuri6d44RA6tiRDidtaz5CS5XqxLtXjf-wIjB8WMvxYH89xuqtkz7A=s101"
           />
-          <BsFillHouseFill className="houseicon mt-4" />
         </div>
       </div>
       <div className="row row-cols-12 row-cols-lg-12 row-cols-sm-12 ">
