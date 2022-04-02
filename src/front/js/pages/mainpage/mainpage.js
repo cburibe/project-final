@@ -8,7 +8,6 @@ import Seccion3 from "./seccion3";
 import Seccion4 from "./seccion4";
 import Seccion5 from "./seccion5";
 import Seccion6 from "./seccion6";
-
 import "animate.css";
 import "/workspace/project-final/src/front/styles/Main.css";
 

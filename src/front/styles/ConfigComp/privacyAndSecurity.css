@@ -12,10 +12,3 @@ button {
   background-color: white;
   color: #3b413c;
 }
-.btn {
-  background-color: yellow;
-  border: yellow;
-}
-.btn:active .btn:hover {
-  background-color: orange;
-}
