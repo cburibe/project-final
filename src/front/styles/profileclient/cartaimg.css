@@ -1,9 +1,10 @@
+*{
+  padding: 0;
+}
 .Cardimg_card {
   max-height: 30rem;
   max-width: 34rem;
   margin-top: 3rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 .Cardimg_h5,
 .Cardimg_ImBin {
@@ -19,10 +20,7 @@
 .Cardimg_BiComment {
   font-size: 20px;
 }
-.Cardimg_FaHeart,
-.cartaimg_post__description {
-  margin-left: -10px;
-}
+
 .Cardimg_GrMapLocation {
   margin-top: 4px;
   margin-right: -10px;

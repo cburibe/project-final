@@ -10,16 +10,15 @@ export const Cardimg = (props) => {
   const Propscardimg = {
     linkImageFrony: "https://picsum.photos/1600/1000?grayscale",
     imagepost: "https://picsum.photos/1600/1000",
-    user1: "carlos",
-    caption: "Mi primera foto",
+    user1: props.user1,
+    caption: props.caption,
   };
   return (
     <div className="card Cardimg_card">
       <div className="cardimg_div_header">
         <h5 className="Cardimg_h5 ps-2">{Propscardimg.user1}</h5>
-        <ImBin className="Cardimg_ImBin float-end  mt-1 me-1" />
       </div>
-      <div className="Cardimg_divimg px-1">
+      <div className="Cardimg_divimg">
         <img
           src={Propscardimg.imagepost}
           className="card-img-top Cardimg_img "
@@ -28,16 +27,11 @@ export const Cardimg = (props) => {
       </div>
       <div className="card-body Cardimg_body">
         <div className="Cardimg_icons">
-          <FaHeart className="Cardimg_FaHeart " />
-          <BiComment className="Cardimg_BiComment ms-2" />
-          <Link to="/map">
-            <GrMapLocation className="Cardimg_GrMapLocation float-end" />
-          </Link>
         </div>
-        <div className="Cardimg_description">
-          <h5 className="cartaimg_post__description">
-            <b>{Propscardimg.user1}</b> "{Propscardimg.caption}"
-          </h5>
+        <div className="Cardimg_description p-1 py-3">
+          <p className="fs-5">
+            <b className="pe-1">{Propscardimg.user1}</b> {Propscardimg.caption}
+          </p>
         </div>
       </div>
     </div>

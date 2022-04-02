@@ -32,7 +32,7 @@ class User(db.Model):
             "id": self.id,
             "username": self.username,
             "email": self.email,
-            "password": self.password,
+            # "password": self.password,
             "number_phone": self.number_phone,
            # "places":self.places,
             #"post_rel":self.post_rel,
@@ -72,7 +72,6 @@ class Role_user(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-
 class Role(db.Model):
     __tablename__="role"
     id = db.Column(db.Integer , primary_key=True)
@@ -96,6 +95,7 @@ class Role(db.Model):
 class Place(db.Model):
     __tablename__="place"
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120))
     lat = db.Column(db.String(120), nullable=False)
     long = db.Column(db.String(120), nullable=False)
     street = db.Column(db.String(120), nullable=False)
@@ -108,6 +108,7 @@ class Place(db.Model):
     def serialize(self):
         return {
         "id": self.id,
+        "name": self.name,
         "lat": self.lat,
         "long": self.long,
         "street": self.street,
@@ -131,7 +132,7 @@ class Post(db.Model):
     id = db.Column(db.Integer , primary_key=True)
     text = db.Column(db.String(120))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    place_id = db.Column(db.Integer, db.ForeignKey('place.id'), nullable=False)
+    place_id = db.Column(db.Integer, db.ForeignKey('place.id'))
     commentrel = db.relationship('Comment', backref="post", lazy=True)
     like_rel = db.relationship('Like', backref="post", lazy=True)
     resource_rel = db.relationship('Resource', backref="post", lazy=True)
@@ -141,7 +142,7 @@ class Post(db.Model):
         return {
             "id": self.id,
             "text": self.text,
-           "people_id": self.people_id,
+           "user_id": self.user_id,
            "place_id": self.place_id
         }
     def save(self):
@@ -152,7 +153,6 @@ class Post(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit() 
-
 
 class Comment(db.Model):
     __tablename__="comment"
@@ -178,9 +178,6 @@ class Comment(db.Model):
         db.session.delete(self)
         db.session.commit()    
 
-
-
-
 class Like(db.Model):
     __tablename__="like"
     id = db.Column(db.Integer , primary_key=True) 
@@ -201,7 +198,6 @@ class Like(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()    
-
 
 class Score(db.Model):
     __tablename__="score"
@@ -226,7 +222,6 @@ class Score(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()    
-
 
 class Resource(db.Model):
     __tablename__="resource"
