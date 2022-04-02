@@ -49,6 +49,11 @@ h1 {
   float: right;
   margin: auto;
 }
+
+#descrip {
+  padding: auto;
+}
+
 .hotelsection {
   width: 100%;
   background-repeat: no-repeat;

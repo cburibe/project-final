@@ -9,6 +9,7 @@ import Seccion4 from "./seccion4";
 import Seccion5 from "./seccion5";
 import Seccion6 from "./seccion6";
 import Seccion7 from "./seccion7";
+import "animate.css";
 import "/workspace/project-final/src/front/styles/Main.css";
 
 const Mainpage = () => {
@@ -46,8 +47,10 @@ const Mainpage = () => {
         </div>
         <div className="hotelsection col-lg-12 col-md-12 mx-auto ">
           <div className="starthotel">
-            <h2 className="explora ms-5 ">EXPLORA</h2>
-            <p className="parrafo fs-4 ">
+            <h2 className="explora ms-5 animate__animated animate__backInUp animate__delay-5s">
+              EXPLORA
+            </h2>
+            <p className="parrafo fs-4">
               Existen varios medios de transporte <br />
               pero nada mejor que un buen <br /> momento de descanso entre tus
               viajes
