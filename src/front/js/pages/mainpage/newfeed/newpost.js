@@ -4,10 +4,10 @@ import { MdFavorite } from "react-icons/md";
 import "/workspace/project-final/src/front/styles/newfeed.css";
 
 const Post = (props) => {
- const Propspost = {
+  const Propspost = {
     linkimagepost: "https://picsum.photos/seed/picsum/1600/1000",
-    user1: "carlos",
-    caption: "Mi primera foto",
+    user1: props.user1,
+    caption: props.caption,
   };
 
   return (
@@ -24,45 +24,25 @@ const Post = (props) => {
           </p> */}
         </div>
         <div className="col-md-4 pt-5">
-          {/* <div className="body">
+          <div className="body">
             <MdFavorite />
-            <span className="likes fw-bold">10 likes</span> 
+            <span className="likes fw-bold">10 likes</span>
             <table className="coment table">
               <tbody>
                 <tr>
-                  <th scope="row">Debora</th>
+                  <th scope="row">{Propspost.user1}</th>
                   <td>
                     Se ven super bien con su familia. Sigan disfrutando de sus
                     vacaciones.
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">Dominik</th>
-                  <td>Bonita foto, saludos!</td>
-                </tr>
-                <tr>
-                  <th scope="row">Marcelo</th>
-                  <td>
-                    Muy lindo el lugar! me dieron ganas de visitarlo algun dia
-                  </td>
-                </tr>
               </tbody>
             </table>
-            <div className="form-floating">
-              <textarea
-                className="form-control"
-                placeholder="Leave a comment here"
-                id="floatingTextarea"
-                defaultValue={""}
-              />
-              <label htmlFor="floatingTextarea">Leave a comment here</label>
-            </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
 
 export default Post;
