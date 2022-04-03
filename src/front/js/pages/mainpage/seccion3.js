@@ -8,8 +8,7 @@ const Seccion3 = () => {
         <div className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
           <img
             className="img-fluid"
-            src="https://www.terram.cl/wp-content/uploads/2015/07/PARQUE-NACIONAL-TORRES-DEL-PAINE-2-555x330.jpg"
-          />
+            src="https://www.terram.cl/wp-content/uploads/2015/07/PARQUE-NACIONAL-TORRES-DEL-PAINE-2-555x330.jpg"/>
           <h4 className="text-dark">Parque Nacional Torres del Paine</h4>
           <div className="d-flex justify-content-between ">
             <p className="text-dark px-3">

@@ -11,6 +11,7 @@ import { TermsAndConditions } from "../component/Config/termsAndConditions";
 import { DeleteAccount } from "../component/Config/deleteAccount";
 import { Help } from "../component/Config/help";
 import { MyProfile } from "../component/Config/myProfile";
+import { Out } from "../component/Config/out";
 import { Container, Tab, Row, Col, Nav } from "react-bootstrap";
 
 export const Config = () => {
@@ -60,6 +61,9 @@ export const Config = () => {
                     <Nav.Item>
                       <Nav.Link eventKey="help">Ayuda</Nav.Link>
                     </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="out">Salir</Nav.Link>
+                    </Nav.Item>
                   </Nav>
                 </Col>
                 <Col sm={8}>
@@ -84,6 +88,9 @@ export const Config = () => {
                     </Tab.Pane>
                     <Tab.Pane eventKey="help">
                       <Help />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="out">
+                      <Out />
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>

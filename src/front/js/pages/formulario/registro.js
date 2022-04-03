@@ -11,7 +11,6 @@ const FormRegistro = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (values) => {
-    console.log(values);
     actions.register(
       values.email,
       values.username,
