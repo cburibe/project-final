@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { Imgbackground } from "../../component/profileclient/backgroundimgprofile.js";
 import { Cardimg } from "../../component/profileclient/cartaimg.js";
 import { Context } from "../../store/appContext";
+import "../../../styles/profileclient/backgroundimgprofile.css";
 
 export const Profile = (props) => {
   const params = useParams();
