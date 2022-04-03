@@ -13,9 +13,6 @@ const Post = (props) => {
             className="img-fluid rounded-start"
             alt="..."
           />
-          <p className="text">
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </p>
         </div>
         <div className="col-md-4 pt-5">
           <div className="body">

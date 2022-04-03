@@ -66,6 +66,7 @@ h1 {
 .starthotel {
   color: white;
   font-family: "Roboto Mono", monospace;
+  margin: auto;
 }
 .explora {
   font-size: 70px;

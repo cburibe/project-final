@@ -4,7 +4,7 @@ import "/workspace/project-final/src/front/styles/Main.css";
 const Seccion3 = () => {
   return (
     <>
-      <div className="col-sm-12 col-md-6 col-lg-4 text-center ">
+      <div className="col-sm-12 col-md-6 col-lg-4 text-center">
         <div className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
           <img
             className="img-fluid"

@@ -37,14 +37,14 @@ const Mainpage = () => {
       <div className="row row-cols-12 row-cols-lg-12 bg-light mt-5">
         <Seccion1 />
         </div>
-        <div id="Somos" className="row row-cols-1 row-cols-lg-3 mx-auto ">
+        <div id="Somos" className="row row-cols-1 row-cols-lg-3">
           <Seccion2 />
           </div>
           <div className="row row-cols-1 row-cols-lg-3 mx-auto py-5 bg-light">
           <Seccion3 />
           </div>
-        <div className="hotelsection col-lg-12 col-md-12 mx-auto ">
-          <div className="starthotel">
+        <div className="hotelsection col-lg-12 col-md-12 mx-auto bg-white">
+          <div className="starthotel mx-auto">
             <h2 className="explora ms-5 animate__animated animate__backInUp animate__delay-5s">
               EXPLORA
             </h2>
