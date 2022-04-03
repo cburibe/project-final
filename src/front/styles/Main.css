@@ -3,7 +3,6 @@
   background-position: center center;
   background-size: cover;
   max-height: 490px;
-  background-color: white;
 }
 
 h1 {
@@ -50,11 +49,6 @@ h1 {
   float: right;
   margin: auto;
 }
-
-#descrip {
-  padding: auto;
-}
-
 .hotelsection {
   width: 100%;
   background-repeat: no-repeat;
@@ -66,7 +60,6 @@ h1 {
 .starthotel {
   color: white;
   font-family: "Roboto Mono", monospace;
-  margin: auto;
 }
 .explora {
   font-size: 70px;
