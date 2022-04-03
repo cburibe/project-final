@@ -92,7 +92,7 @@ const Perfil = () => {
                   >
                     change photo
                   </button>
-                  <h4 className="mt-0 mb-0">elsa capuntas</h4>
+                  <h4 className="mt-0 mb-0">{store.user.username}</h4>
                   <p className="small mb-4">
                     {" "}
                     <FiMapPin />

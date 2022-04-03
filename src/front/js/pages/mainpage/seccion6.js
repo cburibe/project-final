@@ -11,7 +11,6 @@ const Seccion6 = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (values) => {
-    console.log(values);
     actions.register(
       values.email,
       values.username,
@@ -21,16 +20,17 @@ const Seccion6 = () => {
   };
 
   return (
+    
     <form
       name="registro"
-      className="form col-md-12 col-sm-6 mt-5 d-flex flex-column"
+      className="form col-md-12 col-sm-6 mt-5 d-flex flex-column mx-auto justify-content-center"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h4 className="reg6">
+      <h4 className="reg6 justify-content-center">
         <a name="ancla-1">Registro</a>
       </h4>
       <input
-        className="inp"
+        className="inp "
         placeholder="Email"
         type="email"
         {...register("email", {
