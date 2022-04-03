@@ -1,5 +1,5 @@
 .seccion5 {
-  top: auto;
+  
   width: 100%;
   background-repeat: no-repeat;
   background-position: 0% 55%;
@@ -10,14 +10,13 @@
 .text1,
 .text2,
 .text3 {
-  margin-top: 120px !important;
-  justify-content: center;
+
   text-align: center;
   color: rgb(0, 0, 0);
   opacity: 0.7;
   background-color: #cee741;
   width: 40%;
-  margin: auto;
+  
 }
 
 .text2 {

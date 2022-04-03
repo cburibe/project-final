@@ -23,7 +23,7 @@ const Seccion6 = () => {
     
     <form
       name="registro"
-      className="form col-md-12 col-sm-6 mt-5 d-flex flex-column mx-auto justify-content-center"
+      className="form col-md-12 col-sm-6 mt-5 d-flex flex-column justify-content-center"
       onSubmit={handleSubmit(onSubmit)}
     >
       <h4 className="reg6 justify-content-center">
