@@ -1,10 +1,6 @@
 import React from "react";
 import "../../../styles/profileclient/cartaimg.css";
-import { GrMapLocation } from "react-icons/gr";
-import { FaHeart } from "react-icons/fa";
-import { BiComment } from "react-icons/bi";
-import { ImBin } from "react-icons/im";
-import { Link } from "react-router-dom";
+
 
 export const Cardimg = (props) => {
   const Propscardimg = {
