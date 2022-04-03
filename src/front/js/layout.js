@@ -7,7 +7,6 @@ import  Mainpage  from "./pages/mainpage/mainpage";
 import NewLogin from "./pages/mainpage/newlogin";
 import Perfil from "./pages/perfil/perfiluser";
 import Feed from "./pages/mainpage/newfeed/newfeed";
-import {Profile} from "./pages/profileclient/profile"
 
 
 const Layout = () => {
@@ -29,9 +28,6 @@ const Layout = () => {
           </Route>
           <Route exact path="/perfil/:username">
             <Perfil />
-          </Route>
-          <Route exact path="/profile/:username">
-            <Profile />
           </Route>
           <Route exact path="/feed">
             <Feed />
