@@ -17,3 +17,14 @@
   min-height: 300px;
   object-fit: cover;
 }
+.under {
+  margin: auto;
+  background-color: #47af20;
+  background-position: 55% 10%;
+  background-size: cover;
+  height: 5px;
+  width: 50%;
+}
+#seccion4 {
+  margin: auto;
+}

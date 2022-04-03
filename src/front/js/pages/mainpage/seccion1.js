@@ -56,7 +56,7 @@ const Seccion1 = () => {
           role="tabpanel"
           aria-labelledby="nav-home-tab"
         >
-          <MyMap className="" />
+          <MyMap name="act" className="" />
         </div>
         <div
           className="tab-pane fade"

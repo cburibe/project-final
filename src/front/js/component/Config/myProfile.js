@@ -1,18 +1,16 @@
 import React from "react";
-import avatar from "../../avatar1.png";
 import "../../../styles/ConfigComp/myprofile.css";
 
 export const MyProfile = () => {
   return (
     <>
-      <form>
+      <form className="bg-white">
         <div className="container">
           <div className="row">
             <div className="col text-center">
               <img
-                src="https://res.cloudinary.com/dlb0fs0l8/image/upload/v1647197781/samples/people/boy-snow-hoodie.jpg"
+                src="https://images.pexels.com/photos/1547094/pexels-photo-1547094.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 className="img-fluid img-profile"
-                alt="..."
                 style={{ width: "50%" }}
               />
             </div>

@@ -3,7 +3,7 @@ import { CgProfile } from "react-icons/cg";
 import "../../../styles/ConfigComp/termsAndConditions.css";
 
 export const TermsAndConditions = () => (
-  <div className="my-4">
+  <div className="my-4 bg-white px-5">
     <h2>Términos y condiciones de Turismo Social</h2>
     <h5>Términos y Condiciones de Turismo Social</h5>
 

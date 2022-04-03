@@ -22,9 +22,9 @@
 .reg6 {
 
   text-align: center;
-  color: #cee741;
+  color: rgb(0, 0, 0);
   opacity: 0.7;
-  background-color: rgb(0, 0, 0);
+  background-color: #cee741;
   width: 20%;
   margin: auto;
 }
@@ -32,4 +32,5 @@
   margin: auto;
   background-color: #c5ff8d;
   color: black;
+  border-radius: 15px;
 }

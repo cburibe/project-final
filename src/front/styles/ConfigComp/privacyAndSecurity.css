@@ -12,7 +12,3 @@ button {
   background-color: white;
   color: #3b413c;
 }
-
-.btn:active .btn:hover {
-  background-color: orange;
-}

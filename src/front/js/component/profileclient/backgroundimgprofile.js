@@ -2,7 +2,6 @@ import React from "react";
 import { Imgprofile } from "../profileclient/frontimgprofile";
 import { GiHouse } from "react-icons/gi";
 import { FiSettings } from "react-icons/fi";
-import "../../../styles/profileclient/backgroundimgprofile.css";
 import { Link } from "react-router-dom";
 
 export const Imgbackground = (props) => {

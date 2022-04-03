@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { FiMapPin, FiUser, FiImage } from "react-icons/fi";
 import { Cardimg } from "../../component/profileclient/cartaimg";
 import { Context } from "../../store/appContext";
-
 import {
   MdHome,
   MdOutlineSettingsApplications,
@@ -63,7 +62,7 @@ const Perfil = () => {
     actions.convertBase64(file);
   };
   return (
-    <>
+    
       <div className="row">
         <div className="col-md-12 mx-auto">
           <Link className="link" to="/feed">
@@ -200,6 +199,15 @@ const Perfil = () => {
           );
         })}
       </div>
+        </div>
+      </div>
+      </div>
+   
+  );
+};
+
+export default Perfil;
+
             {/* <div className="py-4 px-4">
               <div className="d-flex align-items-center justify-content-between mb-3">
                 <h5 className="mb-0">Recent photos</h5>
@@ -255,11 +263,4 @@ const Perfil = () => {
                 </div>
               </div>
             </div>
- */}          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default Perfil;
+ */}          
