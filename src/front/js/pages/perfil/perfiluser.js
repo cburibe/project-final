@@ -74,7 +74,7 @@ const Perfil = () => {
           <Link className="link" to="/config">
             <MdOutlineSettingsApplications className="iconconfig " />
           </Link>
-          <div className="todo shadow rounded overflow-hidden">
+          <div className="todo  overflow-hidden">
             <div className="px-4 pt-0 pb-5 cover">
               <div className="align-items-end profile-head">
                 <div className="profi mb-1">
@@ -137,7 +137,7 @@ const Perfil = () => {
               </div> */}
             </div>
             <div
-        className="btn btn-primary d-flex justify-content-center mx-auto  Añadirpublicación"
+        className="btn btn-dark d-flex justify-content-center mx-auto  Añadirpublicación"
         onClick={() => {
           setShow(!show);
         }}
@@ -156,7 +156,7 @@ const Perfil = () => {
               className="form-control w-25 mx-auto"
               ref={input_text}
               id="exampleFormControlInput1"
-              placeholder="comentario"
+              placeholder="Comentario"
             />
           </div>
           <select
@@ -184,7 +184,7 @@ const Perfil = () => {
               onChange={(e) => onFileChange(e)}
             />
           </div>
-          <div className="btn btn-primary d-flex justify-content-center mx-auto w-25" onClick={(e) => handleCreatePost(e)}>
+          <div className="btn btn-dark d-flex justify-content-center mx-auto w-25" onClick={(e) => handleCreatePost(e)}>
             Crear post
           </div>
   

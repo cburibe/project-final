@@ -1,5 +1,4 @@
 import React from "react";
-
 // import { MdFavorite } from "react-icons/md";
 import "/workspace/project-final/src/front/styles/newfeed.css";
 
@@ -23,17 +22,17 @@ const Post = (props) => {
             <small className="text-muted">Last updated 3 mins ago</small>
           </p> */}
         </div>
-        <div className="col-md-4 pt-5">
+        <div className="col-md-4 pt-3">
           <div className="body ms-3 " >
-            {/* <MdFavorite /> */}
-            {/* <span className="likes fw-bold">10 likes</span> */}
+             {/* <MdFavorite /> 
+             <span className="likes fw-bold">10 likes</span>  */}
             <table className="coment table">
               <tbody>
                 <tr>
                   <th scope="row">{Propspost.user1}</th>
                   <td>
-                    {/* Se ven super bien con su familia. Sigan disfrutando de sus
-                    vacaciones. */}
+                     Se ven super bien con su familia. Sigan disfrutando de sus
+                    vacaciones. 
                   </td>
                 </tr>
               </tbody>
