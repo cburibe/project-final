@@ -1,4 +1,6 @@
 import React from "react";
+import { GoLocation, GoArrowUp} from "react-icons/go";
+import { BsTelephone, BsInstagram} from "react-icons/bs";
 import "/workspace/project-final/src/front/styles/footer.css";
 
 export const Footer = () => (
@@ -7,22 +9,22 @@ export const Footer = () => (
       <div className="row">
         <a name="ancla-4"></a>
         <div className="col-sm-12 col-md-6">
-          <h6>Contacto</h6>
+          <h6 className="contacto ms-5">Contacto</h6>
           <ul>
-            <li>blabla</li>
+          <ol className="iconsfoot me-5"> <GoLocation/> Av. Manquehue Sur 350, Oficina 110, Las Condes</ol>
+            <ol className="iconsfoot me-5"> <BsTelephone/> +569 394674587</ol>
+            <ol> <BsInstagram/> T.Social</ol>
+            
           </ul>
         </div>
         <div className="col-xs-6 col-md-3">
           <h6>Explora</h6>
           <ul className="footer-links">
             <li>
-              <a href="#">Mapa Turismo</a>
+              <a href="#ancla-2">Recomendado Visitar</a>
             </li>
             <li>
-              <a href="#">Recomendado Visitar</a>
-            </li>
-            <li>
-              <a href="#">Hoteles Recomendados</a>
+              <a href="#ancla-3">Hoteles Recomendados</a>
             </li>
           </ul>
         </div>
@@ -61,7 +63,7 @@ export const Footer = () => (
           <ul className="social-icons">
             <li>
               <a className="facebook" href="#">
-                GoBack
+                <GoArrowUp/>
               </a>
             </li>
           </ul>

@@ -14,41 +14,41 @@ import "/workspace/project-final/src/front/styles/Main.css";
 const Mainpage = () => {
   return (
     <div id="contenedor" className="container-fluid">
-      <h1 id="titulo" className="pt-5 ps-5">
+      <h1 id="titulo" className="pt-5 ps-5 fw-bold animate__animated animate__fadeIn animate__delay-2s">
         TurismoSocial
       </h1>
       <div className="R order-2">
         <Link className="link" to="/login">
-          <span className="logs ps-5 mb-5">Ingresar</span>
+          <span className="logs  mb-5 pb-5 d-flex justify-content-end ps-5 mb-5 animate__animated animate__fadeIn animate__delay-3s">Ingresar</span>
         </Link>
       </div>
-      <div className="L order-1">
-        <span className="logs mb-5">
-          <a className="regis" href="#ancla-1">
+      <div className="L order-1 ">
+        <span className="logs ">
+          <a className="regis mb-5 pb-5 d-flex justify-content-end animate__animated animate__fadeIn animate__delay-4s" href="#ancla-1">
             Registro
           </a>
         </span>
       </div>
-      <div className="row row-cols-12 row-cols-lg-12 align-items-stretch mt-5  py-5">
-        <div className="col-md-12 mb-5">
+      <div className="row mt-5 py-5">
+        <div className="col-md-12 mt-5 animate__animated animate__fadeIn animate__delay-5s">
           <NavMain />
         </div>
       </div>
-      <div className="row row-cols-12 row-cols-lg-12 bg-light mt-5">
+      <div className="row bg-light mt-5">
         <Seccion1 />
         </div>
-        <div id="Somos" className="row row-cols-1 row-cols-lg-3 mx-auto ">
+        <div id="Somos" className="row">
           <Seccion2 />
           </div>
-          <div className="row row-cols-1 row-cols-lg-3 mx-auto py-5 bg-light">
+          <div className="row py-5 bg-light">
           <Seccion3 />
           </div>
-        <div className="hotelsection col-lg-12 col-md-12 mx-auto ">
+        <div className="hotelsection col-lg-12 col-md-12 pb-3 mt-5 bg-white">
           <div className="starthotel">
-            <h2 className="explora ms-5 animate__animated animate__backInUp animate__delay-5s">
+            <h2 className="explora ms-5  me-auto p-2 bd-highlight ">
               EXPLORA
             </h2>
-            <p className="parrafo fs-4">
+            <p className="parrafo fs-4 mb-2">
               Existen varios medios de transporte <br />
               pero nada mejor que un buen <br /> momento de descanso entre tus
               viajes

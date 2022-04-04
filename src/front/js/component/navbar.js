@@ -3,7 +3,7 @@ import "../../styles/navbar.css";
 
 export const NavMain = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-none pb-5  mx-auto">
+    <nav className="navbar navbar-expand-lg navbar-light bg-none pb-5 mx-auto">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
@@ -20,7 +20,7 @@ export const NavMain = () => {
           className="collapse navbar-collapse mx-auto"
           id="navbarNavAltMarkup"
         >
-          <div className="navbar-nav">
+          <div className="navbar-nav mx-auto">
             <a id="navs" className="nav-link" href="#ancla-2">
               Recomendado visitar
             </a>

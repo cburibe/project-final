@@ -3,7 +3,7 @@
   background-position: center center;
   background-size: cover;
   max-height: 490px;
-  background-color: white;
+  width: 100%;
 }
 
 h1 {
@@ -14,6 +14,7 @@ h1 {
   color: black;
 }
 .logs {
+  
   float: right;
   font-weight: bold;
 }
@@ -38,25 +39,18 @@ h1 {
 
 #Somos {
   background-color: rgb(255, 255, 255);
-  width: 100%;
   max-height: 500px;
   background-size: cover;
   background-position: center center;
-  margin: 0;
   font-family: "Roboto Mono", monospace;
 }
 
 .img1 {
   float: right;
-  margin: auto;
+  
 }
-
-#descrip {
-  padding: auto;
-}
-
 .hotelsection {
-  width: 100%;
+  
   background-repeat: no-repeat;
   background-position: 0% 55%;
   background-size: cover;
@@ -66,6 +60,7 @@ h1 {
 .starthotel {
   color: white;
   font-family: "Roboto Mono", monospace;
+  
 }
 .explora {
   font-size: 70px;
