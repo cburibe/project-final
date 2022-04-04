@@ -43,12 +43,12 @@ const Mainpage = () => {
           <div className="row py-5 bg-light">
           <Seccion3 />
           </div>
-        <div className="hotelsection col-lg-12 col-md-12  bg-white">
+        <div className="hotelsection col-lg-12 col-md-12 pb-3 mt-5 bg-white">
           <div className="starthotel">
-            <h2 className="explora ms-5 me-auto p-2 bd-highlight ">
+            <h2 className="explora ms-5  me-auto p-2 bd-highlight ">
               EXPLORA
             </h2>
-            <p className="parrafo fs-4">
+            <p className="parrafo fs-4 mb-2">
               Existen varios medios de transporte <br />
               pero nada mejor que un buen <br /> momento de descanso entre tus
               viajes
