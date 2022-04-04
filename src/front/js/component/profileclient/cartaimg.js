@@ -1,7 +1,6 @@
 import React from "react";
 import "../../../styles/profileclient/cartaimg.css";
 
-
 export const Cardimg = (props) => {
   const Propscardimg = {
     linkImageFrony: "https://picsum.photos/1600/1000?grayscale",
@@ -12,7 +11,11 @@ export const Cardimg = (props) => {
   return (
     <div className="card Cardimg_card">
       <div className="cardimg_div_header">
-        <h5 className="Cardimg_h5 ps-2">{Propscardimg.user1}</h5>
+        <i>
+          <h5 className="Cardimg_h5  float-end pe-3 pt-2">
+            <b>{Propscardimg.user1}</b>
+          </h5>
+        </i>
       </div>
       <div className="Cardimg_divimg">
         <img
@@ -21,14 +24,11 @@ export const Cardimg = (props) => {
           alt={Propscardimg.caption}
         />
       </div>
-      <div className="card-body Cardimg_body">
-        <div className="Cardimg_icons">
-        </div>
-        <div className="Cardimg_description p-1 py-3">
-          <p className="fs-5">
-            <b className="pe-1">{Propscardimg.user1}</b> {Propscardimg.caption}
-          </p>
-        </div>
+
+      <div className="Cardimg_description p-1 py-3">
+        <p className="fs-5">
+          <b className="ps-3">{Propscardimg.user1}</b> {Propscardimg.caption}
+        </p>
       </div>
     </div>
   );

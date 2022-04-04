@@ -74,10 +74,10 @@ const Perfil = () => {
           <Link className="link" to="/config">
             <MdOutlineSettingsApplications className="iconconfig " />
           </Link>
-          <div className="todo shadow rounded overflow-hidden">
+          <div className="todo  overflow-hidden">
             <div className="px-4 pt-0 pb-5 cover">
               <div className="align-items-end profile-head">
-                <div className="profi">
+                <div className="profi mb-1">
                   <img
                     src="https://images.pexels.com/photos/1547094/pexels-photo-1547094.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     className="img-thumbnail"
@@ -87,25 +87,25 @@ const Perfil = () => {
                 <div className="media-body mb-5 text-white">
                   <button
                     type="button"
-                    className="boton btn btn-outline-success btn-sm"
+                    className="boton btn btn-outline-success btn-sm mb-1"
                   >
                     change photo
                   </button>
-                  <h4 className="mt-0 mb-0">{store.user.username}</h4>
+                  <h4 className="mt-0 mb-0 mb-1">{store.user.username}</h4>
                   <p className="small mb-4">
-                    {" "}
+              
                     <FiMapPin />
                     Santiago, Chile
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bg-light p-2 d-flex justify-content-end text-center">
+            {/* <div className="bg-light p-2 d-flex justify-content-end text-center">
               <ul className="list-inline mb-0">
                 <li className="list-inline-item">
                   <h5 className="font-weight-bold mb-0 d-block">6</h5>
                   <small className="text-muted">
-                    {" "}
+           
                     <FiImage />
                     Photos
                   </small>
@@ -113,7 +113,7 @@ const Perfil = () => {
                 <li className="list-inline-item">
                   <h5 className="font-weight-bold mb-0 d-block">745</h5>
                   <small className="text-muted">
-                    {" "}
+           
                     <FiUser />
                     Followers
                   </small>
@@ -121,23 +121,23 @@ const Perfil = () => {
                 <li className="list-inline-item">
                   <h5 className="font-weight-bold mb-0 d-block">340</h5>
                   <small className="text-muted">
-                    {" "}
+             
                     <FiUser />
                     Following
                   </small>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div className="px-4 py-3">
-              <h5 className="mb-0">About Me</h5>
+              {/* <h5 className="mb-0">About Me</h5>
               <div className="p-4 rounded shadow-sm bg-light">
                 <p className="font-italic mb-0">Web Developer</p>
                 <p className="font-italic mb-0">Lives in Santiago</p>
                 <p className="font-italic mb-0">Photographer</p>
-              </div>
+              </div> */}
             </div>
             <div
-        className="btn btn-primary"
+        className="btn btn-dark d-flex justify-content-center mx-auto  Añadirpublicación"
         onClick={() => {
           setShow(!show);
         }}
@@ -146,20 +146,21 @@ const Perfil = () => {
       </div>
       {show && (
         <>
-          <div className="mb-3">
+     
+          <div className="mb-3 shadow-none">
             <label htmlFor="exampleFormControlInput1" className="form-label">
-              Texto
+              {/* Texto */}
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control w-25 mx-auto"
               ref={input_text}
               id="exampleFormControlInput1"
-              placeholder="comentario"
+              placeholder="Comentario"
             />
           </div>
           <select
-            className="form-select form-select-sm"
+            className="form-select form-select-sm w-25 mx-auto"
             aria-label=".form-select-sm example"
             ref={input_place}
           >
@@ -172,22 +173,21 @@ const Perfil = () => {
               );
             })}
           </select>
-          <div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">
-              Foto de perfil
-            </label>
+          <div className="mb-3  d-flex justify-content-center mx-auto w-50 mt-3">
+            
             <input
               type="file"
-              className="form-control"
+              className="form-control w-50 "
               id="exampleFormControlInput1"
               name="file"
               accept="image/png, .jpg, .jpeg"
               onChange={(e) => onFileChange(e)}
             />
           </div>
-          <div className="btn btn-primary" onClick={(e) => handleCreatePost(e)}>
+          <div className="btn btn-dark d-flex justify-content-center mx-auto w-25" onClick={(e) => handleCreatePost(e)}>
             Crear post
           </div>
+  
         </>
       )}
       <div className="row   mx-0">

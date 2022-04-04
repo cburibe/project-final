@@ -3,8 +3,10 @@
 }
 
 .post {
-  background-color: #c5ff8d;
+  background-color: rgb(255, 255, 255);
 }
 tbody {
   background-color: #d7f7d7;
+  height: 350px ;
+
 }
