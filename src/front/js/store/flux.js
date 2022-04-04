@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       base_url:
-        "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io",
+        "https://3001-cburibe-projectfinal-50s9z39w0ii.ws-us38.gitpod.io",
       people: null,
       background: "white",
       initial: "white",
