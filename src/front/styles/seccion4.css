@@ -1,8 +1,19 @@
 .regis4 {
-  background-color: white;
+  background-color: #c5ff8d;
   border-color: #47af20;
   color: #47af20;
-  font-size: 20px;
+  font-size: 15px;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  border-radius: 9px;
+  background: #d5f365;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+ 
 }
 .card-title {
   color: #47af20;
