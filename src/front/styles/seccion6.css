@@ -1,5 +1,4 @@
 .form {
-
   text-align: center;
   width: 100%;
   background-repeat: no-repeat;
@@ -9,14 +8,13 @@
   background-image: url("https://images.pexels.com/photos/163550/landscape-scenic-going-to-the-sun-road-rocky-mountains-163550.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
 .inp {
-  margin-left: 525px;
   border-radius: 15px;
   width: 20%;
   text-align: center;
   background-color: #c5ff8d;
   font-size: 20px;
   color: black;
-  margin: auto;
+  
 }
 
 .reg6 {
@@ -29,8 +27,11 @@
   margin: auto;
 }
 .button-47 {
+  justify-content: center;
+  text-align: center;
   margin: auto;
   background-color: #c5ff8d;
   color: black;
   border-radius: 15px;
+  width: 10%;
 }

@@ -23,14 +23,14 @@ const Seccion6 = () => {
     
     <form
       name="registro"
-      className="form col-md-12 col-sm-6 mt-5 d-flex flex-column justify-content-center"
+      className="form col-md-12 col-sm-6 mt-5 d-flex flex-column "
       onSubmit={handleSubmit(onSubmit)}
     >
       <h4 className="reg6 justify-content-center">
         <a name="ancla-1">Registro</a>
       </h4>
       <input
-        className="inp "
+        className="inp mt-0 mx-auto"
         placeholder="Email"
         type="email"
         {...register("email", {
@@ -44,7 +44,7 @@ const Seccion6 = () => {
       <p className="error"> {errors.email && errors.email.message}</p>
 
       <input
-        className="inp"
+        className="inp mt-0 mx-auto"
         placeholder="Username"
         {...register("username", {
           required: "Required",
@@ -54,7 +54,7 @@ const Seccion6 = () => {
       <p className="error"> {errors.username && errors.username.message}</p>
 
       <input
-        className="inp"
+        className="inp mt-0 mx-auto"
         placeholder="Password"
         type="password"
         {...register("password", {
@@ -70,7 +70,7 @@ const Seccion6 = () => {
       />
       <p className="error"> {errors.password && errors.password.message}</p>
       <input
-        className="inp"
+        className="inp mt-0 mx-auto"
         type="tel"
         placeholder="phone number"
         {...register("phone_number", {
