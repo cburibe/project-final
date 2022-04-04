@@ -80,7 +80,7 @@ const Seccion6 = () => {
         })}
       />
 
-      <button className="button-47 d-flex" type="submit">
+      <button className="button-47 d-flex " type="submit">
         Registrar
       </button>
     </form>
