@@ -13,7 +13,7 @@
   font-family: inherit;
   text-align: center;
   cursor: pointer;
- 
+  transition: 0.4s;
 }
 .card-title {
   color: #47af20;
@@ -36,4 +36,6 @@
   height: 5px;
   width: 50%;
 }
-
+a{
+  color: black;
+}

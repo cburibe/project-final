@@ -1,4 +1,5 @@
 import React from "react";
+import { GiCampingTent } from "react-icons/gi";
 import "/workspace/project-final/src/front/styles/seccion4.css";
 
 const Seccion4 = () => {
@@ -10,84 +11,80 @@ const Seccion4 = () => {
       >
         <a name="ancla-3"></a>
         <div className="col-sm-12 col-md-6 col-lg-4 mx-auto">
-          <h3 className="fs-1 mx-auto">Hospedaje Recomendado</h3>
+          <h3 className="recomendados fs-1 mx-auto">Hospedaje Recomendado</h3>
         </div>
         <div className="under col-sm-12 col-md-6 col-lg-4 pb-5 mx-auto">
-          <img
-            className="mb-5 img-fluid pb-3 ps-5"
-            src="https://lh3.googleusercontent.com/9t--_gSvGZKm7ZCjpuri6d44RA6tiRDidtaz5CS5XqxLtXjf-wIjB8WMvxYH89xuqtkz7A=s101"
-          />
         </div>
       </div>
-      <div className="row bg-white">
+      <div className="container-fluid row">
         <div
           className="card mx-auto mb-3"
           style={{ maxWidth: 440 }}
         >
           <div className="hotel row">
-            <div className="col-md-6 col-sm-3">
+            <div className="col-md-5 wrapthumbnail">
               <img
                 id="hoteles"
                 src="https://exp.cdn-hotels.com/hotels/23000000/22440000/22438500/22438422/42b32580_z.jpg?impolicy=fcrop&w=500&h=333&q=medium"
-                className="imagen img-fluid rounded-start"
+                className="imagen img-fluid "
               />
             </div>
-            <div className="col-md-6 col-sm-3">
+            <div className="col-md-7 ">
               <div className="card-body">
-                <h5 className="card-title mt-3 fs-4">$30% de descuento</h5>
-                <p className="card-text mt-5">Cajon del Maipo Lodge</p>
-                <button className="regis4 mt-5 "><a href="#ancla-1">¡Registrate!</a></button>
+                <h5 className="card-title mx-auto  fs-4">$30% de descuento</h5>
+                <p className="card-text mx-auto">Cajon del Maipo Lodge</p>
+                <button className="regis4 mx-auto my-5"><a href="#ancla-1">¡Registrate!</a></button>
               </div>
             </div>
           </div>
         </div>
         <div className="card mx-auto mb-3" style={{ maxWidth: 440 }}>
           <div className="hotel row">
-            <div className="col-md-6 col-sm-3">
+            <div className="col-md-5 wrapthumbnail">
               <img
-                src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/317899720.jpg?k=ccfe17e664c39b2bce1fca4a41afad0022d0146cbf8370676a657f903293b83c&o=&hp=1"
-                className="imagen img-fluid rounded-start"
+                src="https://exp.cdn-hotels.com/hotels/16000000/15550000/15544900/15544814/593fa7ec_z.jpg?impolicy=fcrop&w=500&h=333&q=medium"
+                className="imagen img-fluid"
               />
             </div>
-            <div className="col-md-6 col-sm-3">
+            <div className="col-md-7 ">
               <div className="card-body">
-                <h5 className="card-title mt-3 fs-4">$15% de descuento</h5>
-                <p className="card-text mt-5">Hotel Magnolia</p>
-                <button className="regis4 mt-5 "><a href="#ancla-1">¡Registrate!</a></button>
+                <h5 className="card-title mx-auto fs-4">$15% de descuento</h5>
+                <p className="card-text mx-auto">Hotel Magnolia</p>
+                <button className="regis4 mx-auto  my-5"><a href="#ancla-1">¡Registrate!</a></button>
               </div>
             </div>
           </div>
         </div>
         <div className="card mx-auto mb-3" style={{ maxWidth: 440 }}>
-          <div className="hotel row">
-            <div className="col-md-6 col-sm-3">
+          <div className="hotel row ">
+            <div className="col-md-5 wrapthumbnail">
               <img
                 src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/95496768.jpg?k=37da8dc8685f0260cee98fb5bfe76a779953d523fa5299a624dafabe22a34d7e&o=&hp=1"
                 className="imagen img-fluid"
               />
             </div>
-            <div className="col-md-6 col-sm-3">
+            <div className="col-md-7 ">
               <div className="card-body">
-                <h5 className="card-title mt-3 fs-4">$20% de descuento</h5>
-                <p className="card-text mt-5">Hotel Boutique Castillo Rojo</p>
-                <button className="regis4 mt-5 "><a href="#ancla-1">¡Registrate!</a></button>
+                <h5 className="card-title mx-auto fs-4">$20% de descuento</h5>
+                <p className="card-text mx-auto ">Hotel Boutique Castillo Rojo</p>
+                <button className="regis4 mx-auto  my-5"><a href="#ancla-1">¡Registrate!</a></button>
               </div>
             </div>
           </div>
         </div>
         <div className="card mx-auto mb-3" style={{ maxWidth: 440 }}>
-          <div className="hotel row">
-            <div className="col-md-6 col-sm-3" style={{ height: 440 }}>
+          <div className="hotel row ">
+            <div className="col-md-5 wrapthumbnail">
               <img
                 src="https://media-cdn.tripadvisor.com/media/photo-s/13/d5/dc/df/maison-italia-1029.jpg"
-                className="imagen img-fluid rounded-start"
+                className="imagen img-fluid "
               />
             </div>
-            <div className="col-md-6 col-sm-3">
+            <div className="col-md-7">
               <div className="card-body">
-                <h5 className="card-title mt-3 fs-4">$30% de descuento</h5>
-                <p className="card-text mt-5">Maison Italia 1029</p>
-                <button className="regis4 mt-5 "><a href="#ancla-1">¡Registrate!</a></button>
+                <h5 className="card-title mx-auto fs-4">$30% de descuento</h5>
+                <p className="card-text mx-auto">Maison Italia 1029</p>
+                <button className="regis4 mx-auto  my-5"><a href="#ancla-1">¡Registrate!</a></button>
               </div>
             </div>
           </div>

@@ -55,9 +55,9 @@ const Mainpage = () => {
             </p>
           </div>
         </div>
-        <Seccion4 />
-        <Seccion5 />
-        <Seccion6 />
+        <Seccion4 className="row mx-0 px-0" />
+        <Seccion5  className="row mx-0 px-0"/>
+        <Seccion6  className="row mx-0 px-0"/>
         <Footer />
       </div>
   );
