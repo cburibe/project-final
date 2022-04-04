@@ -9,9 +9,6 @@ import Perfil from "./pages/perfil/perfiluser";
 import Feed from "./pages/mainpage/newfeed/newfeed";
 
 
-
-
-
 const Layout = () => {
   const basename = process.env.BASENAME || "";
 

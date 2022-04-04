@@ -11,7 +11,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         username: "",
         number_phone: "",
       },
+      userAll: {
+        email: "",
+        username: "",
+        number_phone: "",
+      },
       user_posts: [],
+      all_post_users: [],
       aux_photo: null,
     },
     actions: {
@@ -54,6 +60,27 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error(error);
         }
       },
+      getAllUserInfo: async () => {
+        let store = getStore();
+        let access_token = localStorage.getItem("access_token");
+        let opt = {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        };
+        try {
+          const response = await fetch(`${store.base_url}/api/users`, opt);
+          if (response.status !== 200)
+            throw new Error(response.status, "error");
+          const data = await response.json();
+          setStore({
+            userAll: { ...data },
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      },
       getUserPosts: async (username) => {
         const store = getStore();
         let access_token = localStorage.getItem("access_token");
@@ -72,6 +99,27 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({
             ...store,
             user_posts: [...data],
+          });
+          return data;
+        } catch (error) {
+          console.error(error);
+        }
+      },
+      getAllUserPosts: async () => {
+        const store = getStore();
+        let access_token = localStorage.getItem("access_token");
+
+        let opt = {
+          method: "GET",
+          headers: { Authorization: `Bearer ${access_token}` },
+        };
+        try {
+          const response = await fetch(`${store.base_url}/api/posts`, opt);
+          if (response.status !== 200) throw new Error(response.status);
+          const data = await response.json();
+          setStore({
+            ...store,
+            all_post_users: [...data],
           });
           return data;
         } catch (error) {
