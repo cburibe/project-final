@@ -15,13 +15,13 @@ export const Out = () => {
     history.push("/");
   };
   return (
-    <div className="my-4">
+    <div className="my-4 bg-white">
       <Container>
         <Row>
-          <Col>
-            <h2>¿Estas seguro que deseas eliminar tu cuenta?</h2>
-            <Stack gap={2} className="col-md-5 mx-auto">
-              <Button variant="danger" onClick={(e) => handleOut(e)}>
+          <Col className="pt-5">
+            <h2 className="mt-5">¿Estas seguro que deseas eliminar tu cuenta?</h2>
+            <Stack gap={2} className="col-md-5 mt-5 mx-auto">
+              <Button className="mt-5" variant="danger" onClick={(e) => handleOut(e)}>
                 Salir
               </Button>
             </Stack>
