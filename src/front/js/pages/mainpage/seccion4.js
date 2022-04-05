@@ -17,8 +17,8 @@ const Seccion4 = () => {
       </div>
   <div className="container bg-light p-5">
     <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-      <div className="col">
-        <div className="card mx-auto h-100 shadow-sm">
+      <div id="hotels" className="col">
+        <div className="card mx-auto h-100 shadow">
           <div className="text-center">
             <div className="img-hover-zoom img-hover-zoom--colorize">
               <img
@@ -35,8 +35,8 @@ const Seccion4 = () => {
               </div> 
         </div>
       </div>
-      <div className="col">
-        <div className="card mx-auto h-100 shadow-sm">
+      <div id="hotels" className="col">
+        <div className="card mx-auto h-100 shadow">
           <div className="text-center">
             <div className="img-hover-zoom img-hover-zoom--colorize">
               <img
@@ -53,8 +53,8 @@ const Seccion4 = () => {
               </div>
         </div>
       </div>
-      <div className="col">
-        <div className="card mx-auto h-100 shadow-sm">
+      <div id="hotels" className="col">
+        <div className="card mx-auto h-100 shadow">
           <div className="text-center">
             <div className="img-hover-zoom img-hover-zoom--colorize">
               <img
@@ -71,8 +71,8 @@ const Seccion4 = () => {
               </div>    
         </div>
       </div>
-      <div className="col">
-        <div className="card mx-auto h-100 shadow-sm">
+      <div id="hotels" className="col">
+        <div className="card mx-auto h-100 shadow">
           <div className="text-center">
             <div className="img-hover-zoom img-hover-zoom--colorize">
               <img

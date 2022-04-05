@@ -21,8 +21,10 @@
 .card-text {
   text-decoration: solid;
 }
+
 .hotel {
   height: 300px;
+  
 }
 .imagen {
   min-height: 300px;
