@@ -133,6 +133,7 @@ class Post(db.Model):
     text = db.Column(db.String(120))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     place_id = db.Column(db.Integer, db.ForeignKey('place.id'))
+    resource_url = db.Column(db.String(250))
     commentrel = db.relationship('Comment', backref="post", lazy=True)
     like_rel = db.relationship('Like', backref="post", lazy=True)
     resource_rel = db.relationship('Resource', backref="post", lazy=True)
@@ -143,7 +144,8 @@ class Post(db.Model):
             "id": self.id,
             "text": self.text,
            "user_id": self.user_id,
-           "place_id": self.place_id
+           "place_id": self.place_id,
+           "resource_url": self.resource_url
         }
     def save(self):
         db.session.add(self)

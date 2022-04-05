@@ -1,8 +1,9 @@
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       base_url:
-        "https://3001-cburibe-projectfinal-hd9rtzx3elh.ws-us38.gitpod.io", 
+        "https://3001-cburibe-projectfinal-hg3gwnsaklg.ws-us38.gitpod.io", 
       people: null,
       background: "white",
       initial: "white",
@@ -11,11 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         username: "",
         number_phone: "",
       },
-      userAll: {
-        email: "",
-        username: "",
-        number_phone: "",
-      },
+      userAll: [],
       user_posts: [],
       all_post_users: [],
       aux_photo: null,
@@ -133,10 +130,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({
             aux_photo: reader.result,
           });
-          console.log(reader.result);
+          //console.log(reader.result);
         };
       },
-      createPost: async (text, place, username) => {
+      createPost: async (text, place, base_photo, username) => {
         const store = getStore();
         let access_token = localStorage.getItem("access_token");
         let opt = {
@@ -148,6 +145,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify({
             text: text,
             place_id: place,
+            photo_64: base_photo
           }),
         };
         try {

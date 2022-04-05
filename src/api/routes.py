@@ -4,11 +4,14 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, Place, Like, Resource, Post, Comment, Score, User, Role_user, Role
-from api.utils import generate_sitemap, APIException
+from api.utils import generate_sitemap, APIException, upload_file
 from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token 
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 import sys
+import base64
+import os
+
 
 api = Blueprint('api', __name__)
 
@@ -267,11 +270,55 @@ def create_user_post(username):
     if data.get('text') is not None or data.get('text')!='':
         new_post.text = data.get('text')
     
-    #add to db
-    db.session.add(new_post)
-    db.session.commit()
+   
+    if data.get('photo_64') is not None or data.get('photo_64')!='':
+        # obtenemos el base 64 del archivo
+        request_photo = data.get('photo_64')
+        photo_mime_1 = request_photo[:100].split(';')[0]
+        """ print("step1: ", photo_mime_1) """
+        photo_mime_2 = photo_mime_1[5:]
+        """ print("step2: ", photo_mime_2) """
+        # extraemos el tipo de archivo(extension)
+        photo_extension = photo_mime_2.split('/')[1]
+        """ print("photo_extension: ",photo_extension) """
+        # extraemos la imagen encriptada
+        photo_encoded = request_photo.split(',')[1]
+        # creamos un archivo temporal (vacio)
+        photo = open(f'resource_temp.{photo_extension}','wb')
+        # escribir en el archivo la foto decodificada
+        photo.write(base64.b64decode(photo_encoded))
+        # cerramos el archivo temporal
+        photo.close()
+        # creamos un timestamp para darle hora y fecha
+        timestamp = datetime.datetime.now().strftime("%H_%M_%S")
+        # subimos el archivo a s3
+        upload = upload_file(
+            file_name=f'resource_temp.{photo_extension}',
+            bucket_name='proyecto.final',
+            object_name=f'resource_{timestamp}.{photo_extension}'
+        )
+        # borramos el archivo temporal 
+        os.remove(f'resource_temp.{photo_extension}')
+        # si la subida da error devuelte un status 500
+        if upload is False:
+            return jsonify(message='error uploading media'),500
+        # definimos la url donde se aloja el recien subido objeto(photo)
+        url_resource = f'https://s3.amazonaws.com/proyecto.final/resource_{timestamp}.{photo_extension}'
+        """ print(url_resource) """
+        new_post.resource_url = url_resource
 
-    return jsonify(new_post.serialize()), 201 
+        # create an resource
+        #new_resource = Resource()
+        #new_resource.resource_type='photo'
+        #new_resource.post_id = new_post.id
+        #new_resource.base64resource = url_resource
+#
+        #db.session.add(new_resource)
+         #add to db
+        db.session.add(new_post)
+        db.session.commit()
+
+    return jsonify(url = url_resource), 201 
 
 @api.route('/users/<string:username>/resource', methods=['POST'])
 @jwt_required()

@@ -20,7 +20,7 @@ const Feed = () => {
     userAllInfo();
     getAllPost();
     getAll_Places();
-    console.log(userAllInfo() ,getAllPost() ,getAll_Places())
+    console.log(store.userAll)
   }, []);
   return (
   

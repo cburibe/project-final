@@ -4,7 +4,7 @@ import "../../../styles/profileclient/cartaimg.css";
 export const Cardimg = (props) => {
   const Propscardimg = {
     linkImageFrony: "https://picsum.photos/1600/1000?grayscale",
-    imagepost: "https://picsum.photos/1600/1000",
+    imagepost: props.imagepost,
     user1: props.user1,
     caption: props.caption,
   };

@@ -41,7 +41,7 @@ const Perfil = () => {
     let text = input_text.current.value;
     let place = input_place.current.value;
     try {
-      await actions.createPost(text, place, params.username);
+      await actions.createPost(text, place, store.aux_photo, params.username);
     } catch (error) {
       console.error(error);
     }
@@ -62,45 +62,43 @@ const Perfil = () => {
     actions.convertBase64(file);
   };
   return (
-    
-      <div className="row">
-        <div className="col-md-12 mx-auto">
-          <Link className="link" to="/feed">
-            <MdHome className="iconhouse justify-content-between" />
-          </Link>
-          <Link className="link" to="/">
-            <MdOutlineRunCircle className="iconout ms-3" />
-          </Link>
-          <Link className="link" to="/config">
-            <MdOutlineSettingsApplications className="iconconfig " />
-          </Link>
-          <div className="todo  overflow-hidden">
-            <div className="px-4 pt-0 pb-5 cover">
-              <div className="align-items-end profile-head">
-                <div className="profi mb-1">
-                  <img
-                    src="https://images.pexels.com/photos/1547094/pexels-photo-1547094.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    className="img-thumbnail"
-                    width={170}
-                  />
-                </div>
-                <div className="media-body mb-5 text-white">
-                  <button
-                    type="button"
-                    className="boton btn btn-outline-success btn-sm mb-1"
-                  >
-                    change photo
-                  </button>
-                  <h4 className="mt-0 mb-0 mb-1">{store.user.username}</h4>
-                  <p className="small mb-4">
-              
-                    <FiMapPin />
-                    Santiago, Chile
-                  </p>
-                </div>
+    <div className="row">
+      <div className="col-md-12 mx-auto">
+        <Link className="link" to="/feed">
+          <MdHome className="iconhouse justify-content-between" />
+        </Link>
+        <Link className="link" to="/">
+          <MdOutlineRunCircle className="iconout ms-3" />
+        </Link>
+        <Link className="link" to="/config">
+          <MdOutlineSettingsApplications className="iconconfig " />
+        </Link>
+        <div className="todo  overflow-hidden">
+          <div className="px-4 pt-0 pb-5 cover">
+            <div className="align-items-end profile-head">
+              <div className="profi mb-1">
+                <img
+                  src="https://images.pexels.com/photos/1547094/pexels-photo-1547094.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  className="img-thumbnail"
+                  width={170}
+                />
+              </div>
+              <div className="media-body mb-5 text-white">
+                <button
+                  type="button"
+                  className="boton btn btn-outline-success btn-sm mb-1"
+                >
+                  change photo
+                </button>
+                <h4 className="mt-0 mb-0 mb-1">{store.user.username}</h4>
+                <p className="small mb-4">
+                  <FiMapPin />
+                  Santiago, Chile
+                </p>
               </div>
             </div>
-            {/* <div className="bg-light p-2 d-flex justify-content-end text-center">
+          </div>
+          {/* <div className="bg-light p-2 d-flex justify-content-end text-center">
               <ul className="list-inline mb-0">
                 <li className="list-inline-item">
                   <h5 className="font-weight-bold mb-0 d-block">6</h5>
@@ -128,87 +126,90 @@ const Perfil = () => {
                 </li>
               </ul>
             </div> */}
-            <div className="px-4 py-3">
-              {/* <h5 className="mb-0">About Me</h5>
+          <div className="px-4 py-3">
+            {/* <h5 className="mb-0">About Me</h5>
               <div className="p-4 rounded shadow-sm bg-light">
                 <p className="font-italic mb-0">Web Developer</p>
                 <p className="font-italic mb-0">Lives in Santiago</p>
                 <p className="font-italic mb-0">Photographer</p>
               </div> */}
-            </div>
-            <div
-        className="btn btn-dark d-flex justify-content-center mx-auto  Añadirpublicación"
-        onClick={() => {
-          setShow(!show);
-        }}
-      >
-        Añadir publicación
-      </div>
-      {show && (
-        <>
-     
-          <div className="mb-3 shadow-none">
-            <label htmlFor="exampleFormControlInput1" className="form-label">
-              {/* Texto */}
-            </label>
-            <input
-              type="text"
-              className="form-control w-25 mx-auto"
-              ref={input_text}
-              id="exampleFormControlInput1"
-              placeholder="Comentario"
-            />
           </div>
-          <select
-            className="form-select form-select-sm w-25 mx-auto"
-            aria-label=".form-select-sm example"
-            ref={input_place}
+          <div
+            className="btn btn-dark d-flex justify-content-center mx-auto  Añadirpublicación"
+            onClick={() => {
+              setShow(!show);
+            }}
           >
-            <option selected>seleccione lugar</option>
-            {store.places.map((place, index) => {
+            Añadir publicación
+          </div>
+          {show && (
+            <>
+              <div className="mb-3 shadow-none">
+                <label
+                  htmlFor="exampleFormControlInput1"
+                  className="form-label"
+                >
+                  {/* Texto */}
+                </label>
+                <input
+                  type="text"
+                  className="form-control w-25 mx-auto"
+                  ref={input_text}
+                  id="exampleFormControlInput1"
+                  placeholder="Comentario"
+                />
+              </div>
+              <select
+                className="form-select form-select-sm w-25 mx-auto"
+                aria-label=".form-select-sm example"
+                ref={input_place}
+              >
+                <option selected>seleccione lugar</option>
+                {store.places.map((place, index) => {
+                  return (
+                    <option key={index} value={place.id}>
+                      {place.name}
+                    </option>
+                  );
+                })}
+              </select>
+              <div className="mb-3  d-flex justify-content-center mx-auto w-50 mt-3">
+                <input
+                  type="file"
+                  className="form-control w-50 "
+                  id="exampleFormControlInput1"
+                  name="file"
+                  accept="image/png, .jpg, .jpeg"
+                  onChange={(e) => onFileChange(e)}
+                />
+              </div>
+              <div
+                className="btn btn-dark d-flex justify-content-center mx-auto w-25"
+                onClick={(e) => handleCreatePost(e)}
+              >
+                Crear post
+              </div>
+            </>
+          )}
+          <div className="row   mx-0">
+            {store.user_posts.map((post, index) => {
               return (
-                <option key={index} value={place.id}>
-                  {place.name}
-                </option>
+                <div className="col-md-4" key={index}>
+                  <Cardimg caption={post.text} user1={store.user.username} imagepost={post.resource_url}/>
+                </div>
               );
             })}
-          </select>
-          <div className="mb-3  d-flex justify-content-center mx-auto w-50 mt-3">
-            
-            <input
-              type="file"
-              className="form-control w-50 "
-              id="exampleFormControlInput1"
-              name="file"
-              accept="image/png, .jpg, .jpeg"
-              onChange={(e) => onFileChange(e)}
-            />
           </div>
-          <div className="btn btn-dark d-flex justify-content-center mx-auto w-25" onClick={(e) => handleCreatePost(e)}>
-            Crear post
-          </div>
-  
-        </>
-      )}
-      <div className="row   mx-0">
-        {store.user_posts.map((post, index) => {
-          return (
-            <div className="col-md-4" key={index}>
-              <Cardimg caption={post.text} user1={store.user.username} />
-            </div>
-          );
-        })}
-      </div>
         </div>
       </div>
-      </div>
-   
+    </div>
   );
 };
 
 export default Perfil;
 
-            {/* <div className="py-4 px-4">
+{
+  /* <div className="py-4 px-4">
               <div className="d-flex align-items-center justify-content-between mb-3">
                 <h5 className="mb-0">Recent photos</h5>
               </div>
@@ -263,4 +264,5 @@ export default Perfil;
                 </div>
               </div>
             </div>
- */}          
+ */
+}
