@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../../styles/config.css";
-import { FaCog } from "react-icons/fa";
 import { Context } from "../store/appContext";
 
 //Importar mis componentes
@@ -9,7 +8,6 @@ import { LinkRrss } from "../component/Config/linkRrss";
 import { PrivacyAndSecurity } from "../component/Config/privacyAndSecurity";
 import { TermsAndConditions } from "../component/Config/termsAndConditions";
 import { DeleteAccount } from "../component/Config/deleteAccount";
-import { Help } from "../component/Config/help";
 import { MyProfile } from "../component/Config/myProfile";
 import { Out } from "../component/Config/out";
 import { Container, Tab, Row, Col, Nav } from "react-bootstrap";
@@ -59,9 +57,6 @@ export const Config = () => {
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="help">Ayuda</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
                       <Nav.Link eventKey="out">Salir</Nav.Link>
                     </Nav.Item>
                   </Nav>
@@ -85,9 +80,6 @@ export const Config = () => {
                     </Tab.Pane>
                     <Tab.Pane eventKey="deleteAccount">
                       <DeleteAccount />
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="help">
-                      <Help />
                     </Tab.Pane>
                     <Tab.Pane eventKey="out">
                       <Out />
