@@ -28,10 +28,8 @@ const Feed = () => {
       <div className="col-md-12 mx-auto">
         <Searching />
       </div>
-      <Post user1={store.userAll.username} imgURL="https://images.pexels.com/photos/2819587/pexels-photo-2819587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
-      <Post imgURL="https://images.pexels.com/photos/592077/pexels-photo-592077.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" />
-      <Post imgURL="https://images.pexels.com/photos/2082949/pexels-photo-2082949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
-    </div>
+      <img className="w-25 mx-auto" src="https://res.cloudinary.com/dlb0fs0l8/image/upload/v1649140437/seccion-en-construccion_pj0c1s.png"/>
+   </div>
   );
 };
 export default Feed;

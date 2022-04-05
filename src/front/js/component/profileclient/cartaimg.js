@@ -16,6 +16,7 @@ export const Cardimg = (props) => {
             <b>{Propscardimg.user1}</b>
           </h5>
         </i>
+
       </div>
       <div className="Cardimg_divimg">
         <img

@@ -88,11 +88,11 @@ const Perfil = () => {
                   type="button"
                   className="boton btn btn-outline-success btn-sm mb-1"
                 >
-                  change photo
+                  Cambiar foto
                 </button>
                 <h4 className="mt-0 mb-0 mb-1">{store.user.username}</h4>
                 <p className="small mb-4">
-                  <FiMapPin />
+                  <FiMapPin className="mx-2"/>
                   Santiago, Chile
                 </p>
               </div>
@@ -153,18 +153,18 @@ const Perfil = () => {
                 </label>
                 <input
                   type="text"
-                  className="form-control w-25 mx-auto"
+                  className="form-control w-50 mx-auto"
                   ref={input_text}
                   id="exampleFormControlInput1"
                   placeholder="Comentario"
                 />
               </div>
               <select
-                className="form-select form-select-sm w-25 mx-auto"
+                className="form-select form-select-sm w-50 mx-auto"
                 aria-label=".form-select-sm example"
                 ref={input_place}
               >
-                <option selected>seleccione lugar</option>
+                <option selected>Seleccione lugar</option>
                 {store.places.map((place, index) => {
                   return (
                     <option key={index} value={place.id}>
@@ -176,7 +176,7 @@ const Perfil = () => {
               <div className="mb-3  d-flex justify-content-center mx-auto w-50 mt-3">
                 <input
                   type="file"
-                  className="form-control w-50 "
+                  className="form-control"
                   id="exampleFormControlInput1"
                   name="file"
                   accept="image/png, .jpg, .jpeg"

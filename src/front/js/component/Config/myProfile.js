@@ -19,7 +19,7 @@ export const MyProfile = () => {
             <div className="col text-center my-2">
               <input
                 style={{ width: "40%" }}
-                value="Claudio Uribe"
+                value="Maria Elena"
                 className="text-center"
               />
             </div>
