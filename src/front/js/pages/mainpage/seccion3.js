@@ -5,13 +5,13 @@ const Seccion3 = () => {
   return (
     <>
       <div className="col-sm-12 col-md-6 col-lg-4 text-center">
-        <div className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
+        <div id="lugares" className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
           <img
             className="img-fluid"
             src="https://www.terram.cl/wp-content/uploads/2015/07/PARQUE-NACIONAL-TORRES-DEL-PAINE-2-555x330.jpg"/>
-          <h4 className="text-dark">Parque Nacional Torres del Paine</h4>
+          <h4 className="text-dark px-1 py-1">Parque Nacional Torres del Paine</h4>
           <div className="d-flex justify-content-between ">
-            <p className="text-dark px-3">
+            <p className="text-dark py-3 px-3">
               Sin duda uno de los parques nacionales más espectaculares del
               país, la variedad de especies vegetales y animales, unido a sus
               maravillosos atractivos escénicos y a su agreste geografía, lo
@@ -23,15 +23,15 @@ const Seccion3 = () => {
         </div>
       </div>
       <div className="col-sm-12 col-md-6 col-lg-4 text-center">
-        <div className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
+        <div id="lugares" className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
           <a name="ancla-2"></a>
           <img
             className="img-fluid"
             src="https://assets.eldesconcierto.cl/2019/03/rapa-nui.jpg"
           />
-          <h4 className="text-dark">Rapa Nui</h4>
+          <h4 className="text-dark py-1 px-1">Rapa Nui</h4>
           <div className="d-flex justify-content-between ">
-            <p className="text-dark px-3">
+            <p className="text-dark py-3 px-3">
               En la región de Valparaíso , la Isla de Pascua es el nexo de Chile
               con la Polinesia, un lugar que se aleja de las tradiciones del
               continente, con una cautivamente cultura y hermosos paisajes
@@ -41,14 +41,14 @@ const Seccion3 = () => {
         </div>
       </div>
       <div className="col-sm-12 col-md-6 col-lg-4 text-center">
-        <div className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
+        <div id="lugares" className="card card-cover h-100 overflow-hidden text-white  rounded-5 shadow-lg">
           <img
             className="img-fluid"
             src="https://vulcanopro.s3.amazonaws.com/images/lar_ItVPmCuK585vveCSxSAFr1Yp54feJPVtFQfUFMLD.png"
           />
-          <h4 className="text-dark">Carretera Austral</h4>
+          <h4 className="text-dark py-1 px-1 ">Carretera Austral</h4>
           <div className="d-flex justify-content-between ">
-            <p className="text-dark px-3">
+            <p className="text-dark py-3 px-3">
               La Carretera Austral Sur comienza en Coyhaique y termina Puerto
               williams. Este es un recorrido que presenta diversos paisajes,
               como los Campos de Hielo, Reservas y Parques Nacionales. Se

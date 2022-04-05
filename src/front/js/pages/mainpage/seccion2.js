@@ -5,7 +5,7 @@ import "/workspace/project-final/src/front/styles/Main.css";
 const Seccion2 = () => {
   return (
     <>
-      <div className="col-sm-6 col-md-6 col-lg-8 text-center">
+      <div className="col-sm-4 col-md-6 col-lg-8 text-center">
         <div className="welcome">
           <p className="text-start ps-5 pt-2">
             Somos TurismoSocial
@@ -24,7 +24,7 @@ const Seccion2 = () => {
           </p>
         </div>
       </div>
-      <div className="col-sm-6 col-md-6 col-lg-4 ">
+      <div className="col-sm-8 col-md-6 col-lg-4 ">
         <img
           className="img1 pt-2 img-fluid"
           src="https://nonvillage.jp/wp-content/uploads/2020/10/pexels-photo-4555613-e1604067660553.jpeg"

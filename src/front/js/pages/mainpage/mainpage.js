@@ -37,7 +37,7 @@ const Mainpage = () => {
       <div className="row bg-light mt-5">
         <Seccion1 />
         </div>
-        <div id="Somos" className="row">
+        <div className="row bg-white">
           <Seccion2 />
           </div>
           <div className="row py-5 bg-light">
@@ -55,9 +55,9 @@ const Mainpage = () => {
             </p>
           </div>
         </div>
-        <Seccion4 className="row mx-0 px-0" />
+        <Seccion4 className="row  mx-0 px-0" />
         <Seccion5  className="row mx-0 px-0"/>
-        <Seccion6  className="row mx-0 px-0"/>
+        <Seccion6  className="row  mx-0 px-0"/>
         <Footer />
       </div>
   );

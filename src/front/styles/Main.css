@@ -47,6 +47,8 @@ h1 {
 
 .img1 {
   float: right;
+  max-width: 100%;
+  height: auto;
   
 }
 .hotelsection {
@@ -91,4 +93,9 @@ h1 {
 }
 #hoteles {
   max-height: fit-content;
+}
+#lugares{
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  border: 1;
+  border-radius: 1rem;
 }

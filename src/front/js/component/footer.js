@@ -4,6 +4,7 @@ import { BsTelephone, BsInstagram} from "react-icons/bs";
 import "/workspace/project-final/src/front/styles/footer.css";
 
 export const Footer = () => (
+  <div className="row">
   <footer className="site-footer">
     <div className="container">
       <div className="row">
@@ -71,4 +72,5 @@ export const Footer = () => (
       </div>
     </div>
   </footer>
+  </div>
 );

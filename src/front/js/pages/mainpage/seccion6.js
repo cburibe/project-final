@@ -20,7 +20,7 @@ const Seccion6 = () => {
   };
 
   return (
-    
+    <div className="row">
     <form
       name="registro"
       className="form col-md-12 col-sm-6 mt-2 d-flex flex-column "
@@ -84,6 +84,7 @@ const Seccion6 = () => {
         Registrar
       </button>
     </form>
+    </div>
   );
 };
 export default Seccion6;

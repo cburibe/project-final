@@ -6,7 +6,7 @@ const Seccion4 = () => {
     <>
       <div
         id="seccion4"
-        className="row ps-5 mt-5 py-5 bg-white"
+        className="row ps-5 mt-5 py-5 bg-light"
       >
         <a name="ancla-3"></a>
         <div className="col-sm-12 col-md-6 col-lg-4 mx-auto">
@@ -15,10 +15,10 @@ const Seccion4 = () => {
         <div className="under col-sm-12 col-md-6 col-lg-4 pb-5 mx-auto">
         </div>
       </div>
-  <div className="container p-5">
+  <div className="container bg-light p-5">
     <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
       <div className="col">
-        <div className="card h-100 shadow-sm">
+        <div className="card mx-auto h-100 shadow-sm">
           <div className="text-center">
             <div className="img-hover-zoom img-hover-zoom--colorize">
               <img
@@ -28,7 +28,7 @@ const Seccion4 = () => {
               />
             </div>
           </div>
-            <div className="card-body">
+            <div className="card-body mx-auto">
                 <h5 className="card-title mx-auto  fs-4">$30% de descuento</h5>
                 <p className="card-text mx-auto">Cajon del Maipo Lodge</p>
                 <button className="regis4 ms-5 my-5"><a href="#ancla-1">¡Registrate!</a></button>
@@ -36,7 +36,7 @@ const Seccion4 = () => {
         </div>
       </div>
       <div className="col">
-        <div className="card h-100 shadow-sm">
+        <div className="card mx-auto h-100 shadow-sm">
           <div className="text-center">
             <div className="img-hover-zoom img-hover-zoom--colorize">
               <img
@@ -46,7 +46,7 @@ const Seccion4 = () => {
               />
             </div>
           </div>
-            <div className="card-body">
+            <div className="card-body mx-auto">
                 <h5 className="card-title mx-auto fs-4">$15% de descuento</h5>
                 <p className="card-text mx-auto">Hotel Magnolia</p>
                 <button className="regis4 mx-auto ms-5 my-5"><a href="#ancla-1">¡Registrate!</a></button>
@@ -54,7 +54,7 @@ const Seccion4 = () => {
         </div>
       </div>
       <div className="col">
-        <div className="card h-100 shadow-sm">
+        <div className="card mx-auto h-100 shadow-sm">
           <div className="text-center">
             <div className="img-hover-zoom img-hover-zoom--colorize">
               <img
@@ -64,7 +64,7 @@ const Seccion4 = () => {
               />
             </div>
           </div>
-            <div className="card-body">
+            <div className="card-body mx-auto">
                 <h5 className="card-title mx-auto text-center fs-4">$20% de descuento</h5>
                 <p className="card-text mx-auto text-center">Hotel Boutique Castillo Rojo</p>
                 <button className="regis4 mx-auto ms-5 my-5"><a href="#ancla-1">¡Registrate!</a></button>
@@ -72,7 +72,7 @@ const Seccion4 = () => {
         </div>
       </div>
       <div className="col">
-        <div className="card h-100 shadow-sm">
+        <div className="card mx-auto h-100 shadow-sm">
           <div className="text-center">
             <div className="img-hover-zoom img-hover-zoom--colorize">
               <img
@@ -82,7 +82,7 @@ const Seccion4 = () => {
               />
             </div>
           </div>
-          <div className="card-body">
+          <div className="card-body mx-auto">
             <div className="box">
             <h5 className="card-title mx-auto text-center fs-4">$30% de descuento</h5>
                 <p className="card-text mx-auto text-center">Maison Italia 1029</p>
